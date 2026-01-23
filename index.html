@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Audiovisual Technician</title>
+    <title>Joey Audi - Audiovisual Technician & Event Coordinator</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -32,6 +32,10 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -153,7 +157,11 @@
             background: none;
             border: 2px solid var(--primary-color);
             color: var(--primary-color);
-            padding: 0.5rem;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             border-radius: 50%;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -803,8 +811,8 @@
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
                     <li><a href="#" class="nav-link" data-page="about">About</a></li>
-                    <li><a href="#" class="nav-link" data-page="projects">Projects</a></li>
-                    <li><a href="#" class="nav-link" data-page="articles">Articles</a></li>
+                    <li><a href="#" class="nav-link" data-page="projects">Work</a></li>
+                    <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
                 </ul>
 
                 <div class="nav-right">
@@ -831,15 +839,15 @@
         <div class="container">
             <div class="hero">
                 <div class="hero-image">
-                    <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/ee3037e3-4bf2-4396-ba1e-cd6d4b627f32.png" alt="Profile">
+                    <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/ee3037e3-4bf2-4396-ba1e-cd6d4b627f32.png" alt="Portrait of Joey Audi">
                 </div>
                 <div class="hero-content">
-                    <h1 class="animated-text" id="animatedTitle">Your Name</h1>
-                    <h2>Audiovisual Technician</h2>
-                    <p>As a skilled full-stack developer, I am dedicated to turning ideas into innovative web applications. Explore my latest projects and articles, showcasing my expertise in React.js and web development.</p>
+                    <h1 class="animated-text" id="animatedTitle">Joey Audi</h1>
+                    <h2>Audiovisual Technician · Event Management · Community Engagement</h2>
+                    <p>Experienced audiovisual professional with expertise in cinematography, event coordination, and community-focused customer support. I bring technical precision and creative storytelling together to deliver engaging live events, media content, and player experiences.</p>
                     <div class="hero-buttons">
-                        <a href="/resume.pdf" class="btn btn-primary" download>Download Resume</a>
-                        <a href="mailto:your.email@example.com" class="btn btn-outline">Hire Me</a>
+                        <a href="JoeyAudi_General-Resume.pdf" class="btn btn-primary" download>Download Resume</a>
+                        <a href="mailto:contact@joeyaudi.com" class="btn btn-outline">Hire Me</a>
                     </div>
                 </div>
             </div>
@@ -857,73 +865,105 @@
     <!-- About Page -->
     <div id="about" class="page">
         <div class="container">
-            <h1 class="section-title">About Me</h1>
+            <h1 class="section-title fade-in">About Me</h1>
             
             <div class="about-content fade-in">
                 <div class="about-image">
-                    <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/ee3037e3-4bf2-4396-ba1e-cd6d4b627f32.png" alt="About Me">
+                    <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/ee3037e3-4bf2-4396-ba1e-cd6d4b627f32.png" alt="Joey Audi working in an audiovisual space">
                 </div>
                 <div class="about-text">
-                    <p>As a skilled full-stack developer, I am dedicated to turning ideas into innovative web applications. I have a passion for creating user-friendly interfaces and robust backend systems.</p>
-                    <p>My journey in web development started several years ago, and I've been continuously learning and adapting to new technologies and best practices. I believe in writing clean, maintainable code and creating solutions that truly serve users' needs.</p>
+                    <p>I am an audiovisual technician and event coordinator with a passion for community-driven experiences. From arena-scale gaming spaces to international student events and online communities, I create environments where people feel welcome, engaged, and inspired.</p>
+                    <p>My work blends technical expertise in cinematography, live event tech, and editing with strong communication and customer support. I enjoy collaborating with diverse teams, mentoring guests on AV tools and VR, and turning ideas into memorable, inclusive events.</p>
                 </div>
             </div>
 
             <div class="stats fade-in">
                 <div class="stat-item">
-                    <span class="stat-number" data-count="50">0</span>
-                    <span class="stat-label">Satisfied Clients</span>
+                    <span class="stat-number" data-count="30">0</span>
+                    <span class="stat-label">Events Coordinated Annually</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number" data-count="40">0</span>
-                    <span class="stat-label">Projects Completed</span>
+                    <span class="stat-number" data-count="600">0</span>
+                    <span class="stat-label">Participants Reached Per Event</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number" data-count="5">0</span>
-                    <span class="stat-label">Years of Experience</span>
+                    <span class="stat-number" data-count="9000">0</span>
+                    <span class="stat-label">€ Sponsorship Raised</span>
                 </div>
             </div>
 
-            <h2 class="section-title">Skills</h2>
+            <h2 class="section-title fade-in">Skills</h2>
             <div class="skills-web fade-in">
-                <div class="skill-item">HTML</div>
-                <div class="skill-item">CSS</div>
-                <div class="skill-item">JavaScript</div>
-                <div class="skill-item">React</div>
-                <div class="skill-item">Next.js</div>
-                <div class="skill-item">Node.js</div>
-                <div class="skill-item">MongoDB</div>
-                <div class="skill-item">Tailwind CSS</div>
-                <div class="skill-item">Framer Motion</div>
-                <div class="skill-item">TypeScript</div>
-                <div class="skill-item">Express.js</div>
-                <div class="skill-item">PostgreSQL</div>
+                <div class="skill-item">Event Coordination &amp; Logistics</div>
+                <div class="skill-item">Audiovisual Systems &amp; Live Tech</div>
+                <div class="skill-item">Cinematography &amp; Filming</div>
+                <div class="skill-item">Video Editing &amp; Post-Production</div>
+                <div class="skill-item">Adobe Premiere Pro &amp; After Effects</div>
+                <div class="skill-item">Adobe Photoshop &amp; Illustrator</div>
+                <div class="skill-item">Content Creation for Social Media</div>
+                <div class="skill-item">Community Management &amp; Support</div>
+                <div class="skill-item">VR &amp; Gaming Console Onboarding</div>
+                <div class="skill-item">Technical Troubleshooting</div>
+                <div class="skill-item">Cross-cultural Communication</div>
+                <div class="skill-item">Team Leadership &amp; Sponsorship Outreach</div>
             </div>
 
-            <h2 class="section-title">Experience &amp; Education</h2>
+            <h2 class="section-title fade-in">Experience &amp; Education</h2>
             <div class="timeline">
                 <div class="timeline-item fade-in">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <h3>Senior Frontend Developer</h3>
-                        <p class="timeline-company">Tech Corp | 2022-Present</p>
-                        <p>Led development of multiple React applications with modern best practices and performance optimization.</p>
-                    </div>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
                         <h3>Audiovisual Technician</h3>
-                        <p class="timeline-company">StartupXYZ | 2020-2022</p>
-                        <p>Built full stack web applications using MERN stack, focusing on scalable architecture and user experience.</p>
+                        <p class="timeline-company">Paidia - Tampere University, Nokia Arena | 12/2022 - 05/2023 | Tampere, Finland</p>
+                        <p>Supported gaming and event experiences in the Paidia space, optimizing 40 high-end PCs, creating visuals with Adobe CC, and guiding guests through consoles and VR setups.</p>
                     </div>
                 </div>
                 <div class="timeline-item fade-in">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <h3>Bachelor of Computer Science</h3>
-                        <p class="timeline-company">University of Technology | 2016-2020</p>
-                        <p>Focused on web development and software engineering with hands-on projects and internships.</p>
+                        <h3>Content Editor (Remote)</h3>
+                        <p class="timeline-company">Onepress TV | 07/2024 - 12/2024</p>
+                        <p>Managed video editing and content workflows for 5+ social media channels, ensuring timely delivery and consistent visual quality across 60+ videos per month.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Vice-Chairman &amp; Event Coordinator</h3>
+                        <p class="timeline-company">Club International Tampere (CLINT) | 12/2023 - 12/2025 | Tampere, Finland</p>
+                        <p>Coordinated 30+ events annually with a volunteer team of 30, securing €9,000 in sponsorships and hosting international events for up to 600 participants.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Customer Support Agent (Remote)</h3>
+                        <p class="timeline-company">GraalOnline | 01/2015 - 07/2018</p>
+                        <p>Provided community and player support for an online game with 3,000+ daily players, resolving issues, enforcing guidelines, and relaying feedback to the development team.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Bachelor's Degree, Interactive Media and Game Production</h3>
+                        <p class="timeline-company">Tampere University of Applied Sciences | 08/2020 - 07/2025</p>
+                        <p>Focused on interactive media, game production, and audiovisual storytelling through practical projects and collaborations.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Education in Audiovisual Arts, Film and Cinema</h3>
+                        <p class="timeline-company">Saint Joseph University of Beirut | 01/2018 - 12/2021</p>
+                        <p>Developed strong foundations in film production, cinematography, and visual storytelling.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Degree in Economic Sciences</h3>
+                        <p class="timeline-company">Collège Des Soeurs Du Rosaire - Mountazah | 01/2003 - 12/2017</p>
+                        <p>Built analytical and organizational skills that support budgeting, planning, and sponsorship management for events.</p>
                     </div>
                 </div>
             </div>
@@ -941,57 +981,54 @@
     <!-- Projects Page -->
     <div id="projects" class="page">
         <div class="container">
-            <h1 class="section-title">My Projects</h1>
+            <h1 class="section-title fade-in">Selected Work</h1>
             
             <div class="projects-grid">
-                <div class="project-card featured fade-in">
-                    <div class="project-image">E-Commerce Platform</div>
+                <div class="project-card featured fade-in slide-in-left">
+                    <div class="project-image">Paidia Event Space</div>
                     <div class="project-info">
-                        <h3 class="project-title">E-Commerce Platform</h3>
-                        <p class="project-description">A full-featured e-commerce platform built with React and Node.js featuring user authentication, payment processing, and admin dashboard.</p>
+                        <h3 class="project-title">Paidia - Nokia Arena Gaming &amp; Event Space</h3>
+                        <p class="project-description">Audiovisual operations for a modern gaming and event hub inside Nokia Arena, including PC optimization with GGLeap, live tech support, and visual content created with Adobe CC.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">MongoDB</span>
-                            <span class="tech-tag">Stripe</span>
+                            <span class="tech-tag">Audiovisual Systems</span>
+                            <span class="tech-tag">Adobe CC</span>
+                            <span class="tech-tag">GGLeap</span>
+                            <span class="tech-tag">VR &amp; Consoles</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com" target="_blank">GitHub</a>
-                            <a href="https://example.com" target="_blank">Live Demo</a>
+                            <a href="https://www.linkedin.com/in/joeyaudi" target="_blank">See Details on LinkedIn</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card fade-in">
-                    <div class="project-image">Task Manager</div>
+                <div class="project-card fade-in slide-in-right">
+                    <div class="project-image">Onepress TV</div>
                     <div class="project-info">
-                        <h3 class="project-title">Task Management App</h3>
-                        <p class="project-description">A collaborative task management application with real-time updates and team collaboration features.</p>
+                        <h3 class="project-title">Multichannel News &amp; Social Content</h3>
+                        <p class="project-description">Remote video editing and content coordination for a news channel, managing structured workflows for 5+ social platforms and 60+ videos per month.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">Next.js</span>
-                            <span class="tech-tag">Socket.io</span>
-                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Video Editing</span>
+                            <span class="tech-tag">Content Strategy</span>
+                            <span class="tech-tag">Social Media</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com" target="_blank">GitHub</a>
-                            <a href="https://example.com" target="_blank">Live Demo</a>
+                            <a href="https://www.linkedin.com/in/joeyaudi" target="_blank">See Details on LinkedIn</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card fade-in">
-                    <div class="project-image">Portfolio</div>
+                <div class="project-card fade-in slide-in-left">
+                    <div class="project-image">Community Events</div>
                     <div class="project-info">
-                        <h3 class="project-title">Portfolio Website</h3>
-                        <p class="project-description">A responsive portfolio website showcasing modern web technologies with smooth animations and dark mode support.</p>
+                        <h3 class="project-title">CLINT &amp; GraalOnline Communities</h3>
+                        <p class="project-description">Community-focused projects ranging from international student events to online game moderation, emphasizing inclusivity, responsiveness, and long-term engagement.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">Next.js</span>
-                            <span class="tech-tag">Tailwind</span>
-                            <span class="tech-tag">Framer Motion</span>
+                            <span class="tech-tag">Event Management</span>
+                            <span class="tech-tag">Community Support</span>
+                            <span class="tech-tag">Sponsorships</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com" target="_blank">GitHub</a>
-                            <a href="https://example.com" target="_blank">Live Demo</a>
+                            <a href="https://www.linkedin.com/in/joeyaudi" target="_blank">See Details on LinkedIn</a>
                         </div>
                     </div>
                 </div>
@@ -1007,36 +1044,43 @@
         </footer>
     </div>
 
-    <!-- Articles Page -->
-    <div id="articles" class="page">
+    <!-- Contact Page -->
+    <div id="contact" class="page">
         <div class="container">
-            <h1 class="section-title">Latest Articles</h1>
+            <h1 class="section-title fade-in">Let&apos;s Connect</h1>
             
             <div class="articles-grid">
-                <div class="article-item fade-in">
+                <div class="article-item fade-in slide-in-left">
                     <div class="article-image"></div>
                     <div class="article-content">
-                        <div class="article-date">January 15, 2025</div>
-                        <h3 class="article-title">Getting Started with Next.js 14</h3>
-                        <p class="article-summary">A comprehensive guide to building modern web applications with the latest features of Next.js including App Router and Server Components.</p>
+                        <div class="article-date">Based in Tampere, Finland</div>
+                        <h3 class="article-title">Available for audiovisual, event, and community-focused roles.</h3>
+                        <p class="article-summary">If you&apos;re looking for someone who can manage technical operations, coordinate events, and build inclusive communities, I&apos;d love to hear from you. Feel free to reach out by email or connect with me on LinkedIn.</p>
                     </div>
                 </div>
 
-                <div class="article-item fade-in">
+                <div class="article-item fade-in slide-in-right">
                     <div class="article-image"></div>
                     <div class="article-content">
-                        <div class="article-date">January 10, 2025</div>
-                        <h3 class="article-title">Mastering Framer Motion Animations</h3>
-                        <p class="article-summary">Learn how to create stunning animations in React applications using Framer Motion library with practical examples and best practices.</p>
+                        <div class="article-date">Contact</div>
+                        <h3 class="article-title">Let&apos;s talk about your next project.</h3>
+                        <p class="article-summary">
+                            Email: <a href="mailto:contact@joeyaudi.com">contact@joeyaudi.com</a><br>
+                            Phone: <a href="tel:+358451246996">+358 451246996</a><br>
+                            LinkedIn: <a href="https://www.linkedin.com/in/joeyaudi" target="_blank">linkedin.com/in/joeyaudi</a>
+                        </p>
                     </div>
                 </div>
 
-                <div class="article-item fade-in">
+                <div class="article-item fade-in slide-in-left">
                     <div class="article-image"></div>
                     <div class="article-content">
-                        <div class="article-date">January 5, 2025</div>
-                        <h3 class="article-title">Tailwind CSS Best Practices</h3>
-                        <p class="article-summary">Tips and tricks for efficient styling with Tailwind CSS, including custom configurations and optimization techniques.</p>
+                        <div class="article-date">Download</div>
+                        <h3 class="article-title">Full Resume (PDF)</h3>
+                        <p class="article-summary">
+                            For a detailed overview of my experience and education, you can download my resume
+                            <a href="JoeyAudi_General-Resume.pdf" download>here</a>.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -1109,7 +1153,7 @@
         // Animated Title
         function animateTitle() {
             const title = document.getElementById('animatedTitle');
-            const text = 'Your Name';
+            const text = 'Joey Audi';
             title.innerHTML = '';
             
             text.split('').forEach((char, index) => {
