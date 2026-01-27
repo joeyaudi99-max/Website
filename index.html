@@ -1101,6 +1101,29 @@
             opacity: 0.8;
             line-height: 1.6;
         }
+        
+        /* Contact Page Link Styling */
+        #contact .article-summary a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        
+        #contact .article-summary a:hover {
+            color: var(--primary-dark);
+            border-bottom-color: var(--primary-color);
+        }
+        
+        [data-theme="dark"] #contact .article-summary a {
+            color: #4da3ff;
+        }
+        
+        [data-theme="dark"] #contact .article-summary a:hover {
+            color: #80bdff;
+            border-bottom-color: #4da3ff;
+        }
 
         /* Footer */
         .footer {
