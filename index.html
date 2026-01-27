@@ -484,7 +484,9 @@
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
             font-size: 1rem;
             letter-spacing: -0.01em;
@@ -1373,7 +1375,7 @@
                     <p>Experienced audiovisual professional with expertise in cinematography, event coordination, and community-focused customer support. I bring technical precision and creative storytelling together to deliver engaging live events, media content, and player experiences.</p>
                     <div class="hero-buttons">
                         <a href="JoeyAudi_General-Resume.pdf" class="btn btn-primary" download>Download Resume</a>
-                        <a href="#" class="btn btn-outline" data-page="contact">Hire Me</a>
+                        <a href="#" class="btn btn-outline" data-page="contact">Contact Me</a>
                     </div>
                 </div>
             </div>
@@ -2170,10 +2172,10 @@
                 });
             });
             
-            // Add click handler for "Hire Me" button
-            const hireMeBtn = document.querySelector('.btn[data-page="contact"]');
-            if (hireMeBtn) {
-                hireMeBtn.addEventListener('click', (e) => {
+            // Add click handler for "Contact Me" button
+            const contactMeBtn = document.querySelector('.btn[data-page="contact"]');
+            if (contactMeBtn) {
+                contactMeBtn.addEventListener('click', (e) => {
                     e.preventDefault();
                     showPage('contact');
                 });
