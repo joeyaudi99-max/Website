@@ -54,7 +54,7 @@ const Home: React.FC = () => {
             transition={{ duration: 0.3 }}
           >
             <motion.img 
-              src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/ee3037e3-4bf2-4396-ba1e-cd6d4b627f32.png" 
+              src="/Media/Profile.jpg" 
               alt="Portrait of Joey Audi"
               style={{
                 transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,

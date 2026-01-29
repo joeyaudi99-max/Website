@@ -35,8 +35,8 @@ const About: React.FC = () => {
             <div className={`${styles.aboutContent} fade-in about-section-item`}>
               <div className={styles.aboutImage}>
                 <img 
-                  src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/ee3037e3-4bf2-4396-ba1e-cd6d4b627f32.png" 
-                  alt="Joey Audi working in an audiovisual space" 
+                  src="/Media/Profile.jpg" 
+                  alt="Joey Audi - Audiovisual Professional" 
                 />
               </div>
               <div className={styles.aboutText}>
