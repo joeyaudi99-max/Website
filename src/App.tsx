@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ThemeProvider } from './contexts/ThemeContext';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
-import CustomCursor from './components/effects/CustomCursor';
+import MouseHalo from './components/effects/MouseHalo';
 import ScrollProgress from './components/effects/ScrollProgress';
 import BackToTop from './components/common/BackToTop';
 import PageTransition from './components/effects/PageTransition';
@@ -36,7 +36,7 @@ function App() {
     <ThemeProvider>
       <Router basename={process.env.PUBLIC_URL}>
         <div className={styles.app}>
-          <CustomCursor />
+          <MouseHalo />
           <ScrollProgress />
           <BackToTop />
           <Navbar />
