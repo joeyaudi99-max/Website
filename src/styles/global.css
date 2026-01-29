@@ -1,6 +1,7 @@
 :root {
   /* Light theme */
   --bg-color: #f5f5f5;
+  --bg-color-rgb: 245, 245, 245;
   --text-color: #1b1b1b;
   --primary-color: #2090ed;
   --primary-dark: #3e60b6;
@@ -11,6 +12,7 @@
 
 [data-theme="dark"] {
   --bg-color: #1b1b1b;
+  --bg-color-rgb: 27, 27, 27;
   --text-color: #f5f5f5;
   --primary-color: #2090ed;
   --primary-dark: #3e60b6;

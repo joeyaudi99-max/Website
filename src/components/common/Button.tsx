@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import styles from './Button.module.css';
 
 interface ButtonProps {
@@ -22,25 +23,31 @@ const Button: React.FC<ButtonProps> = ({
 
   if (href) {
     return (
-      <a 
+      <motion.a 
         href={href} 
         className={className}
         download={download}
         onClick={onClick}
+        whileHover={{ scale: 1.05, boxShadow: '0 8px 16px rgba(32, 144, 237, 0.3)' }}
+        whileTap={{ scale: 0.95 }}
+        transition={{ duration: 0.2 }}
       >
         {children}
-      </a>
+      </motion.a>
     );
   }
 
   return (
-    <button 
+    <motion.button 
       type={type}
       className={className} 
       onClick={onClick}
+      whileHover={{ scale: 1.05, boxShadow: '0 8px 16px rgba(32, 144, 237, 0.3)' }}
+      whileTap={{ scale: 0.95 }}
+      transition={{ duration: 0.2 }}
     >
       {children}
-    </button>
+    </motion.button>
   );
 };
 

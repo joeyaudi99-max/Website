@@ -2,13 +2,21 @@
   position: fixed;
   top: 0;
   width: 100%;
-  background: var(--bg-color);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(var(--bg-color-rgb), 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   z-index: 1000;
   padding: 1rem 0;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border-bottom: 1px solid var(--border-color);
+}
+
+.navbar.scrolled {
+  background: rgba(var(--bg-color-rgb), 0.95);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 0.7rem 0;
 }
 
 @supports (padding: max(0px)) {
@@ -61,28 +69,25 @@
   border-radius: 25px;
   transition: all 0.3s ease;
   position: relative;
+  display: inline-block;
 }
 
-.navLinks a:hover,
+.navLinks a:hover {
+  color: var(--primary-color);
+}
+
 .navLinks a.active {
   color: var(--primary-color);
 }
 
-.navLinks a::after {
-  content: '';
+.activeIndicator {
   position: absolute;
   bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 2px;
+  left: 0;
+  right: 0;
+  height: 3px;
   background: var(--primary-color);
-  transition: width 0.3s ease;
-}
-
-.navLinks a:hover::after,
-.navLinks a.active::after {
-  width: 80%;
+  border-radius: 2px;
 }
 
 .navRight {

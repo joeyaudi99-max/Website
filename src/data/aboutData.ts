@@ -1,3 +1,24 @@
+export interface SkillWithLevel {
+  name: string;
+  level: number; // 0-100
+  category: 'technical' | 'creative' | 'soft';
+}
+
+export const skillsWithLevels: SkillWithLevel[] = [
+  { name: 'Event Coordination & Logistics', level: 95, category: 'soft' },
+  { name: 'Audiovisual Systems & Live Tech', level: 90, category: 'technical' },
+  { name: 'Cinematography & Filming', level: 85, category: 'creative' },
+  { name: 'Video Editing & Post-Production', level: 90, category: 'creative' },
+  { name: 'Adobe Premiere Pro & After Effects', level: 90, category: 'creative' },
+  { name: 'Adobe Photoshop & Illustrator', level: 85, category: 'creative' },
+  { name: 'Content Creation for Social Media', level: 88, category: 'creative' },
+  { name: 'Community Management & Support', level: 92, category: 'soft' },
+  { name: 'VR & Gaming Console Onboarding', level: 85, category: 'technical' },
+  { name: 'Technical Troubleshooting', level: 87, category: 'technical' },
+  { name: 'Cross-cultural Communication', level: 90, category: 'soft' },
+  { name: 'Team Leadership & Sponsorship Outreach', level: 88, category: 'soft' }
+];
+
 export const skills = [
   'Event Coordination & Logistics',
   'Audiovisual Systems & Live Tech',

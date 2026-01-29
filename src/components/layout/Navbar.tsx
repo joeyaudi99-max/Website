@@ -1,12 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { useTheme } from '../../contexts/ThemeContext';
 import styles from './Navbar.module.css';
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -19,11 +30,16 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className={styles.navbar}>
+    <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
       <div className="container">
         <div className={styles.navContainer}>
           <Link to="/" className={styles.logo} onClick={closeMobileMenu}>
-            JA
+            <motion.span
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              JA
+            </motion.span>
           </Link>
 
           <ul className={`${styles.navLinks} ${isMobileMenuOpen ? styles.active : ''}`}>
@@ -33,7 +49,14 @@ const Navbar: React.FC = () => {
                 className={isActive('/') ? styles.active : ''} 
                 onClick={closeMobileMenu}
               >
-                Home
+                <span>Home</span>
+                {isActive('/') && (
+                  <motion.div 
+                    className={styles.activeIndicator}
+                    layoutId="activeIndicator"
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                )}
               </Link>
             </li>
             <li>
@@ -42,7 +65,14 @@ const Navbar: React.FC = () => {
                 className={isActive('/about') ? styles.active : ''} 
                 onClick={closeMobileMenu}
               >
-                About
+                <span>About</span>
+                {isActive('/about') && (
+                  <motion.div 
+                    className={styles.activeIndicator}
+                    layoutId="activeIndicator"
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                )}
               </Link>
             </li>
             <li>
@@ -51,7 +81,14 @@ const Navbar: React.FC = () => {
                 className={isActive('/portfolio') ? styles.active : ''} 
                 onClick={closeMobileMenu}
               >
-                Portfolio
+                <span>Portfolio</span>
+                {isActive('/portfolio') && (
+                  <motion.div 
+                    className={styles.activeIndicator}
+                    layoutId="activeIndicator"
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                )}
               </Link>
             </li>
             <li>
@@ -60,37 +97,50 @@ const Navbar: React.FC = () => {
                 className={isActive('/contact') ? styles.active : ''} 
                 onClick={closeMobileMenu}
               >
-                Contact
+                <span>Contact</span>
+                {isActive('/contact') && (
+                  <motion.div 
+                    className={styles.activeIndicator}
+                    layoutId="activeIndicator"
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                )}
               </Link>
             </li>
           </ul>
 
           <div className={styles.navRight}>
             <div className={styles.socialIcons}>
-              <a 
+              <motion.a 
                 href="https://www.linkedin.com/in/joeyaudi" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
+                whileHover={{ scale: 1.2, rotate: 5 }}
+                whileTap={{ scale: 0.9 }}
               >
                 <i className="fab fa-linkedin"></i>
-              </a>
-              <a 
+              </motion.a>
+              <motion.a 
                 href="https://github.com/joeyaudi" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label="GitHub"
+                whileHover={{ scale: 1.2, rotate: -5 }}
+                whileTap={{ scale: 0.9 }}
               >
                 <i className="fab fa-github"></i>
-              </a>
+              </motion.a>
             </div>
-            <button
+            <motion.button
               className={styles.themeToggle}
               onClick={toggleTheme}
               aria-label="Toggle theme"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9, rotate: 180 }}
             >
               <i className={theme === 'light' ? 'fas fa-moon' : 'fas fa-sun'}></i>
-            </button>
+            </motion.button>
           </div>
 
           <div 
