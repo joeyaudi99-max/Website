@@ -112,12 +112,25 @@
   grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
   gap: 2rem;
   align-items: start;
+  grid-auto-flow: dense; /* Fill gaps intelligently */
 }
 
 /* Ensure items don't have extra margin in grid layouts */
 .portfolioGrid.grid > div,
 .portfolioGrid.masonry > div {
   margin: 0;
+}
+
+/* Featured item (first item) - wider layout */
+.portfolioGrid.masonry > div:first-child {
+  grid-column: span 2;
+}
+
+/* Ensure single column on smaller screens */
+@media (max-width: 1200px) {
+  .portfolioGrid.masonry > div:first-child {
+    grid-column: span 1;
+  }
 }
 
 /* Add stagger animation via CSS */
@@ -197,5 +210,9 @@
 
   .portfolioGrid.grid {
     gap: 1.5rem;
+  }
+
+  .portfolioGrid.masonry > div:first-child {
+    grid-column: 1; /* Single column on mobile */
   }
 }

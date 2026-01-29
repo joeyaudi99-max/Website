@@ -14,7 +14,9 @@ export const useFilter = <T extends { category?: string; categories?: string }>(
       setFilteredItems(
         items.filter(item => {
           const categories = item.category || item.categories || '';
-          return categories.includes(activeFilter);
+          // Split by comma and check if any category matches
+          const categoryArray = categories.split(',').map(c => c.trim());
+          return categoryArray.includes(activeFilter);
         })
       );
     }

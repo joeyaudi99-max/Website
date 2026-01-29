@@ -99,12 +99,17 @@
 .socialIcons {
   display: flex;
   gap: 1rem;
+  align-items: center; /* Ensure vertical centering */
 }
 
 .socialIcons a {
   color: var(--text-color);
   font-size: 1.2rem;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px; /* Match theme toggle height */
 }
 
 .socialIcons a:hover {

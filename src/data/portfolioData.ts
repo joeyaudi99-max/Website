@@ -32,6 +32,24 @@ export interface PortfolioItem {
 
 export const portfolioItems: PortfolioItem[] = [
   {
+    id: 'virtual-production-research',
+    category: 'research',
+    categories: 'research',
+    mediaType: 'multiImage',
+    lightboxGroup: 'virtual-production',
+    carouselImages: [
+      { src: '/Media/Thesis/Before after green screen.png', alt: 'Virtual Production - Green Screen Comparison' },
+      { src: '/Media/Thesis/Final key without grading.png', alt: 'Virtual Production - Final Key' },
+      { src: '/Media/Thesis/Magic mask.png', alt: 'Virtual Production - Magic Mask' },
+      { src: '/Media/Thesis/Matte view_.png', alt: 'Virtual Production - Matte View' },
+      { src: '/Media/Thesis/Post virtual.png', alt: 'Virtual Production - Post Virtual' }
+    ],
+    title: 'Virtual Production Research',
+    categoryLabel: 'Research · Virtual Production',
+    description: 'Bachelor\'s thesis research exploring virtual production techniques and green screen workflows. This project demonstrates advanced compositing skills, virtual set design, and understanding of modern film production pipelines. Includes before/after comparisons, matte views, and final composited scenes.',
+    tags: ['Virtual Production', 'Green Screen', 'Compositing', 'Research', 'Thesis Work']
+  },
+  {
     id: 'chocolate-fondant',
     category: 'video',
     categories: 'video',
@@ -132,7 +150,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     id: 'minecraft-sitsit',
     category: 'graphic-design renders',
-    categories: 'graphic-design renders',
+    categories: 'graphic-design,renders',
     mediaType: 'beforeAfter',
     beforeImage: '/Media/Minecraft Sitsit/INSTA POST MC SITSIT BEFORE.jpg',
     afterImage: '/Media/Minecraft Sitsit/MC SITSIT INSTA POST FINAL (1).png',
@@ -154,7 +172,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     id: 'clint-cruise',
     category: 'graphic-design renders',
-    categories: 'graphic-design renders',
+    categories: 'graphic-design,renders',
     mediaType: 'carousel',
     autoRotate: true,
     lightboxGroup: 'clint-cruise',
@@ -166,24 +184,6 @@ export const portfolioItems: PortfolioItem[] = [
     categoryLabel: 'Graphic Design · 3D Renders',
     description: 'Comprehensive branding for the CLINT CRUISE event, featuring Instagram promotional graphics, custom patch designs, and a themed songbook. This project combines graphic design with 3D rendering to create a cohesive visual identity for a memorable student event experience.',
     tags: ['Adobe Photoshop', 'Adobe Illustrator', 'Event Branding', '3D Renders']
-  },
-  {
-    id: 'virtual-production-research',
-    category: 'research',
-    categories: 'research',
-    mediaType: 'multiImage',
-    lightboxGroup: 'virtual-production',
-    carouselImages: [
-      { src: '/Media/Thesis/Before after green screen.png', alt: 'Virtual Production - Green Screen Comparison' },
-      { src: '/Media/Thesis/Final key without grading.png', alt: 'Virtual Production - Final Key' },
-      { src: '/Media/Thesis/Magic mask.png', alt: 'Virtual Production - Magic Mask' },
-      { src: '/Media/Thesis/Matte view_.png', alt: 'Virtual Production - Matte View' },
-      { src: '/Media/Thesis/Post virtual.png', alt: 'Virtual Production - Post Virtual' }
-    ],
-    title: 'Virtual Production Research',
-    categoryLabel: 'Research · Virtual Production',
-    description: 'Bachelor\'s thesis research exploring virtual production techniques and green screen workflows. This project demonstrates advanced compositing skills, virtual set design, and understanding of modern film production pipelines. Includes before/after comparisons, matte views, and final composited scenes.',
-    tags: ['Virtual Production', 'Green Screen', 'Compositing', 'Research', 'Thesis Work']
   }
 ];
 

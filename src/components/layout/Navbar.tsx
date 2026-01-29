@@ -140,6 +140,7 @@ const Navbar: React.FC = () => {
               aria-label="Toggle theme"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9, rotate: 180 }}
+              transition={{ duration: 0.15, ease: "easeOut" }}
             >
               <i className={theme === 'light' ? 'fas fa-moon' : 'fas fa-sun'}></i>
             </motion.button>

@@ -22,6 +22,7 @@
   background: var(--bg-color);
   position: relative;
   flex-shrink: 0;
+  aspect-ratio: auto; /* Allow natural aspect ratios */
 }
 
 .iframeWrapper {
