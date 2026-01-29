@@ -6,7 +6,6 @@ const AnimatedBlobs: React.FC = () => {
     <div className={styles.heroBackground}>
       <div className={`${styles.animatedBlob} ${styles.blob1}`}></div>
       <div className={`${styles.animatedBlob} ${styles.blob2}`}></div>
-      <div className={`${styles.animatedBlob} ${styles.blob3}`}></div>
     </div>
   );
 };

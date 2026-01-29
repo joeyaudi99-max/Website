@@ -28,7 +28,7 @@ const Button: React.FC<ButtonProps> = ({
         className={className}
         download={download}
         onClick={onClick}
-        whileHover={{ scale: 1.05, boxShadow: '0 8px 16px rgba(32, 144, 237, 0.3)' }}
+        whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         transition={{ duration: 0.2 }}
       >
@@ -42,7 +42,7 @@ const Button: React.FC<ButtonProps> = ({
       type={type}
       className={className} 
       onClick={onClick}
-      whileHover={{ scale: 1.05, boxShadow: '0 8px 16px rgba(32, 144, 237, 0.3)' }}
+      whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       transition={{ duration: 0.2 }}
     >

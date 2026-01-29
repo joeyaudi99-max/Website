@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import styles from './ImageCarousel.module.css';
 
 interface CarouselImage {
@@ -104,17 +104,6 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
         <i className="fas fa-chevron-right"></i>
       </button>
 
-      <div className={styles.carouselControls}>
-        {images.map((_, index) => (
-          <button
-            key={index}
-            className={`${styles.carouselDot} ${index === currentIndex ? styles.active : ''}`}
-            onClick={() => goToSlide(index)}
-            aria-label={`Go to image ${index + 1}`}
-          />
-        ))}
-      </div>
-
       {/* Thumbnail Preview Strip */}
       {images.length > 1 && (
         <div className={styles.thumbnailStrip}>
@@ -125,7 +114,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
               onClick={() => goToSlide(index)}
               aria-label={`Preview image ${index + 1}`}
             >
-              <img src={image.src} alt={`Thumbnail ${index + 1}`} />
+              <img src={image.src} alt={`Thumbnail ${index + 1}`} loading="lazy" decoding="async" />
             </button>
           ))}
         </div>

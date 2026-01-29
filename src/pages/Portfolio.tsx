@@ -1,12 +1,10 @@
 import React, { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useFilter } from '../hooks/useFilter';
 import FilterButtons from '../components/common/FilterButtons';
 import PortfolioItem from '../components/portfolio/PortfolioItem';
 import Lightbox from '../components/portfolio/Lightbox';
 import { portfolioItems, portfolioFilters } from '../data/portfolioData';
-import { staggerContainer, staggerItem } from '../utils/animations';
 import styles from './Portfolio.module.css';
 
 const Portfolio: React.FC = () => {
@@ -118,12 +116,7 @@ const Portfolio: React.FC = () => {
         </div>
 
         {/* Search and View Controls */}
-        <motion.div 
-          className={styles.controls}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-        >
+        <div className={styles.controls}>
           <div className={styles.searchWrapper}>
             <input
               type="text"
@@ -151,7 +144,7 @@ const Portfolio: React.FC = () => {
               ▦
             </button>
           </div>
-        </motion.div>
+        </div>
 
         <FilterButtons
           options={portfolioFilters}
@@ -160,33 +153,22 @@ const Portfolio: React.FC = () => {
         />
 
         {searchedItems.length === 0 ? (
-          <motion.div 
-            className={styles.noResults}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-          >
+          <div className={styles.noResults}>
             <p>No projects found matching your search.</p>
-          </motion.div>
+          </div>
         ) : (
-          <motion.div 
+          <div 
             className={`${styles.portfolioGrid} ${viewMode === 'masonry' ? styles.masonry : styles.grid}`}
-            variants={staggerContainer}
-            initial="initial"
-            animate="animate"
           >
-            {searchedItems.map((item, index) => (
-              <motion.div
-                key={item.id}
-                variants={staggerItem}
-                whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              >
+            {searchedItems.map((item) => (
+              <div key={item.id}>
                 <PortfolioItem
                   item={item}
                   onImageClick={openLightbox}
                 />
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         )}
       </div>
 

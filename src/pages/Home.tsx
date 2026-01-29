@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
@@ -10,35 +10,29 @@ import styles from './Home.module.css';
 const Home: React.FC = () => {
   useScrollAnimation();
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const rafRef = useRef<number>();
   const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 500], [0, 150]);
+  const y = useTransform(scrollY, [0, 500], [0, 75]);
 
-  useEffect(() => {
-    // Animate title text
-    const title = document.getElementById('animatedTitle');
-    if (title) {
-      const text = title.textContent || '';
-      title.innerHTML = '';
-      text.split('').forEach((char, index) => {
-        const span = document.createElement('span');
-        span.className = 'word';
-        span.textContent = char === ' ' ? '\u00A0' : char;
-        span.style.animationDelay = `${index * 0.1}s`;
-        title.appendChild(span);
-      });
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (rafRef.current) {
+      cancelAnimationFrame(rafRef.current);
     }
+    
+    rafRef.current = requestAnimationFrame(() => {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const x = (e.clientX - rect.left - rect.width / 2) / rect.width;
+      const y = (e.clientY - rect.top - rect.height / 2) / rect.height;
+      setTilt({ x: y * 15, y: -x * 15 });
+    });
   }, []);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = (e.clientX - rect.left - rect.width / 2) / rect.width;
-    const y = (e.clientY - rect.top - rect.height / 2) / rect.height;
-    setTilt({ x: y * 20, y: -x * 20 });
-  };
-
-  const handleMouseLeave = () => {
+  const handleMouseLeave = useCallback(() => {
+    if (rafRef.current) {
+      cancelAnimationFrame(rafRef.current);
+    }
     setTilt({ x: 0, y: 0 });
-  };
+  }, []);
 
   return (
     <div className={styles.page}>
@@ -70,8 +64,7 @@ const Home: React.FC = () => {
           </motion.div>
           <motion.div className={styles.heroContent} variants={staggerItem}>
             <motion.h1 
-              className={styles.animatedText} 
-              id="animatedTitle"
+              className={styles.animatedText}
               variants={staggerItem}
             >
               Joey Audi
@@ -85,21 +78,11 @@ const Home: React.FC = () => {
               together to deliver engaging live events, media content, and player experiences.
             </motion.p>
             <motion.div className={styles.heroButtons} variants={staggerItem}>
-              <motion.div
-                whileHover={{ scale: 1.05, boxShadow: '0 8px 16px rgba(32, 144, 237, 0.3)' }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button href="/JoeyAudi_General-Resume.pdf" download variant="primary">
-                  Download Resume
-                </Button>
-              </motion.div>
+              <Button href="/JoeyAudi_General-Resume.pdf" download variant="primary">
+                Download Resume
+              </Button>
               <Link to="/contact">
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Button variant="outline">Contact Me</Button>
-                </motion.div>
+                <Button variant="outline">Contact Me</Button>
               </Link>
             </motion.div>
           </motion.div>

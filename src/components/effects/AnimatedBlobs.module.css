@@ -31,7 +31,7 @@
   background: linear-gradient(135deg, rgba(32, 144, 237, 0.4), rgba(62, 96, 182, 0.4));
   top: -200px;
   left: -200px;
-  animation: float-blob-1 20s ease-in-out infinite;
+  animation: float-blob-1 25s ease-in-out infinite;
 }
 
 .blob2 {
@@ -40,36 +40,11 @@
   background: linear-gradient(135deg, rgba(62, 96, 182, 0.35), rgba(32, 144, 237, 0.35));
   bottom: -200px;
   right: -200px;
-  animation: float-blob-2 25s ease-in-out infinite;
-}
-
-.blob3 {
-  width: 450px;
-  height: 450px;
-  background: linear-gradient(135deg, rgba(32, 144, 237, 0.3), rgba(62, 96, 182, 0.3));
-  top: 30%;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: float-blob-3 30s ease-in-out infinite;
+  animation: float-blob-2 30s ease-in-out infinite;
 }
 
 @media (max-width: 768px) {
-  .blob1 {
-    width: 350px;
-    height: 350px;
-    top: -150px;
-    left: -150px;
-  }
-
-  .blob2 {
-    width: 300px;
-    height: 300px;
-    bottom: -150px;
-    right: -150px;
-  }
-
-  .blob3 {
-    width: 250px;
-    height: 250px;
+  .heroBackground {
+    display: none;
   }
 }

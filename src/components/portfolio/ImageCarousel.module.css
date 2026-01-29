@@ -14,8 +14,7 @@
   width: 100%;
   height: 100%;
   display: flex;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform;
+  transition: transform 0.3s ease-out;
 }
 
 .carouselSlide {
@@ -26,6 +25,7 @@
   justify-content: center;
   padding: 0;
   box-sizing: border-box;
+  transform: translateZ(0);
 }
 
 .carouselImage {
@@ -35,49 +35,6 @@
   height: auto;
   object-fit: contain;
   display: block;
-  will-change: transform;
-}
-
-.carouselControls {
-  position: absolute;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 4px;
-  z-index: 10;
-  width: calc(100% - 120px);
-  max-width: 500px;
-  padding: 8px 12px;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 20px;
-  backdrop-filter: blur(5px);
-}
-
-.carouselDot {
-  flex: 1;
-  height: 3px;
-  border-radius: 2px;
-  background: rgba(255, 255, 255, 0.4);
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  border: none;
-}
-
-.carouselDot::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 0%;
-  background: rgba(255, 255, 255, 0.9);
-  transition: width 0.1s linear;
-}
-
-.carouselDot.active::after {
-  animation: carouselProgressBar 6s linear forwards;
 }
 
 .carouselArrow {
@@ -116,7 +73,7 @@
 
 .thumbnailStrip {
   position: absolute;
-  bottom: 60px;
+  bottom: 15px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -125,7 +82,8 @@
   padding: 8px;
   background: rgba(0, 0, 0, 0.6);
   border-radius: 12px;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   max-width: 90%;
   overflow-x: auto;
   scrollbar-width: thin;
@@ -154,10 +112,11 @@
   border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   background: var(--bg-color);
   padding: 0;
   opacity: 0.6;
+  transform: translateZ(0);
 }
 
 .thumbnail img {
@@ -170,7 +129,7 @@
 .thumbnail:hover {
   border-color: var(--primary-color);
   opacity: 0.9;
-  transform: scale(1.05);
+  transform: translateZ(0) scale(1.05);
 }
 
 .thumbnail.activeThumbnail {
@@ -198,13 +157,8 @@
     right: 10px;
   }
 
-  .carouselControls {
-    bottom: 10px;
-    padding: 0.3rem 0.8rem;
-  }
-
   .thumbnailStrip {
-    bottom: 50px;
+    bottom: 10px;
     gap: 6px;
     padding: 6px;
   }
