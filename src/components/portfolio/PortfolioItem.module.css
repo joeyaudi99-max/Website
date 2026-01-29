@@ -4,7 +4,11 @@
   overflow: hidden;
   box-shadow: var(--shadow);
   transition: all 0.3s ease;
-  margin-bottom: 3rem;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .portfolioItem:hover {
@@ -16,6 +20,24 @@
   width: 100%;
   background: var(--bg-color);
   position: relative;
+  flex-shrink: 0;
+}
+
+.iframeWrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  background: var(--bg-color);
+}
+
+.iframeWrapper .iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 .iframe,
@@ -26,23 +48,30 @@
 }
 
 .iframe {
-  height: 500px;
+  height: 100%;
   border: none;
 }
 
 .video {
-  height: 500px;
+  height: auto;
+  max-height: 500px;
   object-fit: contain;
+  background: var(--bg-color);
 }
 
 .image {
   height: auto;
-  object-fit: cover;
+  max-height: 600px;
+  object-fit: contain;
   cursor: pointer;
+  background: var(--bg-color);
 }
 
 .portfolioContent {
   padding: 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .portfolioCategory {
@@ -67,12 +96,14 @@
   color: var(--text-color);
   opacity: 0.9;
   margin-bottom: 1.5rem;
+  flex: 1;
 }
 
 .portfolioTags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  margin-top: auto;
 }
 
 .portfolioTag {
@@ -154,6 +185,10 @@
 }
 
 @media (max-width: 768px) {
+  .portfolioItem {
+    margin: 0;
+  }
+
   .portfolioContent {
     padding: 1.5rem;
   }
@@ -162,9 +197,12 @@
     font-size: 1.5rem;
   }
 
-  .iframe,
   .video {
-    height: 300px;
+    max-height: 300px;
+  }
+
+  .image {
+    max-height: 400px;
   }
 
   .secondaryCarouselItem {
