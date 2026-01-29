@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { skillsWithLevels } from '../../data/aboutData';
 import styles from './SkillsWeb.module.css';
 
 const SkillsWeb: React.FC = () => {
-  const [ref, setRef] = useState<HTMLDivElement | null>(null);
-  const isInView = useInView(ref as any, { once: true, amount: 0.2 });
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   const getCategoryColor = (category: string) => {
     switch (category) {
@@ -26,7 +26,7 @@ const SkillsWeb: React.FC = () => {
   };
 
   return (
-    <div className={`${styles.skillsWeb} fade-in`} ref={(el) => setRef(el)}>
+    <div className={`${styles.skillsWeb} fade-in`} ref={ref}>
       {skillsWithLevels.map((skill, index) => (
         <motion.div 
           key={index} 

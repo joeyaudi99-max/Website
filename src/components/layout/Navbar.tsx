@@ -111,36 +111,28 @@ const Navbar: React.FC = () => {
 
           <div className={styles.navRight}>
             <div className={styles.socialIcons}>
-              <motion.a 
-                href="https://www.instagram.com/joeyaudi/" 
+              <a 
+                href="https://www.instagram.com/joeyaudi2/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                whileHover={{ scale: 1.2, rotate: 5 }}
-                whileTap={{ scale: 0.9 }}
               >
                 <i className="fab fa-instagram"></i>
-              </motion.a>
-              <motion.a 
+              </a>
+              <a 
                 href="https://www.linkedin.com/in/joeyaudi" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                whileHover={{ scale: 1.2, rotate: 5 }}
-                whileTap={{ scale: 0.9 }}
               >
                 <i className="fab fa-linkedin"></i>
-              </motion.a>
-              <motion.a 
-                href="https://github.com/joeyaudi" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-                whileHover={{ scale: 1.2, rotate: -5 }}
-                whileTap={{ scale: 0.9 }}
+              </a>
+              <a 
+                href="mailto:contact@joeyaudi.com"
+                aria-label="Email"
               >
-                <i className="fab fa-github"></i>
-              </motion.a>
+                <i className="fas fa-envelope"></i>
+              </a>
             </div>
             <motion.button
               className={styles.themeToggle}
