@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { ToastContainer } from 'react-toastify';
@@ -10,11 +10,20 @@ import MouseHalo from './components/effects/MouseHalo';
 import ScrollProgress from './components/effects/ScrollProgress';
 import BackToTop from './components/common/BackToTop';
 import PageTransition from './components/effects/PageTransition';
-import Home from './pages/Home';
-import About from './pages/About';
-import Portfolio from './pages/Portfolio';
-import Contact from './pages/Contact';
 import styles from './App.module.css';
+
+// Lazy load pages for code splitting
+const Home = lazy(() => import('./pages/Home'));
+const About = lazy(() => import('./pages/About'));
+const Portfolio = lazy(() => import('./pages/Portfolio'));
+const Contact = lazy(() => import('./pages/Contact'));
+
+// Loading fallback component
+const PageLoader = () => (
+  <div className={styles.pageLoader}>
+    <div className={styles.spinner}></div>
+  </div>
+);
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -22,10 +31,26 @@ function AnimatedRoutes() {
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<PageTransition><Home /></PageTransition>} />
-        <Route path="/about" element={<PageTransition><About /></PageTransition>} />
-        <Route path="/portfolio" element={<PageTransition><Portfolio /></PageTransition>} />
-        <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+        <Route path="/" element={
+          <Suspense fallback={<PageLoader />}>
+            <PageTransition><Home /></PageTransition>
+          </Suspense>
+        } />
+        <Route path="/about" element={
+          <Suspense fallback={<PageLoader />}>
+            <PageTransition><About /></PageTransition>
+          </Suspense>
+        } />
+        <Route path="/portfolio" element={
+          <Suspense fallback={<PageLoader />}>
+            <PageTransition><Portfolio /></PageTransition>
+          </Suspense>
+        } />
+        <Route path="/contact" element={
+          <Suspense fallback={<PageLoader />}>
+            <PageTransition><Contact /></PageTransition>
+          </Suspense>
+        } />
       </Routes>
     </AnimatePresence>
   );
