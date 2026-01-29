@@ -114,6 +114,71 @@
   right: 15px;
 }
 
+.thumbnailStrip {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  max-width: 90%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) rgba(0, 0, 0, 0.3);
+}
+
+.thumbnailStrip::-webkit-scrollbar {
+  height: 4px;
+}
+
+.thumbnailStrip::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+}
+
+.thumbnailStrip::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 2px;
+}
+
+.thumbnail {
+  flex: 0 0 auto;
+  width: 80px;
+  height: 60px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: var(--bg-color);
+  padding: 0;
+  opacity: 0.6;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.thumbnail:hover {
+  border-color: var(--primary-color);
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+.thumbnail.activeThumbnail {
+  border-color: var(--primary-color);
+  opacity: 1;
+  box-shadow: 0 0 12px rgba(32, 144, 237, 0.6);
+}
+
 @media (max-width: 768px) {
   .imageCarousel {
     height: 400px;
@@ -136,5 +201,16 @@
   .carouselControls {
     bottom: 10px;
     padding: 0.3rem 0.8rem;
+  }
+
+  .thumbnailStrip {
+    bottom: 50px;
+    gap: 6px;
+    padding: 6px;
+  }
+
+  .thumbnail {
+    width: 60px;
+    height: 45px;
   }
 }

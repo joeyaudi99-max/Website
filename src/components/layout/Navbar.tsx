@@ -112,6 +112,16 @@ const Navbar: React.FC = () => {
           <div className={styles.navRight}>
             <div className={styles.socialIcons}>
               <motion.a 
+                href="https://www.instagram.com/joeyaudi/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                whileHover={{ scale: 1.2, rotate: 5 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <i className="fab fa-instagram"></i>
+              </motion.a>
+              <motion.a 
                 href="https://www.linkedin.com/in/joeyaudi" 
                 target="_blank" 
                 rel="noopener noreferrer"

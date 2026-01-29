@@ -77,17 +77,6 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
         <i className="fas fa-chevron-left"></i>
       </button>
 
-      <div className={styles.carouselControls}>
-        {images.map((_, index) => (
-          <button
-            key={index}
-            className={`${styles.carouselDot} ${index === currentIndex ? styles.active : ''}`}
-            onClick={() => goToSlide(index)}
-            aria-label={`Go to image ${index + 1}`}
-          />
-        ))}
-      </div>
-
       <div 
         className={styles.carouselSliderWrapper}
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -101,6 +90,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
               data-lightbox-group={lightboxGroup}
               onClick={handleImageClick}
               style={{ cursor: onImageClick ? 'pointer' : 'default' }}
+              loading="lazy"
             />
           </div>
         ))}
@@ -113,6 +103,33 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
       >
         <i className="fas fa-chevron-right"></i>
       </button>
+
+      <div className={styles.carouselControls}>
+        {images.map((_, index) => (
+          <button
+            key={index}
+            className={`${styles.carouselDot} ${index === currentIndex ? styles.active : ''}`}
+            onClick={() => goToSlide(index)}
+            aria-label={`Go to image ${index + 1}`}
+          />
+        ))}
+      </div>
+
+      {/* Thumbnail Preview Strip */}
+      {images.length > 1 && (
+        <div className={styles.thumbnailStrip}>
+          {images.map((image, index) => (
+            <button
+              key={index}
+              className={`${styles.thumbnail} ${index === currentIndex ? styles.activeThumbnail : ''}`}
+              onClick={() => goToSlide(index)}
+              aria-label={`Preview image ${index + 1}`}
+            >
+              <img src={image.src} alt={`Thumbnail ${index + 1}`} />
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
