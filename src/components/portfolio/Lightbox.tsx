@@ -1,0 +1,104 @@
+import React, { useEffect } from 'react';
+import styles from './Lightbox.module.css';
+
+interface LightboxProps {
+  isOpen: boolean;
+  imageSrc: string | null;
+  imageAlt: string;
+  onClose: () => void;
+  onNext?: () => void;
+  onPrev?: () => void;
+  currentIndex?: number;
+  totalImages?: number;
+}
+
+const Lightbox: React.FC<LightboxProps> = ({
+  isOpen,
+  imageSrc,
+  imageAlt,
+  onClose,
+  onNext,
+  onPrev,
+  currentIndex,
+  totalImages
+}) => {
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!isOpen) return;
+      
+      switch (e.key) {
+        case 'Escape':
+          onClose();
+          break;
+        case 'ArrowLeft':
+          if (onPrev) onPrev();
+          break;
+        case 'ArrowRight':
+          if (onNext) onNext();
+          break;
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose, onNext, onPrev]);
+
+  if (!isOpen || !imageSrc) return null;
+
+  const handleBackgroundClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
+  return (
+    <div 
+      className={`${styles.lightboxModal} ${isOpen ? styles.active : ''}`}
+      onClick={handleBackgroundClick}
+    >
+      <div className={styles.lightboxContent}>
+        <button 
+          className={styles.lightboxClose}
+          onClick={onClose}
+          aria-label="Close lightbox"
+        >
+          <i className="fas fa-times"></i>
+        </button>
+
+        {onPrev && totalImages && totalImages > 1 && (
+          <button 
+            className={`${styles.lightboxNav} ${styles.prev}`}
+            onClick={onPrev}
+            aria-label="Previous image"
+          >
+            <i className="fas fa-chevron-left"></i>
+          </button>
+        )}
+
+        <img 
+          src={imageSrc} 
+          alt={imageAlt}
+          className={styles.lightboxImage}
+        />
+
+        {onNext && totalImages && totalImages > 1 && (
+          <button 
+            className={`${styles.lightboxNav} ${styles.next}`}
+            onClick={onNext}
+            aria-label="Next image"
+          >
+            <i className="fas fa-chevron-right"></i>
+          </button>
+        )}
+
+        {typeof currentIndex === 'number' && totalImages && totalImages > 1 && (
+          <div className={styles.lightboxCounter}>
+            {currentIndex + 1} / {totalImages}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default Lightbox;
