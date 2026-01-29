@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { PortfolioItem as PortfolioItemType } from '../../data/portfolioData';
 import ImageCarousel from './ImageCarousel';
 import BeforeAfterSlider from './BeforeAfterSlider';
@@ -14,13 +15,15 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({ item, onImageClick }) => 
     switch (item.mediaType) {
       case 'youtube':
         return (
-          <iframe
-            src={`https://www.youtube.com/embed/${item.youtubeId}`}
-            title={item.title}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className={styles.iframe}
-          />
+          <div className={styles.iframeWrapper}>
+            <iframe
+              src={`https://www.youtube.com/embed/${item.youtubeId}`}
+              title={item.title}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className={styles.iframe}
+            />
+          </div>
         );
 
       case 'video':
@@ -33,12 +36,15 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({ item, onImageClick }) => 
 
       case 'image':
         return (
-          <img
+          <motion.img
             src={item.imageSrc}
             alt={item.title}
             className={styles.image}
             onClick={() => onImageClick(item.imageSrc!, item.title, item.lightboxGroup)}
             style={{ cursor: 'pointer' }}
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+            loading="lazy"
           />
         );
 
@@ -75,13 +81,15 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({ item, onImageClick }) => 
               <div className={styles.portfolioSecondaryCarousel}>
                 <div className={styles.secondaryCarouselContainer}>
                   {item.secondaryImages.map((img, index) => (
-                    <div
+                    <motion.div
                       key={index}
                       className={styles.secondaryCarouselItem}
                       onClick={() => onImageClick(img.src, img.alt, item.lightboxGroup)}
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.3 }}
                     >
                       <img src={img.src} alt={img.alt} loading="lazy" />
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
@@ -113,7 +121,11 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({ item, onImageClick }) => 
   };
 
   return (
-    <div className={`${styles.portfolioItem} fade-in`}>
+    <motion.div 
+      className={`${styles.portfolioItem} fade-in`}
+      whileHover={{ boxShadow: '0 20px 40px rgba(0, 0, 0, 0.15)' }}
+      transition={{ duration: 0.3 }}
+    >
       <div className={styles.portfolioMedia}>
         {renderMedia()}
       </div>
@@ -123,11 +135,18 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({ item, onImageClick }) => 
         <p className={styles.portfolioDescription}>{item.description}</p>
         <div className={styles.portfolioTags}>
           {item.tags.map((tag, index) => (
-            <span key={index} className={styles.portfolioTag}>{tag}</span>
+            <motion.span 
+              key={index} 
+              className={styles.portfolioTag}
+              whileHover={{ scale: 1.1, backgroundColor: 'var(--primary-color)', color: 'white' }}
+              transition={{ duration: 0.2 }}
+            >
+              {tag}
+            </motion.span>
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,16 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
+import { motion } from 'framer-motion';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useFilter } from '../hooks/useFilter';
 import FilterButtons from '../components/common/FilterButtons';
 import PortfolioItem from '../components/portfolio/PortfolioItem';
 import Lightbox from '../components/portfolio/Lightbox';
 import { portfolioItems, portfolioFilters } from '../data/portfolioData';
+import { staggerContainer, staggerItem } from '../utils/animations';
 import styles from './Portfolio.module.css';
 
 const Portfolio: React.FC = () => {
   useScrollAnimation();
 
   const { activeFilter, setActiveFilter, filteredItems } = useFilter(portfolioItems, 'all');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [viewMode, setViewMode] = useState<'grid' | 'masonry'>('masonry');
   
   const [lightboxState, setLightboxState] = useState<{
     isOpen: boolean;
@@ -25,6 +29,18 @@ const Portfolio: React.FC = () => {
     lightboxGroup: null,
     currentIndex: 0
   });
+
+  // Search filtering
+  const searchedItems = useMemo(() => {
+    if (!searchQuery.trim()) return filteredItems;
+    
+    const query = searchQuery.toLowerCase();
+    return filteredItems.filter(item =>
+      item.title.toLowerCase().includes(query) ||
+      item.description.toLowerCase().includes(query) ||
+      item.tags.some(tag => tag.toLowerCase().includes(query))
+    );
+  }, [filteredItems, searchQuery]);
 
   const openLightbox = (imageSrc: string, imageAlt: string, lightboxGroup?: string) => {
     const groupImages = lightboxGroup
@@ -101,21 +117,77 @@ const Portfolio: React.FC = () => {
           </p>
         </div>
 
+        {/* Search and View Controls */}
+        <motion.div 
+          className={styles.controls}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+        >
+          <div className={styles.searchWrapper}>
+            <input
+              type="text"
+              placeholder="Search projects..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className={styles.searchInput}
+            />
+            <span className={styles.searchIcon}>🔍</span>
+          </div>
+          
+          <div className={styles.viewToggle}>
+            <button
+              className={`${styles.viewButton} ${viewMode === 'masonry' ? styles.active : ''}`}
+              onClick={() => setViewMode('masonry')}
+              aria-label="Masonry view"
+            >
+              ⊞
+            </button>
+            <button
+              className={`${styles.viewButton} ${viewMode === 'grid' ? styles.active : ''}`}
+              onClick={() => setViewMode('grid')}
+              aria-label="Grid view"
+            >
+              ▦
+            </button>
+          </div>
+        </motion.div>
+
         <FilterButtons
           options={portfolioFilters}
           activeFilter={activeFilter}
           onFilterChange={setActiveFilter}
         />
 
-        <div className={styles.portfolioGrid}>
-          {filteredItems.map(item => (
-            <PortfolioItem
-              key={item.id}
-              item={item}
-              onImageClick={openLightbox}
-            />
-          ))}
-        </div>
+        {searchedItems.length === 0 ? (
+          <motion.div 
+            className={styles.noResults}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          >
+            <p>No projects found matching your search.</p>
+          </motion.div>
+        ) : (
+          <motion.div 
+            className={`${styles.portfolioGrid} ${viewMode === 'masonry' ? styles.masonry : styles.grid}`}
+            variants={staggerContainer}
+            initial="initial"
+            animate="animate"
+          >
+            {searchedItems.map((item, index) => (
+              <motion.div
+                key={item.id}
+                variants={staggerItem}
+                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+              >
+                <PortfolioItem
+                  item={item}
+                  onImageClick={openLightbox}
+                />
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
       </div>
 
       <Lightbox
