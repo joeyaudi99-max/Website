@@ -142,9 +142,7 @@ const Navbar: React.FC = () => {
               whileTap={{ scale: 0.95, rotate: 180 }}
               transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
             >
-              <span style={{ fontSize: '1.3rem' }}>
-                {theme === 'light' ? '🌙' : '☀️'}
-              </span>
+              <i className={theme === 'light' ? 'fas fa-moon' : 'fas fa-sun'}></i>
             </motion.button>
           </div>
 
