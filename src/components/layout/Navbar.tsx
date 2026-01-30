@@ -36,7 +36,8 @@ const Navbar: React.FC = () => {
           <Link to="/" className={styles.logo} onClick={closeMobileMenu}>
             <motion.span
               whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.85, rotate: -5 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
               JA
             </motion.span>
