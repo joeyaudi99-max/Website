@@ -138,11 +138,13 @@ const Navbar: React.FC = () => {
               className={styles.themeToggle}
               onClick={toggleTheme}
               aria-label="Toggle theme"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9, rotate: 180 }}
-              transition={{ duration: 0.15, ease: "easeOut" }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95, rotate: 180 }}
+              transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
             >
-              <i className={theme === 'light' ? 'fas fa-moon' : 'fas fa-sun'}></i>
+              <span style={{ fontSize: '1.3rem' }}>
+                {theme === 'light' ? '🌙' : '☀️'}
+              </span>
             </motion.button>
           </div>
 

@@ -122,18 +122,28 @@
 }
 
 /* Featured item (first item) - wider layout */
-.portfolioGrid.masonry > div:first-child {
-  grid-column: span 2;
+/* Only span 2 columns when viewport supports it */
+@media (min-width: 900px) {
+  .portfolioGrid.masonry > div:first-child {
+    grid-column: span 2;
+  }
 }
 
 /* Ensure single column on smaller screens */
-@media (max-width: 1200px) {
+@media (max-width: 899px) {
+  .portfolioGrid.masonry {
+    grid-template-columns: 1fr;
+  }
+  
+  .portfolioGrid.masonry > div:first-child {
+    grid-column: 1;
+  }
+}
+
+/* Tablet breakpoint */
+@media (max-width: 1200px) and (min-width: 900px) {
   .portfolioGrid.masonry {
     grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
-  }
-
-  .portfolioGrid.masonry > div:first-child {
-    grid-column: span 1;
   }
 }
 
