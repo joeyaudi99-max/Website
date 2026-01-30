@@ -109,10 +109,10 @@
 
 .portfolioGrid.masonry {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(380px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
   align-items: start;
-  grid-auto-flow: dense; /* Fill gaps intelligently */
+  grid-auto-flow: dense;
 }
 
 /* Ensure items don't have extra margin in grid layouts */
@@ -121,29 +121,35 @@
   margin: 0;
 }
 
-/* Featured item (first item) - wider layout */
-/* Only span 2 columns when viewport supports it */
-@media (min-width: 900px) {
+/* Featured item spans 2 columns only when we have space for at least 2 columns */
+@media (min-width: 768px) {
   .portfolioGrid.masonry > div:first-child {
     grid-column: span 2;
   }
 }
 
-/* Ensure single column on smaller screens */
-@media (max-width: 899px) {
+/* Tablet breakpoint - ensure we get 2+ columns */
+@media (max-width: 1200px) and (min-width: 768px) {
   .portfolioGrid.masonry {
-    grid-template-columns: 1fr;
-  }
-  
-  .portfolioGrid.masonry > div:first-child {
-    grid-column: 1;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   }
 }
 
-/* Tablet breakpoint */
-@media (max-width: 1200px) and (min-width: 900px) {
+/* Mobile - single column with explicit overrides */
+@media (max-width: 767px) {
   .portfolioGrid.masonry {
-    grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+    grid-template-columns: 1fr !important;
+    grid-auto-flow: row !important;
+  }
+  
+  .portfolioGrid.masonry > div:first-child {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+  }
+  
+  .portfolioGrid.masonry > div {
+    width: 100% !important;
+    max-width: 100% !important;
   }
 }
 
