@@ -34,7 +34,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     id: 'virtual-production-research',
     category: 'research',
-    categories: 'research',
+    categories: 'research,renders',
     mediaType: 'multiImage',
     lightboxGroup: 'virtual-production',
     carouselImages: [
@@ -52,7 +52,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     id: 'chocolate-fondant',
     category: 'video',
-    categories: 'video',
+    categories: 'video,renders',
     mediaType: 'youtube',
     youtubeId: 'Kumu1b_2Rrk',
     title: 'Chocolate Fondant Tutorial',
@@ -85,7 +85,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     id: 'martian-hat',
     category: 'renders',
-    categories: 'renders',
+    categories: 'renders,video',
     mediaType: 'video',
     videoSrc: '/Media/Martian hat render ad.mp4',
     title: 'Martian Hat Render Advertisement',

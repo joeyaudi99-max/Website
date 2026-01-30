@@ -7,7 +7,6 @@ import { ThemeProvider } from './contexts/ThemeContext';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import MouseHalo from './components/effects/MouseHalo';
-import ScrollProgress from './components/effects/ScrollProgress';
 import BackToTop from './components/common/BackToTop';
 import PageTransition from './components/effects/PageTransition';
 import styles from './App.module.css';
@@ -62,7 +61,6 @@ function App() {
       <Router basename={process.env.PUBLIC_URL}>
         <div className={styles.app}>
           <MouseHalo />
-          <ScrollProgress />
           <BackToTop />
           <Navbar />
           <main className={styles.main}>

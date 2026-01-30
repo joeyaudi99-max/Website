@@ -14,6 +14,7 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  overflow: hidden;
 }
 
 .backToTop:hover {
@@ -25,16 +26,19 @@
   top: 0;
   left: 0;
   transform: rotate(-90deg);
+  pointer-events: none;
 }
 
 .progressRingCircle {
   opacity: 0.2;
+  pointer-events: none;
 }
 
 .progressRingProgress {
   stroke-dasharray: 170;
   stroke-dashoffset: 170;
   stroke-linecap: round;
+  pointer-events: none;
 }
 
 .icon {
@@ -42,7 +46,7 @@
   font-size: 1.5rem;
   font-weight: bold;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 @media (max-width: 768px) {

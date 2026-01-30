@@ -31,7 +31,7 @@ const About: React.FC = () => {
 
         {/* Overview Section */}
         {shouldShowSection('overview') && (
-          <>
+          <div key={`overview-${activeFilter}`}>
             <div className={`${styles.aboutContent} fade-in about-section-item`}>
               <div className={styles.aboutImage}>
                 <img 
@@ -54,12 +54,12 @@ const About: React.FC = () => {
             </div>
 
             <StatsCounter />
-          </>
+          </div>
         )}
 
         {/* Skills Section */}
         {shouldShowSection('skills') && (
-          <div className="about-section-item">
+          <div key={`skills-${activeFilter}`} className="about-section-item">
             <h2 className="section-title fade-in">Skills</h2>
             <SkillsWeb />
           </div>
@@ -67,7 +67,7 @@ const About: React.FC = () => {
 
         {/* Work Section */}
         {shouldShowSection('work') && (
-          <div className="about-section-item">
+          <div key={`work-${activeFilter}`} className="about-section-item">
             <h2 className="section-title fade-in">Selected Work</h2>
             <div className={styles.projectsGrid}>
               {projects.map((project, index) => (
@@ -98,7 +98,7 @@ const About: React.FC = () => {
 
         {/* Experience Section */}
         {shouldShowSection('experience') && (
-          <div className="about-section-item">
+          <div key={`experience-${activeFilter}`} className="about-section-item">
             <h2 className="section-title fade-in">Experience & Education</h2>
             <Timeline />
           </div>

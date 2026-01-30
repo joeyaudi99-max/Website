@@ -40,12 +40,13 @@
   cursor: pointer;
   transition: all 0.3s ease;
   user-select: none;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 .logo:hover {
   transform: scale(1.1);
   color: var(--primary-dark);
+  text-decoration: none !important;
 }
 
 .navLinks {

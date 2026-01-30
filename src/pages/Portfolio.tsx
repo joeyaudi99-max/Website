@@ -158,6 +158,7 @@ const Portfolio: React.FC = () => {
           </div>
         ) : (
           <div 
+            key={`${activeFilter}-${viewMode}`}
             className={`${styles.portfolioGrid} ${viewMode === 'masonry' ? styles.masonry : styles.grid}`}
           >
             {searchedItems.map((item) => (
