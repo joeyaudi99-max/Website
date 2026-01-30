@@ -16,9 +16,32 @@ export const useScrollAnimation = () => {
       }
     );
 
-    const elements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
-    elements.forEach(el => observer.observe(el));
+    // Observe elements on mount and whenever DOM changes
+    const observeElements = () => {
+      const elements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
+      elements.forEach(el => {
+        // Remove visible class first to allow re-animation
+        el.classList.remove('visible');
+        observer.observe(el);
+      });
+    };
 
-    return () => observer.disconnect();
+    // Initial observation
+    observeElements();
+
+    // Create a mutation observer to watch for DOM changes
+    const mutationObserver = new MutationObserver(() => {
+      observeElements();
+    });
+
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+
+    return () => {
+      observer.disconnect();
+      mutationObserver.disconnect();
+    };
   }, []);
 };
