@@ -27,7 +27,12 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({ item, onImageClick }) => 
 
       case 'video':
         return (
-          <video controls className={styles.video}>
+          <video 
+            controls 
+            className={styles.video}
+            playsInline
+            poster={item.posterImage}
+          >
             <source src={item.videoSrc} type="video/mp4" />
             Your browser does not support the video tag.
           </video>

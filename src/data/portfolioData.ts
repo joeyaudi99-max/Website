@@ -11,6 +11,7 @@ export interface PortfolioItem {
   // Media properties
   youtubeId?: string;
   videoSrc?: string;
+  posterImage?: string;
   imageSrc?: string;
   lightboxGroup?: string;
   
@@ -42,12 +43,30 @@ export const portfolioItems: PortfolioItem[] = [
       { src: '/Media/Thesis/Final key without grading.png', alt: 'Virtual Production - Final Key' },
       { src: '/Media/Thesis/Magic mask.png', alt: 'Virtual Production - Magic Mask' },
       { src: '/Media/Thesis/Matte view_.png', alt: 'Virtual Production - Matte View' },
-      { src: '/Media/Thesis/Post virtual.png', alt: 'Virtual Production - Post Virtual' }
+      { src: '/Media/Thesis/Post virtual.jpg', alt: 'Virtual Production - Post Virtual' }
     ],
     title: 'Virtual Production Research',
     categoryLabel: 'Research · Virtual Production',
     description: 'Bachelor\'s thesis research exploring virtual production techniques and green screen workflows. This project demonstrates advanced compositing skills, virtual set design, and understanding of modern film production pipelines. Includes before/after comparisons, matte views, and final composited scenes.',
     tags: ['Virtual Production', 'Green Screen', 'Compositing', 'Research', 'Thesis Work']
+  },
+  {
+    id: 'ioana-model-photoshoot',
+    category: 'photography',
+    categories: 'photography',
+    mediaType: 'multiImage',
+    lightboxGroup: 'ioana-model',
+    carouselImages: [
+      { src: '/Media/Photography/Ioana Model/Ioana 1.jpg', alt: 'Ioana Model Photoshoot - Portrait 1' },
+      { src: '/Media/Photography/Ioana Model/Ioana 2.jpg', alt: 'Ioana Model Photoshoot - Portrait 2' },
+      { src: '/Media/Photography/Ioana Model/Ioana 3.jpg', alt: 'Ioana Model Photoshoot - Portrait 3' },
+      { src: '/Media/Photography/Ioana Model/Ioana 4.jpg', alt: 'Ioana Model Photoshoot - Portrait 4' },
+      { src: '/Media/Photography/Ioana Model/Ioana 5.jpg', alt: 'Ioana Model Photoshoot - Portrait 5' }
+    ],
+    title: 'Ioana Model Photoshoot',
+    categoryLabel: 'Photography · Portrait',
+    description: 'Professional model photoshoot showcasing portrait photography skills, lighting techniques, and composition. This series captures natural expressions and artistic poses in a professional studio setting.',
+    tags: ['Photography', 'Portrait', 'Studio', 'Model Photography', 'Lighting']
   },
   {
     id: 'chocolate-fondant',
@@ -77,6 +96,7 @@ export const portfolioItems: PortfolioItem[] = [
     categories: 'video',
     mediaType: 'video',
     videoSrc: '/Media/Wine Hack Subtitles.mp4',
+    posterImage: '/Media/Wine Hack Subtitles-thumb.jpg',
     title: 'Wine Hack Tutorial',
     categoryLabel: 'Video Production · Tutorial',
     description: 'A creative video project showcasing my production and editing capabilities with clear storytelling and visual communication.',
@@ -88,6 +108,7 @@ export const portfolioItems: PortfolioItem[] = [
     categories: 'renders,video',
     mediaType: 'video',
     videoSrc: '/Media/Martian hat render ad.mp4',
+    posterImage: '/Media/Martian hat render ad-thumb.jpg',
     title: 'Martian Hat Render Advertisement',
     categoryLabel: '3D Render · Advertisement',
     description: 'A 3D rendered advertisement showcasing product visualization and motion graphics expertise.',
@@ -137,10 +158,10 @@ export const portfolioItems: PortfolioItem[] = [
     autoRotate: true,
     lightboxGroup: 'crossyroad',
     carouselImages: [
-      { src: '/Media/CROSSROAD CHARACTER 1 JOEY.png', alt: 'Crossyroad game character - View 1' },
-      { src: '/Media/CROSSROAD CHARACTER 2 JOEY.png', alt: 'Crossyroad game character - View 2' },
-      { src: '/Media/CROSSROAD CHARACTER 3 JOEY.png', alt: 'Crossyroad game character - View 3' },
-      { src: '/Media/chickencrossyjoey.png', alt: 'Crossyroad game character - Chicken' }
+      { src: '/Media/CROSSROAD CHARACTER 1 JOEY.jpg', alt: 'Crossyroad game character - View 1' },
+      { src: '/Media/CROSSROAD CHARACTER 2 JOEY.jpg', alt: 'Crossyroad game character - View 2' },
+      { src: '/Media/CROSSROAD CHARACTER 3 JOEY.jpg', alt: 'Crossyroad game character - View 3' },
+      { src: '/Media/chickencrossyjoey.jpg', alt: 'Crossyroad game character - Chicken' }
     ],
     title: 'Crossyroad Character Collection',
     categoryLabel: '3D Character · Game Asset',
@@ -153,12 +174,12 @@ export const portfolioItems: PortfolioItem[] = [
     categories: 'graphic-design,renders',
     mediaType: 'beforeAfter',
     beforeImage: '/Media/Minecraft Sitsit/INSTA POST MC SITSIT BEFORE.jpg',
-    afterImage: '/Media/Minecraft Sitsit/MC SITSIT INSTA POST FINAL (1).png',
+    afterImage: '/Media/Minecraft Sitsit/MC SITSIT INSTA POST FINAL (1).jpg',
     lightboxGroup: 'minecraft-sitsit',
     secondaryImages: [
       { src: '/Media/Minecraft Sitsit/INSTA POST MC SITSIT BEFORE.jpg', alt: 'Minecraft Sitsit - Before Version' },
-      { src: '/Media/Minecraft Sitsit/MC SITSIT INSTA POST FINAL (1).png', alt: 'Minecraft Sitsit - Final Version' },
-      { src: '/Media/Minecraft Sitsit/MC SITSIT INSTA STORY FINAL FIX.png', alt: 'Minecraft Sitsit Instagram Story' },
+      { src: '/Media/Minecraft Sitsit/MC SITSIT INSTA POST FINAL (1).jpg', alt: 'Minecraft Sitsit - Final Version' },
+      { src: '/Media/Minecraft Sitsit/MC SITSIT INSTA STORY FINAL FIX.jpg', alt: 'Minecraft Sitsit Instagram Story' },
       { src: '/Media/Minecraft Sitsit/MCSITSIT patch 2 (1).png', alt: 'Minecraft Sitsit Patch Design' },
       { src: '/Media/Minecraft Sitsit/MCsitsit Teaser.JPG', alt: 'Minecraft Sitsit Teaser' },
       { src: '/Media/Minecraft Sitsit/songbook and patch.jpg', alt: 'Minecraft Sitsit Songbook and Patch' },
@@ -192,5 +213,6 @@ export const portfolioFilters = [
   { value: 'video', label: 'Video' },
   { value: 'graphic-design', label: 'Graphic Design' },
   { value: 'renders', label: '3D Renders' },
-  { value: 'research', label: 'Research' }
+  { value: 'research', label: 'Research' },
+  { value: 'photography', label: 'Photography' }
 ];
