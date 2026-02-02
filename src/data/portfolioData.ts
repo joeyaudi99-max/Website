@@ -156,10 +156,10 @@ export const portfolioItems: PortfolioItem[] = [
     autoRotate: true,
     lightboxGroup: 'crossyroad',
     carouselImages: [
-      { src: '/Media/CROSSROAD CHARACTER 1 JOEY.png', alt: 'Crossyroad game character - View 1' },
-      { src: '/Media/CROSSROAD CHARACTER 2 JOEY.png', alt: 'Crossyroad game character - View 2' },
-      { src: '/Media/CROSSROAD CHARACTER 3 JOEY.png', alt: 'Crossyroad game character - View 3' },
-      { src: '/Media/chickencrossyjoey.png', alt: 'Crossyroad game character - Chicken' }
+      { src: '/Media/CROSSROAD CHARACTER 1 JOEY.jpg', alt: 'Crossyroad game character - View 1' },
+      { src: '/Media/CROSSROAD CHARACTER 2 JOEY.jpg', alt: 'Crossyroad game character - View 2' },
+      { src: '/Media/CROSSROAD CHARACTER 3 JOEY.jpg', alt: 'Crossyroad game character - View 3' },
+      { src: '/Media/chickencrossyjoey.jpg', alt: 'Crossyroad game character - Chicken' }
     ],
     title: 'Crossyroad Character Collection',
     categoryLabel: '3D Character · Game Asset',
@@ -172,13 +172,13 @@ export const portfolioItems: PortfolioItem[] = [
     categories: 'graphic-design,renders',
     mediaType: 'beforeAfter',
     beforeImage: '/Media/Minecraft Sitsit/INSTA POST MC SITSIT BEFORE.jpg',
-    afterImage: '/Media/Minecraft Sitsit/MC SITSIT INSTA POST FINAL (1).png',
+    afterImage: '/Media/Minecraft Sitsit/MC SITSIT INSTA POST FINAL (1).jpg',
     lightboxGroup: 'minecraft-sitsit',
     secondaryImages: [
       { src: '/Media/Minecraft Sitsit/INSTA POST MC SITSIT BEFORE.jpg', alt: 'Minecraft Sitsit - Before Version' },
-      { src: '/Media/Minecraft Sitsit/MC SITSIT INSTA POST FINAL (1).png', alt: 'Minecraft Sitsit - Final Version' },
-      { src: '/Media/Minecraft Sitsit/MC SITSIT INSTA STORY FINAL FIX.png', alt: 'Minecraft Sitsit Instagram Story' },
-      { src: '/Media/Minecraft Sitsit/MCSITSIT patch 2 (1).png', alt: 'Minecraft Sitsit Patch Design' },
+      { src: '/Media/Minecraft Sitsit/MC SITSIT INSTA POST FINAL (1).jpg', alt: 'Minecraft Sitsit - Final Version' },
+      { src: '/Media/Minecraft Sitsit/MC SITSIT INSTA STORY FINAL FIX.jpg', alt: 'Minecraft Sitsit Instagram Story' },
+      { src: '/Media/Minecraft Sitsit/MCSITSIT patch 2 (1).jpg', alt: 'Minecraft Sitsit Patch Design' },
       { src: '/Media/Minecraft Sitsit/MCsitsit Teaser.JPG', alt: 'Minecraft Sitsit Teaser' },
       { src: '/Media/Minecraft Sitsit/songbook and patch.jpg', alt: 'Minecraft Sitsit Songbook and Patch' },
       { src: '/Media/Minecraft Sitsit/Songbook screenshot.png', alt: 'Minecraft Sitsit Songbook Screenshot' }

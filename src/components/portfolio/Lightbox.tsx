@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Lightbox.module.css';
 
 interface LightboxProps {
@@ -22,6 +22,8 @@ const Lightbox: React.FC<LightboxProps> = ({
   currentIndex,
   totalImages
 }) => {
+  const [shouldRender, setShouldRender] = useState(false);
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!isOpen) return;
@@ -55,7 +57,20 @@ const Lightbox: React.FC<LightboxProps> = ({
     };
   }, [isOpen]);
 
-  if (!isOpen || !imageSrc) return null;
+  // Manage rendering state to allow exit transition
+  useEffect(() => {
+    if (isOpen) {
+      setShouldRender(true);
+    } else {
+      // Delay unmounting to allow exit transition to complete (300ms transition + 50ms buffer)
+      const timer = setTimeout(() => {
+        setShouldRender(false);
+      }, 350);
+      return () => clearTimeout(timer);
+    }
+  }, [isOpen]);
+
+  if (!shouldRender || !imageSrc) return null;
 
   const handleBackgroundClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
