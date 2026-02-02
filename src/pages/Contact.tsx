@@ -20,8 +20,10 @@ const Contact: React.FC = () => {
         >
           <motion.div className={styles.contactIntro} variants={staggerItem}>
             <p>
-              I'm always open to discussing new opportunities, collaborations, or just connecting 
-              with fellow professionals in the audiovisual and event management space.
+              I'm currently based in Tampere, Finland (EET timezone) and available for full-time 
+              positions, contract work, or project collaborations in audiovisual production, event 
+              coordination, and content creation. The fastest way to reach me is via email at 
+              contact@joeyaudi.com or through LinkedIn.
             </p>
           </motion.div>
 

@@ -41,14 +41,17 @@ const About: React.FC = () => {
               </div>
               <div className={styles.aboutText}>
                 <p>
-                  I am an audiovisual technician and event coordinator with a passion for community-driven experiences. 
-                  From arena-scale gaming spaces to international student events and online communities, I create 
-                  environments where people feel welcome, engaged, and inspired.
+                  I'm an audiovisual technician and event coordinator who thrives in the organized chaos of 
+                  live events. I've managed everything from 600-person international student gatherings to 
+                  daily operations in Nokia Arena's gaming space, Paidia—where I optimized 40 high-end PCs, 
+                  guided guests through VR setups, and created visual content with Adobe Creative Suite.
                 </p>
                 <p>
-                  My work blends technical expertise in cinematography, live event tech, and editing with strong 
-                  communication and customer support. I enjoy collaborating with diverse teams, mentoring guests on AV 
-                  tools and VR, and turning ideas into memorable, inclusive events.
+                  My background spans technical AV systems, video production, and community management. I've 
+                  edited 60+ videos monthly for Onepress TV's social channels, secured €9,000 in event 
+                  sponsorships as CLINT's Vice-Chairman, and spent three years moderating a 3,000-player 
+                  online gaming community. I speak English, Arabic, and French, which has been invaluable 
+                  working with Tampere's international student population.
                 </p>
               </div>
             </div>
@@ -61,6 +64,17 @@ const About: React.FC = () => {
         {shouldShowSection('skills') && (
           <div key={`skills-${activeFilter}`} className="about-section-item">
             <h2 className="section-title fade-in">Skills</h2>
+            <div className="fade-in" style={{ marginBottom: '2rem', maxWidth: '800px', margin: '0 auto 2rem' }}>
+              <p style={{ marginBottom: '1rem' }}>
+                <strong>Event Coordination & Live Tech:</strong> Coordinated 30+ annual events (up to 600 attendees) and operated AV systems at Nokia Arena
+              </p>
+              <p style={{ marginBottom: '1rem' }}>
+                <strong>Video Production & Editing:</strong> Delivered 60+ edited videos monthly across 5 platforms for Onepress TV
+              </p>
+              <p>
+                <strong>Graphic Design & 3D:</strong> Created event branding, promotional materials, and 3D environments for student events
+              </p>
+            </div>
             <SkillsWeb />
           </div>
         )}

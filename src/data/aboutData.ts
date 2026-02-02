@@ -46,11 +46,23 @@ export const stats: Stat[] = [
   },
   {
     count: 600,
-    label: 'Participants Reached Per Event'
+    label: 'Max Event Attendance'
   },
   {
     count: 9000,
-    label: '€ Sponsorship Raised'
+    label: 'Sponsorship Raised (€)'
+  },
+  {
+    count: 60,
+    label: 'Videos Edited Per Month'
+  },
+  {
+    count: 40,
+    label: 'Gaming PCs Managed'
+  },
+  {
+    count: 5,
+    label: 'Social Platforms'
   }
 ];
 

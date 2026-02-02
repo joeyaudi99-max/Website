@@ -14,14 +14,14 @@ export const timelineItems: TimelineItem[] = [
     company: 'Paidia - Tampere University, Nokia Arena',
     location: 'Tampere, Finland',
     period: '12/2022 - 05/2023',
-    description: 'Supported gaming and event experiences in the Paidia space, optimizing 40 high-end PCs, creating visuals with Adobe CC, and guiding guests through consoles and VR setups.'
+    description: 'Operated and maintained AV systems for Nokia Arena\'s gaming hub, including 40 high-end gaming PCs (optimized with GGLeap), console stations, and VR equipment. Created visual content with Adobe CC and provided technical support to 100+ weekly visitors.'
   },
   {
     id: 'onepress',
     title: 'Content Editor (Remote)',
     company: 'Onepress TV',
     period: '07/2024 - 12/2024',
-    description: 'Managed video editing and content workflows for 5+ social media channels, ensuring timely delivery and consistent visual quality across 60+ videos per month.'
+    description: 'Managed video editing pipeline for 5+ social platforms, delivering 60+ finished videos monthly. Maintained consistent quality standards, met daily deadlines, and coordinated with remote team across multiple time zones.'
   },
   {
     id: 'clint',
@@ -29,7 +29,7 @@ export const timelineItems: TimelineItem[] = [
     company: 'Club International Tampere (CLINT)',
     location: 'Tampere, Finland',
     period: '12/2023 - 12/2025',
-    description: 'Coordinated 30+ events annually with a volunteer team of 30, securing €9,000 in sponsorships and hosting international events for up to 600 participants.'
+    description: 'Secured €9,000 in annual sponsorships and coordinated 30+ events for up to 600 international students. Managed a volunteer team of 30, handled venue negotiations, and oversaw event logistics from planning to execution.'
   },
   {
     id: 'graalonline',

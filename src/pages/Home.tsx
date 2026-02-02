@@ -73,9 +73,11 @@ const Home: React.FC = () => {
               Audiovisual Technician · Event Management · Community Engagement
             </motion.h2>
             <motion.p variants={staggerItem}>
-              Experienced audiovisual professional with expertise in cinematography, event coordination, 
-              and community-focused customer support. I bring technical precision and creative storytelling 
-              together to deliver engaging live events, media content, and player experiences.
+              I've coordinated 30+ annual events for 600+ international participants, operated AV systems 
+              in arena-scale gaming spaces, and edited 60+ videos monthly for multi-platform distribution. 
+              Based in Tampere, Finland, I specialize in making technical setups run smoothly while keeping 
+              people engaged and comfortable—whether that's troubleshooting VR headsets, managing live event 
+              tech, or cutting promotional content on tight deadlines.
             </motion.p>
             <motion.div className={styles.heroButtons} variants={staggerItem}>
               <Button href="/JoeyAudi_General-Resume.pdf" download variant="primary">
