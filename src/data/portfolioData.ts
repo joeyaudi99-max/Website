@@ -43,7 +43,7 @@ export const portfolioItems: PortfolioItem[] = [
       { src: '/Media/Thesis/Final key without grading.png', alt: 'Virtual Production - Final Key' },
       { src: '/Media/Thesis/Magic mask.png', alt: 'Virtual Production - Magic Mask' },
       { src: '/Media/Thesis/Matte view_.png', alt: 'Virtual Production - Matte View' },
-      { src: '/Media/Thesis/Post virtual.jpg', alt: 'Virtual Production - Post Virtual' }
+      { src: '/Media/Thesis/Post virtual.png', alt: 'Virtual Production - Post Virtual' }
     ],
     title: 'Virtual Production Research',
     categoryLabel: 'Research · Virtual Production',
@@ -96,7 +96,6 @@ export const portfolioItems: PortfolioItem[] = [
     categories: 'video',
     mediaType: 'video',
     videoSrc: '/Media/Wine Hack Subtitles.mp4',
-    posterImage: '/Media/Wine Hack Subtitles-thumb.jpg',
     title: 'Wine Hack Tutorial',
     categoryLabel: 'Video Production · Tutorial',
     description: 'Short-form video tutorial showing my approach to quick, engaging content with clear subtitling and tight editing. Produced for social media distribution.',
@@ -108,7 +107,6 @@ export const portfolioItems: PortfolioItem[] = [
     categories: 'renders,video',
     mediaType: 'video',
     videoSrc: '/Media/Martian hat render ad.mp4',
-    posterImage: '/Media/Martian hat render ad-thumb.jpg',
     title: 'Martian Hat Render Advertisement',
     categoryLabel: '3D Render · Advertisement',
     description: '3D product visualization and motion graphics for a promotional ad. Rendered with realistic materials and animated for social media distribution.',
@@ -158,10 +156,10 @@ export const portfolioItems: PortfolioItem[] = [
     autoRotate: true,
     lightboxGroup: 'crossyroad',
     carouselImages: [
-      { src: '/Media/CROSSROAD CHARACTER 1 JOEY.jpg', alt: 'Crossyroad game character - View 1' },
-      { src: '/Media/CROSSROAD CHARACTER 2 JOEY.jpg', alt: 'Crossyroad game character - View 2' },
-      { src: '/Media/CROSSROAD CHARACTER 3 JOEY.jpg', alt: 'Crossyroad game character - View 3' },
-      { src: '/Media/chickencrossyjoey.jpg', alt: 'Crossyroad game character - Chicken' }
+      { src: '/Media/CROSSROAD CHARACTER 1 JOEY.png', alt: 'Crossyroad game character - View 1' },
+      { src: '/Media/CROSSROAD CHARACTER 2 JOEY.png', alt: 'Crossyroad game character - View 2' },
+      { src: '/Media/CROSSROAD CHARACTER 3 JOEY.png', alt: 'Crossyroad game character - View 3' },
+      { src: '/Media/chickencrossyjoey.png', alt: 'Crossyroad game character - Chicken' }
     ],
     title: 'Crossyroad Character Collection',
     categoryLabel: '3D Character · Game Asset',
@@ -174,12 +172,12 @@ export const portfolioItems: PortfolioItem[] = [
     categories: 'graphic-design,renders',
     mediaType: 'beforeAfter',
     beforeImage: '/Media/Minecraft Sitsit/INSTA POST MC SITSIT BEFORE.jpg',
-    afterImage: '/Media/Minecraft Sitsit/MC SITSIT INSTA POST FINAL (1).jpg',
+    afterImage: '/Media/Minecraft Sitsit/MC SITSIT INSTA POST FINAL (1).png',
     lightboxGroup: 'minecraft-sitsit',
     secondaryImages: [
       { src: '/Media/Minecraft Sitsit/INSTA POST MC SITSIT BEFORE.jpg', alt: 'Minecraft Sitsit - Before Version' },
-      { src: '/Media/Minecraft Sitsit/MC SITSIT INSTA POST FINAL (1).jpg', alt: 'Minecraft Sitsit - Final Version' },
-      { src: '/Media/Minecraft Sitsit/MC SITSIT INSTA STORY FINAL FIX.jpg', alt: 'Minecraft Sitsit Instagram Story' },
+      { src: '/Media/Minecraft Sitsit/MC SITSIT INSTA POST FINAL (1).png', alt: 'Minecraft Sitsit - Final Version' },
+      { src: '/Media/Minecraft Sitsit/MC SITSIT INSTA STORY FINAL FIX.png', alt: 'Minecraft Sitsit Instagram Story' },
       { src: '/Media/Minecraft Sitsit/MCSITSIT patch 2 (1).png', alt: 'Minecraft Sitsit Patch Design' },
       { src: '/Media/Minecraft Sitsit/MCsitsit Teaser.JPG', alt: 'Minecraft Sitsit Teaser' },
       { src: '/Media/Minecraft Sitsit/songbook and patch.jpg', alt: 'Minecraft Sitsit Songbook and Patch' },

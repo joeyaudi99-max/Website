@@ -161,14 +161,23 @@ const Portfolio: React.FC = () => {
             key={`${activeFilter}-${viewMode}`}
             className={`${styles.portfolioGrid} ${viewMode === 'masonry' ? styles.masonry : styles.grid}`}
           >
-            {searchedItems.map((item) => (
-              <div key={item.id}>
-                <PortfolioItem
-                  item={item}
-                  onImageClick={openLightbox}
-                />
-              </div>
-            ))}
+            {searchedItems.map((item) => {
+              const isWideItem = 
+                item.mediaType === 'multiImage' ||
+                item.mediaType === 'carousel' ||
+                item.mediaType === 'beforeAfter' ||
+                (item.carouselImages && item.carouselImages.length >= 2) ||
+                (item.secondaryImages && item.secondaryImages.length >= 2);
+              
+              return (
+                <div key={item.id} className={isWideItem ? styles.wideItem : ''}>
+                  <PortfolioItem
+                    item={item}
+                    onImageClick={openLightbox}
+                  />
+                </div>
+              );
+            })}
           </div>
         )}
       </div>
