@@ -12,7 +12,6 @@ const Portfolio: React.FC = () => {
 
   const { activeFilter, setActiveFilter, filteredItems } = useFilter(portfolioItems, 'all');
   const [searchQuery, setSearchQuery] = useState('');
-  const [viewMode, setViewMode] = useState<'grid' | 'masonry'>('masonry');
   
   const [lightboxState, setLightboxState] = useState<{
     isOpen: boolean;
@@ -115,7 +114,7 @@ const Portfolio: React.FC = () => {
           </p>
         </div>
 
-        {/* Search and View Controls */}
+        {/* Search Control */}
         <div className={styles.controls}>
           <div className={styles.searchWrapper}>
             <input
@@ -126,23 +125,6 @@ const Portfolio: React.FC = () => {
               className={styles.searchInput}
             />
             <span className={styles.searchIcon}>🔍</span>
-          </div>
-          
-          <div className={styles.viewToggle}>
-            <button
-              className={`${styles.viewButton} ${viewMode === 'masonry' ? styles.active : ''}`}
-              onClick={() => setViewMode('masonry')}
-              aria-label="Masonry view"
-            >
-              ⊞
-            </button>
-            <button
-              className={`${styles.viewButton} ${viewMode === 'grid' ? styles.active : ''}`}
-              onClick={() => setViewMode('grid')}
-              aria-label="Grid view"
-            >
-              ▦
-            </button>
           </div>
         </div>
 
@@ -158,26 +140,17 @@ const Portfolio: React.FC = () => {
           </div>
         ) : (
           <div 
-            key={`${activeFilter}-${viewMode}`}
-            className={`${styles.portfolioGrid} ${viewMode === 'masonry' ? styles.masonry : styles.grid}`}
+            key={activeFilter}
+            className={styles.portfolioGrid}
           >
-            {searchedItems.map((item) => {
-              const isWideItem = 
-                item.mediaType === 'multiImage' ||
-                item.mediaType === 'carousel' ||
-                item.mediaType === 'beforeAfter' ||
-                (item.carouselImages && item.carouselImages.length >= 2) ||
-                (item.secondaryImages && item.secondaryImages.length >= 2);
-              
-              return (
-                <div key={item.id} className={isWideItem ? styles.wideItem : ''}>
-                  <PortfolioItem
-                    item={item}
-                    onImageClick={openLightbox}
-                  />
-                </div>
-              );
-            })}
+            {searchedItems.map((item, index) => (
+              <div key={item.id}>
+                <PortfolioItem
+                  item={item}
+                  onImageClick={openLightbox}
+                />
+              </div>
+            ))}
           </div>
         )}
       </div>

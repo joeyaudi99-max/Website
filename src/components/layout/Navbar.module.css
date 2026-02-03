@@ -2,21 +2,30 @@
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(var(--bg-color-rgb), 0.8);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: var(--glass-bg);
+  backdrop-filter: var(--backdrop-blur-strong);
+  -webkit-backdrop-filter: var(--backdrop-blur-strong);
   z-index: 1000;
   padding: 1rem 0;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border-bottom: 1px solid var(--border-color);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              padding 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom: 1px solid var(--glass-border);
+  transform: translateY(0);
 }
 
 .navbar.scrolled {
-  background: rgba(var(--bg-color-rgb), 0.95);
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background: var(--glass-bg-strong);
+  backdrop-filter: var(--backdrop-blur-strong);
+  -webkit-backdrop-filter: var(--backdrop-blur-strong);
+  box-shadow: var(--shadow-elevated);
   padding: 0.7rem 0;
+}
+
+.navbar.hidden {
+  transform: translateY(-120%);
+  pointer-events: none;
 }
 
 @supports (padding: max(0px)) {
@@ -36,16 +45,20 @@
 .logo {
   font-size: 2rem;
   font-weight: 800;
-  color: var(--primary-color);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   user-select: none;
   text-decoration: none !important;
+  position: relative;
 }
 
 .logo:hover {
-  transform: scale(1.1);
-  color: var(--primary-dark);
+  transform: scale(1.05);
+  filter: brightness(1.2);
   text-decoration: none !important;
 }
 
@@ -87,8 +100,9 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: var(--primary-color);
+  background: var(--gradient-primary);
   border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
 }
 
 .navRight {
@@ -115,14 +129,20 @@
 }
 
 .socialIcons a:hover {
-  color: var(--primary-color);
-  transform: scale(1.2);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transform: scale(1.2) translateY(-2px);
   text-decoration: none !important;
+  filter: drop-shadow(0 4px 8px rgba(102, 126, 234, 0.3));
 }
 
 .themeToggle {
-  background: var(--card-bg);
-  border: 2px solid var(--border-color);
+  background: var(--glass-bg);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 2px solid var(--glass-border);
   color: var(--text-color);
   width: 44px;
   height: 44px;
@@ -133,15 +153,15 @@
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 1.1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--glass-shadow);
 }
 
 .themeToggle:hover {
-  background: var(--primary-color);
+  background: var(--gradient-primary);
   color: white;
-  transform: scale(1.05) rotate(180deg);
-  border-color: var(--primary-color);
-  box-shadow: 0 4px 12px rgba(32, 144, 237, 0.2);
+  transform: scale(1.1) rotate(180deg);
+  border-color: transparent;
+  box-shadow: var(--shadow-purple);
 }
 
 .mobileMenu {

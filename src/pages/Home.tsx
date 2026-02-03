@@ -2,8 +2,11 @@ import React, { useCallback, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import AnimatedBlobs from '../components/effects/AnimatedBlobs';
-import Button from '../components/common/Button';
+import ParticleBackground from '../components/effects/ParticleBackground';
+import ThreeBackground from '../components/effects/ThreeBackground';
+import TypewriterText from '../components/common/TypewriterText';
+import MagneticButton from '../components/common/MagneticButton';
+import GradientText from '../components/common/GradientText';
 import { staggerContainer, staggerItem } from '../utils/animations';
 import styles from './Home.module.css';
 
@@ -19,11 +22,19 @@ const Home: React.FC = () => {
       cancelAnimationFrame(rafRef.current);
     }
     
+    const target = e.currentTarget;
+    if (!target) return;
+    
     rafRef.current = requestAnimationFrame(() => {
-      const rect = e.currentTarget.getBoundingClientRect();
-      const x = (e.clientX - rect.left - rect.width / 2) / rect.width;
-      const y = (e.clientY - rect.top - rect.height / 2) / rect.height;
-      setTilt({ x: y * 15, y: -x * 15 });
+      try {
+        const rect = target.getBoundingClientRect();
+        const x = (e.clientX - rect.left - rect.width / 2) / rect.width;
+        const y = (e.clientY - rect.top - rect.height / 2) / rect.height;
+        setTilt({ x: y * 8, y: -x * 8 });
+      } catch (error) {
+        // Element might be unmounted, safely ignore
+        return;
+      }
     });
   }, []);
 
@@ -33,10 +44,11 @@ const Home: React.FC = () => {
     }
     setTilt({ x: 0, y: 0 });
   }, []);
-
+  
   return (
     <div className={styles.page}>
-      <AnimatedBlobs />
+      <ParticleBackground density={60} color="#667eea" opacity={0.4} speed={0.5} links={true} />
+      <ThreeBackground />
       <div className="container">
         <motion.div 
           className={styles.hero}
@@ -53,9 +65,14 @@ const Home: React.FC = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
+            <div className={styles.imageGlow}></div>
             <motion.img 
               src="/Media/Profile.jpg" 
               alt="Portrait of Joey Audi"
+              className={styles.profileImage}
+              loading="eager"
+              width="300"
+              height="300"
               style={{
                 transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
                 transition: 'transform 0.3s ease-out'
@@ -63,16 +80,27 @@ const Home: React.FC = () => {
             />
           </motion.div>
           <motion.div className={styles.heroContent} variants={staggerItem}>
-            <motion.h1 
-              className={styles.animatedText}
-              variants={staggerItem}
-            >
+            <GradientText as="h1" gradient="primary" className={styles.name}>
               Joey Audi
-            </motion.h1>
-            <motion.h2 variants={staggerItem}>
-              Audiovisual Technician · Event Management · Community Engagement
-            </motion.h2>
-            <motion.p variants={staggerItem}>
+            </GradientText>
+            <motion.div variants={staggerItem} className={styles.roleContainer}>
+              <TypewriterText
+                sequence={[
+                  'Audiovisual Technician',
+                  2000,
+                  'Event Coordinator',
+                  2000,
+                  'Community Manager',
+                  2000,
+                  'Content Creator',
+                  2000,
+                ]}
+                speed={50}
+                wrapper="h2"
+                className={styles.role}
+              />
+            </motion.div>
+            <motion.p variants={staggerItem} className={styles.description}>
               I've coordinated 30+ annual events for 600+ international participants, operated AV systems 
               in arena-scale gaming spaces, and edited 60+ videos monthly for multi-platform distribution. 
               Based in Tampere, Finland, I specialize in making technical setups run smoothly while keeping 
@@ -80,11 +108,13 @@ const Home: React.FC = () => {
               tech, or cutting promotional content on tight deadlines.
             </motion.p>
             <motion.div className={styles.heroButtons} variants={staggerItem}>
-              <Button href="/JoeyAudi_General-Resume.pdf" download variant="primary">
+              <MagneticButton href="/JoeyAudi_General-Resume.pdf" download variant="gradient">
                 Download Resume
-              </Button>
-              <Link to="/contact">
-                <Button variant="outline">Contact Me</Button>
+              </MagneticButton>
+              <Link to="/contact" style={{ textDecoration: 'none' }}>
+                <MagneticButton variant="outline">
+                  Contact Me
+                </MagneticButton>
               </Link>
             </motion.div>
           </motion.div>

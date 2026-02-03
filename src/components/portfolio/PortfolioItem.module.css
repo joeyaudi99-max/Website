@@ -1,20 +1,42 @@
 .portfolioItem {
-  background: var(--card-bg);
-  border-radius: 20px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 24px;
   overflow: hidden;
-  box-shadow: var(--shadow);
-  transition: all 0.25s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   margin: 0;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   transform: translateZ(0);
+  position: relative;
+}
+
+.portfolioItem::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
 }
 
 .portfolioItem:hover {
-  transform: translateY(-5px) translateZ(0);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px) translateZ(0);
+  box-shadow: var(--shadow-elevated);
+  background: var(--glass-bg-strong);
+}
+
+.portfolioItem:hover::after {
+  opacity: 1;
 }
 
 .portfolioMedia {
@@ -83,12 +105,17 @@
 }
 
 .portfolioCategory {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
   color: var(--primary-color);
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.9rem;
   margin-bottom: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
+  display: inline-block;
 }
 
 .portfolioTitle {
@@ -115,19 +142,40 @@
 }
 
 .portfolioTag {
-  background: var(--primary-color);
-  color: white;
-  padding: 0.4rem 1rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  padding: 0.5rem 1rem;
   border-radius: 20px;
   font-size: 0.85rem;
-  font-weight: 500;
-  transition: all 0.2s ease;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: default;
+  position: relative;
+  color: var(--text-color);
+  overflow: hidden;
+}
+
+.portfolioTag::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-accent);
+  opacity: 0.1;
+  border-radius: 20px;
+  z-index: -1;
+  transition: opacity 0.3s ease;
 }
 
 .portfolioTag:hover {
-  transform: scale(1.05);
-  background: var(--primary-dark);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(79, 172, 254, 0.2);
+  border-color: rgba(79, 172, 254, 0.3);
+}
+
+.portfolioTag:hover::before {
+  opacity: 0.2;
 }
 
 /* Multi-Image Portfolio */

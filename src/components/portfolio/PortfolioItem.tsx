@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import { PortfolioItem as PortfolioItemType } from '../../data/portfolioData';
 import ImageCarousel from './ImageCarousel';
 import BeforeAfterSlider from './BeforeAfterSlider';
@@ -10,6 +10,20 @@ interface PortfolioItemProps {
 }
 
 const PortfolioItem: React.FC<PortfolioItemProps> = ({ item, onImageClick }) => {
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (window.innerWidth < 768) return; // Disable on mobile
+    
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - rect.left - rect.width / 2) / rect.width;
+    const y = (e.clientY - rect.top - rect.height / 2) / rect.height;
+    setTilt({ x: y * 1.5, y: -x * 1.5 }); // Subtle 3D tilt
+  }, []);
+  
+  const handleMouseLeave = useCallback(() => {
+    setTilt({ x: 0, y: 0 });
+  }, []);
   const renderMedia = () => {
     switch (item.mediaType) {
       case 'youtube':
@@ -123,6 +137,12 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({ item, onImageClick }) => 
   return (
     <div 
       className={`${styles.portfolioItem} fade-in`}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        transform: `perspective(1200px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
+        transition: tilt.x === 0 && tilt.y === 0 ? 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)' : 'none'
+      }}
     >
       <div className={styles.portfolioMedia}>
         {renderMedia()}

@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { ToastContainer } from 'react-toastify';
@@ -9,6 +9,7 @@ import Footer from './components/layout/Footer';
 import MouseHalo from './components/effects/MouseHalo';
 import BackToTop from './components/common/BackToTop';
 import PageTransition from './components/effects/PageTransition';
+import LoadingScreen from './components/effects/LoadingScreen';
 import styles from './App.module.css';
 
 // Lazy load pages for code splitting
@@ -58,8 +59,11 @@ function AnimatedRoutes() {
 }
 
 function App() {
+  const [showLoading, setShowLoading] = useState(true);
+
   return (
     <ThemeProvider>
+      {showLoading && <LoadingScreen onLoadingComplete={() => setShowLoading(false)} />}
       <Router>
         <div className={styles.app}>
           <MouseHalo />

@@ -3,9 +3,11 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useFilter } from '../hooks/useFilter';
 import FilterButtons from '../components/common/FilterButtons';
 import StatsCounter from '../components/about/StatsCounter';
-import SkillsWeb from '../components/about/SkillsWeb';
+import SkillCircle from '../components/about/SkillCircle';
 import Timeline from '../components/about/Timeline';
-import { projects, aboutFilters } from '../data/aboutData';
+import GlassmorphicCard from '../components/common/GlassmorphicCard';
+import GradientText from '../components/common/GradientText';
+import { projects, aboutFilters, skillsWithLevels } from '../data/aboutData';
 import styles from './About.module.css';
 
 const About: React.FC = () => {
@@ -32,11 +34,23 @@ const About: React.FC = () => {
         {/* Overview Section */}
         {shouldShowSection('overview') && (
           <div key={`overview-${activeFilter}`}>
-            <div className={`${styles.aboutContent} fade-in about-section-item`}>
+            <GlassmorphicCard 
+              className={`${styles.aboutContent} fade-in about-section-item`}
+              hover={false}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+            >
               <div className={styles.aboutImage}>
+                <div className={styles.imageGlow}></div>
                 <img 
                   src="/Media/Profile.jpg" 
                   alt="Joey Audi - Audiovisual Professional" 
+                  className={styles.profileImg}
+                  loading="lazy"
+                  width="250"
+                  height="250"
                 />
               </div>
               <div className={styles.aboutText}>
@@ -54,7 +68,7 @@ const About: React.FC = () => {
                   working with Tampere's international student population.
                 </p>
               </div>
-            </div>
+            </GlassmorphicCard>
 
             <StatsCounter />
           </div>
@@ -63,31 +77,59 @@ const About: React.FC = () => {
         {/* Skills Section */}
         {shouldShowSection('skills') && (
           <div key={`skills-${activeFilter}`} className="about-section-item">
-            <h2 className="section-title fade-in">Skills</h2>
-            <div className="fade-in" style={{ marginBottom: '2rem', maxWidth: '800px', margin: '0 auto 2rem' }}>
-              <p style={{ marginBottom: '1rem' }}>
+            <GradientText as="h2" gradient="primary" className="section-title fade-in">
+              Skills & Expertise
+            </GradientText>
+            <div className="fade-in" style={{ marginBottom: '2rem', maxWidth: '800px', margin: '0 auto 2rem', textAlign: 'center' }}>
+              <p style={{ marginBottom: '1rem', opacity: 0.9 }}>
                 <strong>Event Coordination & Live Tech:</strong> Coordinated 30+ annual events (up to 600 attendees) and operated AV systems at Nokia Arena
               </p>
-              <p style={{ marginBottom: '1rem' }}>
+              <p style={{ marginBottom: '1rem', opacity: 0.9 }}>
                 <strong>Video Production & Editing:</strong> Delivered 60+ edited videos monthly across 5 platforms for Onepress TV
               </p>
-              <p>
+              <p style={{ opacity: 0.9 }}>
                 <strong>Graphic Design & 3D:</strong> Created event branding, promotional materials, and 3D environments for student events
               </p>
             </div>
-            <SkillsWeb />
+            <div className={styles.skillsGrid}>
+              {skillsWithLevels.map((skill, index) => {
+                const colors = {
+                  technical: '#4facfe',
+                  creative: '#f093fb',
+                  soft: '#667eea'
+                };
+                return (
+                  <SkillCircle
+                    key={skill.name}
+                    name={skill.name}
+                    level={skill.level}
+                    category={skill.category}
+                    color={colors[skill.category]}
+                    index={index}
+                  />
+                );
+              })}
+            </div>
           </div>
         )}
 
         {/* Work Section */}
         {shouldShowSection('work') && (
           <div key={`work-${activeFilter}`} className="about-section-item">
-            <h2 className="section-title fade-in">Selected Work</h2>
+            <GradientText as="h2" gradient="secondary" className="section-title fade-in">
+              Selected Work
+            </GradientText>
             <div className={styles.projectsGrid}>
               {projects.map((project, index) => (
-                <div 
+                <GlassmorphicCard
                   key={project.id} 
                   className={`${styles.projectCard} ${index === 0 ? styles.featured : ''} fade-in ${index % 2 === 0 ? 'slide-in-left' : 'slide-in-right'}`}
+                  hover={true}
+                  gradient={index === 0 ? 'primary' : 'none'}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05, duration: 0.4 }}
                 >
                   <div className={styles.projectImage}>{project.image}</div>
                   <div className={styles.projectInfo}>
@@ -100,11 +142,11 @@ const About: React.FC = () => {
                     </div>
                     <div className={styles.projectLinks}>
                       <a href={project.link} target="_blank" rel="noopener noreferrer">
-                        See Details on LinkedIn
+                        See Details on LinkedIn →
                       </a>
                     </div>
                   </div>
-                </div>
+                </GlassmorphicCard>
               ))}
             </div>
           </div>
@@ -113,7 +155,9 @@ const About: React.FC = () => {
         {/* Experience Section */}
         {shouldShowSection('experience') && (
           <div key={`experience-${activeFilter}`} className="about-section-item">
-            <h2 className="section-title fade-in">Experience & Education</h2>
+            <GradientText as="h2" gradient="accent" className="section-title fade-in">
+              Experience & Education
+            </GradientText>
             <Timeline />
           </div>
         )}

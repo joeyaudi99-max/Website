@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { staggerContainer, staggerItem } from '../utils/animations';
+import GlassmorphicCard from '../components/common/GlassmorphicCard';
+import GradientText from '../components/common/GradientText';
 import styles from './Contact.module.css';
 
 const Contact: React.FC = () => {
@@ -9,8 +11,11 @@ const Contact: React.FC = () => {
 
   return (
     <div className={styles.page}>
+      <div className={styles.gradientBg}></div>
       <div className="container">
-        <h1 className="section-title fade-in">Let's Connect</h1>
+        <GradientText as="h1" gradient="primary" className="section-title fade-in">
+          Let's Connect
+        </GradientText>
         
         <motion.div 
           className={styles.contactWrapper}
@@ -18,65 +23,78 @@ const Contact: React.FC = () => {
           initial="initial"
           animate="animate"
         >
-          <motion.div className={styles.contactIntro} variants={staggerItem}>
+          <GlassmorphicCard 
+            className={styles.contactIntro}
+            hover={false}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <p>
               I'm currently based in Tampere, Finland (EET timezone) and available for full-time 
               positions, contract work, or project collaborations in audiovisual production, event 
               coordination, and content creation. The fastest way to reach me is via email at 
               contact@joeyaudi.com or through LinkedIn.
             </p>
-          </motion.div>
+            <div className={styles.availabilityBadge}>
+              <span className={styles.pulseDot}></span>
+              Available for opportunities
+            </div>
+          </GlassmorphicCard>
 
           <motion.div className={styles.contactMethodsGrid} variants={staggerItem}>
-            <motion.a 
-              href="mailto:contact@joeyaudi.com"
-              className={styles.contactCard}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <div className={styles.cardIcon}>
-                <i className="fas fa-envelope"></i>
-              </div>
-              <h3>Email</h3>
-              <p>contact@joeyaudi.com</p>
-              <span className={styles.cardAction}>Send an email →</span>
-            </motion.a>
+            <a href="mailto:contact@joeyaudi.com" style={{ textDecoration: 'none' }}>
+              <GlassmorphicCard
+                className={styles.contactCard}
+                gradient="primary"
+                whileHover={{ scale: 1.05, y: -8 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <div className={styles.cardIcon}>
+                  <i className="fas fa-envelope"></i>
+                </div>
+                <h3>Email</h3>
+                <p>contact@joeyaudi.com</p>
+                <span className={styles.cardAction}>Send an email →</span>
+              </GlassmorphicCard>
+            </a>
 
-            <motion.a 
-              href="https://www.linkedin.com/in/joeyaudi"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.contactCard}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <div className={styles.cardIcon}>
-                <i className="fab fa-linkedin"></i>
-              </div>
-              <h3>LinkedIn</h3>
-              <p>Connect professionally</p>
-              <span className={styles.cardAction}>View profile →</span>
-            </motion.a>
+            <a href="https://www.linkedin.com/in/joeyaudi" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+              <GlassmorphicCard
+                className={styles.contactCard}
+                gradient="secondary"
+                whileHover={{ scale: 1.05, y: -8 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <div className={styles.cardIcon}>
+                  <i className="fab fa-linkedin"></i>
+                </div>
+                <h3>LinkedIn</h3>
+                <p>Connect professionally</p>
+                <span className={styles.cardAction}>View profile →</span>
+              </GlassmorphicCard>
+            </a>
 
-            <motion.a 
-              href="https://www.instagram.com/joeyaudi2/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.contactCard}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <div className={styles.cardIcon}>
-                <i className="fab fa-instagram"></i>
-              </div>
-              <h3>Instagram</h3>
-              <p>Follow my journey</p>
-              <span className={styles.cardAction}>View profile →</span>
-            </motion.a>
+            <a href="https://www.instagram.com/joeyaudi2/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+              <GlassmorphicCard
+                className={styles.contactCard}
+                gradient="accent"
+                whileHover={{ scale: 1.05, y: -8 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <div className={styles.cardIcon}>
+                  <i className="fab fa-instagram"></i>
+                </div>
+                <h3>Instagram</h3>
+                <p>Follow my journey</p>
+                <span className={styles.cardAction}>View profile →</span>
+              </GlassmorphicCard>
+            </a>
 
-            <motion.div 
+            <GlassmorphicCard
               className={`${styles.contactCard} ${styles.infoCard}`}
-              variants={staggerItem}
+              whileHover={{ scale: 1.05, y: -8 }}
             >
               <div className={styles.cardIcon}>
                 <i className="fas fa-globe"></i>
@@ -84,7 +102,7 @@ const Contact: React.FC = () => {
               <h3>Location</h3>
               <p>Tampere, Finland</p>
               <span className={styles.cardInfo}>EET (UTC+2/+3)</span>
-            </motion.div>
+            </GlassmorphicCard>
           </motion.div>
         </motion.div>
       </div>
