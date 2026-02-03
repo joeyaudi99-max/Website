@@ -109,7 +109,7 @@
 
 .portfolioGrid.masonry {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 1.5rem;
   align-items: start;
   grid-auto-flow: dense;
@@ -121,14 +121,15 @@
   margin: 0;
 }
 
+/* Wide items span 2 columns when we have space */
+.portfolioGrid.masonry > .wideItem {
+  grid-column: span 2;
+}
+
 /* Featured item spans 2 columns only when we have space for at least 2 columns */
 @media (min-width: 768px) {
   .portfolioGrid.masonry > div:first-child {
     grid-column: span 1;
-  }
-  
-  .portfolioGrid.masonry .wideItem {
-    grid-column: span 2;
   }
 }
 

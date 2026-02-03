@@ -60,7 +60,7 @@ function AnimatedRoutes() {
 function App() {
   return (
     <ThemeProvider>
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router>
         <div className={styles.app}>
           <MouseHalo />
           <BackToTop />
