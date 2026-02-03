@@ -65,12 +65,20 @@ const Lightbox: React.FC<LightboxProps> = ({
       // Delay unmounting to allow exit transition to complete (300ms transition + 50ms buffer)
       const timer = setTimeout(() => {
         setShouldRender(false);
+        // Ensure body overflow is reset
+        document.body.style.overflow = '';
       }, 350);
       return () => clearTimeout(timer);
     }
   }, [isOpen]);
 
-  if (!shouldRender || !imageSrc) return null;
+  if (!shouldRender || !imageSrc) {
+    // Ensure overflow is reset when component is not rendering
+    if (document.body.style.overflow === 'hidden') {
+      document.body.style.overflow = '';
+    }
+    return null;
+  }
 
   const handleBackgroundClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {

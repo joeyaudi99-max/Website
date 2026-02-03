@@ -81,7 +81,7 @@
   width: 100%;
   padding: 2rem 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
   gap: 2rem;
   align-items: start;
 }
@@ -160,10 +160,12 @@
 @media (max-width: 768px) {
   .page {
     padding-top: 80px;
+    padding-bottom: 2rem;
   }
 
   .portfolioIntro {
     padding: 1.5rem;
+    margin-bottom: 2rem;
   }
 
   .portfolioIntro p {
@@ -172,9 +174,15 @@
 
   .controls {
     justify-content: center;
+    margin-bottom: 1.5rem;
   }
 
   .searchWrapper {
     max-width: 100%;
+  }
+  
+  .portfolioGrid {
+    padding: 1rem 0;
+    gap: 1.5rem;
   }
 }

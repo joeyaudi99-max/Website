@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import ParticleBackground from '../components/effects/ParticleBackground';
-import ThreeBackground from '../components/effects/ThreeBackground';
 import TypewriterText from '../components/common/TypewriterText';
 import MagneticButton from '../components/common/MagneticButton';
 import GradientText from '../components/common/GradientText';
@@ -48,7 +47,6 @@ const Home: React.FC = () => {
   return (
     <div className={styles.page}>
       <ParticleBackground density={60} color="#667eea" opacity={0.4} speed={0.5} links={true} />
-      <ThreeBackground />
       <div className="container">
         <motion.div 
           className={styles.hero}
