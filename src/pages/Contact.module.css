@@ -1,0 +1,233 @@
+.page {
+  min-height: calc(100vh - 140px);
+  padding: 6rem 0 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.gradientBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 20% 50%,
+    rgba(102, 126, 234, 0.1) 0%,
+    transparent 50%
+  ),
+  radial-gradient(
+    circle at 80% 80%,
+    rgba(240, 147, 251, 0.1) 0%,
+    transparent 50%
+  ),
+  radial-gradient(
+    circle at 40% 20%,
+    rgba(79, 172, 254, 0.1) 0%,
+    transparent 50%
+  );
+  animation: gradientPulse 15s ease-in-out infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes gradientPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.contactWrapper {
+  max-width: 900px;
+  margin: 3rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.contactIntro {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2.5rem;
+}
+
+.contactIntro p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-color);
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+}
+
+.availabilityBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 25px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-color);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.pulseDot {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+  }
+}
+
+.contactMethodsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  width: 100%;
+}
+
+.contactCard {
+  padding: 2.5rem 2rem;
+  text-decoration: none;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.contactCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.contactCard:hover::before {
+  opacity: 1;
+}
+
+.contactCard.infoCard {
+  cursor: default;
+}
+
+.cardIcon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 0.5rem;
+  box-shadow: var(--shadow-purple);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contactCard:hover .cardIcon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: var(--shadow-elevated);
+}
+
+.contactCard.infoCard .cardIcon {
+  background: var(--gradient-cool);
+  box-shadow: 0 4px 15px rgba(48, 207, 208, 0.3);
+}
+
+.contactCard h3 {
+  font-size: 1.5rem;
+  margin: 0;
+  color: var(--text-color);
+}
+
+.contactCard p {
+  font-size: 1rem;
+  margin: 0;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+.cardAction {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.3s ease;
+}
+
+.contactCard:hover .cardAction {
+  transform: translateX(4px);
+}
+
+.cardInfo {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  opacity: 0.6;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 5rem 0 2rem;
+  }
+
+  .contactWrapper {
+    margin-top: 2rem;
+    gap: 2rem;
+  }
+
+  .contactMethodsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .contactCard {
+    padding: 2rem 1.5rem;
+  }
+
+  .cardIcon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+  }
+
+  .contactCard h3 {
+    font-size: 1.3rem;
+  }
+}
