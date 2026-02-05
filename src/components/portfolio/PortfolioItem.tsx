@@ -11,9 +11,34 @@ interface PortfolioItemProps {
 
 const PortfolioItem: React.FC<PortfolioItemProps> = ({ item, onImageClick }) => {
   const itemRef = React.useRef<HTMLDivElement>(null);
+  const descriptionRef = React.useRef<HTMLParagraphElement>(null);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [needsReadMore, setNeedsReadMore] = useState(false);
   
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  
+  // Check if description actually overflows 4 lines
+  React.useEffect(() => {
+    const checkOverflow = () => {
+      if (descriptionRef.current) {
+        const element = descriptionRef.current;
+        const lineHeight = parseFloat(window.getComputedStyle(element).lineHeight);
+        const maxHeight = lineHeight * 4; // 4 lines
+        
+        // Temporarily remove line clamp to measure full height
+        element.style.webkitLineClamp = 'unset';
+        const actualHeight = element.scrollHeight;
+        element.style.webkitLineClamp = '4';
+        
+        setNeedsReadMore(actualHeight > maxHeight);
+      }
+    };
+    
+    checkOverflow();
+    window.addEventListener('resize', checkOverflow);
+    
+    return () => window.removeEventListener('resize', checkOverflow);
+  }, [item.description]);
   
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     if (window.innerWidth < 768) return; // Disable on mobile
@@ -27,9 +52,6 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({ item, onImageClick }) => 
   const handleMouseLeave = useCallback(() => {
     setTilt({ x: 0, y: 0 });
   }, []);
-  
-  // Check if description is long (more than ~200 characters as rough estimate for 4 lines)
-  const isLongDescription = item.description.length > 200;
   const renderMedia = () => {
     switch (item.mediaType) {
       case 'youtube':
@@ -158,8 +180,8 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({ item, onImageClick }) => 
         <div className={styles.portfolioCategory}>{item.categoryLabel}</div>
         <h3 className={styles.portfolioTitle}>{item.title}</h3>
         <div className={`${styles.portfolioDescriptionWrapper} ${isExpanded ? styles.expanded : ''}`}>
-          <p className={styles.portfolioDescription}>{item.description}</p>
-          {isLongDescription && (
+          <p ref={descriptionRef} className={styles.portfolioDescription}>{item.description}</p>
+          {needsReadMore && (
             <button 
               className={styles.readMoreButton}
               onClick={() => setIsExpanded(!isExpanded)}
