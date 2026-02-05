@@ -22,7 +22,8 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({ item, onImageClick }) => 
     const checkOverflow = () => {
       if (descriptionRef.current) {
         const element = descriptionRef.current;
-        const lineHeight = parseFloat(window.getComputedStyle(element).lineHeight);
+        const computedStyle = window.getComputedStyle(element);
+        const lineHeight = parseFloat(computedStyle.lineHeight);
         const maxHeight = lineHeight * 4; // 4 lines
         
         // Temporarily remove line clamp to measure full height
@@ -30,15 +31,19 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({ item, onImageClick }) => 
         const actualHeight = element.scrollHeight;
         element.style.webkitLineClamp = '4';
         
-        setNeedsReadMore(actualHeight > maxHeight);
+        // Add 10px tolerance to avoid showing button for barely overflowing text
+        const shouldShow = actualHeight > (maxHeight + 10);
+        
+        setNeedsReadMore(shouldShow);
       }
     };
     
-    checkOverflow();
+    // Delay to ensure DOM is fully rendered
+    setTimeout(checkOverflow, 100);
     window.addEventListener('resize', checkOverflow);
     
     return () => window.removeEventListener('resize', checkOverflow);
-  }, [item.description]);
+  }, [item.description, item.title]);
   
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     if (window.innerWidth < 768) return; // Disable on mobile
