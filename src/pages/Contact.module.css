@@ -63,6 +63,9 @@
   color: var(--text-color);
   opacity: 0.9;
   margin-bottom: 1.5rem;
+  max-width: 65ch; /* Optimal line length */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .availabilityBadge {

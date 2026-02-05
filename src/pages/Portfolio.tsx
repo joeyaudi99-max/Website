@@ -108,9 +108,8 @@ const Portfolio: React.FC = () => {
         
         <div className={`${styles.portfolioIntro} fade-in`}>
           <p>
-            This is some work I've done in the past to show my capabilities and what I have experience in. 
-            Some of these elements date way back from my school years, some are recent. My capabilities have 
-            been constantly improving.
+            Here's work I've done over the years. Some projects are recent professional work, others go 
+            back to school assignments that taught me the fundamentals. Use the filters to browse by type.
           </p>
         </div>
 

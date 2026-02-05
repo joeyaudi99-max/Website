@@ -90,6 +90,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
 body {
@@ -388,5 +389,12 @@ select:focus-visible {
   /* Disable 3D transforms on mobile */
   .card-tilt:hover {
     transform: translateY(-4px);
+  }
+}
+
+/* iPad/Tablet specific adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  html {
+    scroll-padding-top: 110px;
   }
 }

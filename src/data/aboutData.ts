@@ -80,7 +80,7 @@ export const projects: Project[] = [
     id: 'paidia',
     title: 'Paidia - Nokia Arena Gaming & Event Space',
     image: 'Paidia Event Space',
-    description: 'Audiovisual operations for a modern gaming and event hub inside Nokia Arena, including PC optimization with GGLeap, live tech support, and visual content created with Adobe CC.',
+    description: 'Managed audiovisual operations for Nokia Arena\'s gaming hub, maintaining 40 high-performance PCs with GGLeap optimization software, VR equipment, and console stations. Created visual content using Adobe Photoshop and Premiere Pro while providing technical support services.',
     tags: ['Audiovisual Systems', 'Adobe CC', 'GGLeap', 'VR & Consoles'],
     link: 'https://www.linkedin.com/in/joeyaudi'
   },
@@ -88,7 +88,7 @@ export const projects: Project[] = [
     id: 'onepress',
     title: 'Multichannel News & Social Content',
     image: 'Onepress TV',
-    description: 'Remote video editing and content coordination for a news channel, managing structured workflows for 5+ social platforms and 60+ videos per month.',
+    description: 'Remote video editor managing multi-platform content workflows for news channel. Delivered 60+ edited videos monthly across five social platforms while coordinating with distributed production team.',
     tags: ['Video Editing', 'Content Strategy', 'Social Media'],
     link: 'https://www.linkedin.com/in/joeyaudi'
   },
@@ -96,7 +96,7 @@ export const projects: Project[] = [
     id: 'clint-community',
     title: 'CLINT & GraalOnline Communities',
     image: 'Community Events',
-    description: 'Community-focused projects ranging from international student events to online game moderation, emphasizing inclusivity, responsiveness, and long-term engagement.',
+    description: 'Community work ranging from international student events to online game moderation. I focused on keeping people engaged, responding quickly to issues, and building long-term relationships.',
     tags: ['Event Management', 'Community Support', 'Sponsorships'],
     link: 'https://www.linkedin.com/in/joeyaudi'
   }
@@ -106,6 +106,6 @@ export const aboutFilters = [
   { value: 'all', label: 'All' },
   { value: 'overview', label: 'Overview' },
   { value: 'skills', label: 'Skills' },
-  { value: 'work', label: 'Work' },
+  { value: 'work', label: 'Projects' },
   { value: 'experience', label: 'Experience' }
 ];

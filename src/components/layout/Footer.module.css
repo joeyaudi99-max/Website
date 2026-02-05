@@ -168,3 +168,36 @@
     font-size: 1.1rem;
   }
 }
+
+/* iPad/Tablet specific adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .footerContent {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .footerBrand {
+    flex: 0 1 auto;
+    text-align: center;
+  }
+  
+  .footerLinks {
+    flex: 0 1 auto;
+    justify-content: center;
+  }
+  
+  .footerSocial {
+    flex: 0 1 auto;
+    justify-content: center;
+  }
+  
+  .footerBottom {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 0.5rem;
+  }
+}

@@ -86,6 +86,7 @@
   line-height: 1.8;
   color: var(--text-color);
   opacity: 0.9;
+  max-width: 65ch; /* Optimal line length for readability */
 }
 
 .heroContent p {
@@ -127,6 +128,7 @@
 
   .description {
     font-size: 1rem;
+    line-height: 1.6;
   }
 
   .heroButtons {

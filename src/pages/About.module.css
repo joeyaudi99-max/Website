@@ -56,6 +56,7 @@
   font-size: 1.1rem;
   margin-bottom: 1.2rem;
   opacity: 0.9;
+  max-width: 70ch; /* Optimal line length for readability */
 }
 
 .skillCategory {
@@ -232,6 +233,11 @@
 
   .aboutText {
     text-align: center;
+  }
+  
+  .aboutText p {
+    font-size: 1rem; /* Ensure minimum 16px on mobile */
+    line-height: 1.6;
   }
 
   .skillCategory {

@@ -47,7 +47,7 @@ export const portfolioItems: PortfolioItem[] = [
     ],
     title: 'Virtual Production Research',
     categoryLabel: 'Research · Virtual Production',
-    description: 'Bachelor\'s thesis exploring virtual production workflows—specifically green screen compositing, matte work, and virtual set integration. This project demonstrates my ability to learn emerging tech independently and document technical processes clearly.',
+    description: 'Bachelor\'s thesis researching virtual production workflows, focusing on green screen compositing, matte extraction, and virtual set integration. Documented comprehensive technical methodology for implementing modern VP techniques in production environments.',
     tags: ['Virtual Production', 'Green Screen', 'Compositing', 'Research', 'Thesis Work']
   },
   {
@@ -65,7 +65,7 @@ export const portfolioItems: PortfolioItem[] = [
     ],
     title: 'Ioana Model Photoshoot',
     categoryLabel: 'Photography · Portrait',
-    description: 'Professional portrait session demonstrating studio lighting techniques, direction, and composition. This series captures natural expressions while maintaining consistent quality across different poses and setups.',
+    description: 'Portrait session focused on capturing natural expressions. I worked with studio lighting and directed poses to keep the series consistent across different setups.',
     tags: ['Photography', 'Portrait', 'Studio', 'Model Photography', 'Lighting']
   },
   {
@@ -76,7 +76,7 @@ export const portfolioItems: PortfolioItem[] = [
     youtubeId: 'Kumu1b_2Rrk',
     title: 'Chocolate Fondant Tutorial',
     categoryLabel: '3D Animation · Video Editing',
-    description: 'Combined 3D animation with video editing to create a recipe tutorial. Made in Blender and edited in Adobe Premiere Pro, this project shows how I approach making technical content accessible and visually engaging.',
+    description: 'Combined 3D animation with video editing for a recipe tutorial. Made in Blender, edited in Premiere Pro. I wanted to make technical content feel more accessible and visually interesting.',
     tags: ['3D Animation', 'Adobe Premiere Pro', 'Food Styling']
   },
   {
@@ -87,7 +87,7 @@ export const portfolioItems: PortfolioItem[] = [
     youtubeId: 'LHb02g-2eqg',
     title: 'Promotional Video',
     categoryLabel: 'Video Production · Promotional',
-    description: 'Promotional video project demonstrating cinematography and editing skills for brand storytelling.',
+    description: 'Promo video project where I handled cinematography and editing for brand storytelling.',
     tags: ['Video Production', 'Cinematography', 'Editing']
   },
   {
@@ -98,7 +98,7 @@ export const portfolioItems: PortfolioItem[] = [
     videoSrc: '/Media/Wine_Hack_Subtitles.mp4',
     title: 'Wine Hack Tutorial',
     categoryLabel: 'Video Production · Tutorial',
-    description: 'Short-form video tutorial showing my approach to quick, engaging content with clear subtitling and tight editing. Produced for social media distribution.',
+    description: 'Short tutorial video with quick edits and clear subtitles. Made for social media, so I kept it tight and engaging.',
     tags: ['Video Editing', 'Production', 'Subtitling']
   },
   {
@@ -109,7 +109,7 @@ export const portfolioItems: PortfolioItem[] = [
     videoSrc: '/Media/Martian_hat_render_ad.mp4',
     title: 'Martian Hat Render Advertisement',
     categoryLabel: '3D Render · Advertisement',
-    description: '3D product visualization and motion graphics for a promotional ad. Rendered with realistic materials and animated for social media distribution.',
+    description: '3D product visualization with motion graphics for a promo ad. Rendered with realistic materials and animated for social distribution.',
     tags: ['3D Rendering', 'Product Visualization', 'Motion Graphics']
   },
   {
@@ -121,7 +121,7 @@ export const portfolioItems: PortfolioItem[] = [
     lightboxGroup: 'post-apocalyptic',
     title: 'Post Apocalyptic Environment',
     categoryLabel: '3D Environment · Arnold Renderer',
-    description: 'Created in AutoDesk Maya with VR-sculpted trees and environmental assets. Used composition principles and Arnold renderer to achieve a cinematic atmosphere. This project demonstrates my ability to work across different 3D tools and rendering pipelines.',
+    description: 'Made in Maya with VR-sculpted trees and environmental assets. I used composition principles and Arnold renderer to get a cinematic feel. Good practice working across different 3D tools and rendering systems.',
     tags: ['AutoDesk Maya', 'VR', 'Arnold Renderer', 'Composition']
   },
   {
@@ -133,7 +133,7 @@ export const portfolioItems: PortfolioItem[] = [
     lightboxGroup: 'photo-manipulation',
     title: 'Photo Manipulation - Space Movie Poster',
     categoryLabel: 'Graphic Design · Photo Manipulation',
-    description: 'Course project creating a sci-fi movie poster using Photoshop compositing techniques. Combined multiple elements, color grading, and lighting effects to create a cohesive space-themed design.',
+    description: 'Course project making a sci-fi movie poster in Photoshop. I combined multiple elements with color grading and lighting effects to build a cohesive space-themed design.',
     tags: ['Adobe Photoshop', 'Photo Manipulation', 'Movie Poster']
   },
   {
@@ -145,7 +145,7 @@ export const portfolioItems: PortfolioItem[] = [
     lightboxGroup: 'mountain',
     title: 'Mountain Environment',
     categoryLabel: '3D Environment · Blender',
-    description: 'Procedurally generated mountain landscape created in Blender with world generation tools. Rendered at 4K resolution with a focus on composition and atmospheric perspective using grayscale color grading.',
+    description: 'Procedurally generated mountain landscape in Blender using world generation tools. Rendered at 4K with focus on composition and atmospheric perspective. I went with grayscale color grading to keep attention on the forms.',
     tags: ['Blender', 'World Generation', '4K Rendering', 'Composition']
   },
   {
@@ -163,7 +163,7 @@ export const portfolioItems: PortfolioItem[] = [
     ],
     title: 'Crossyroad Character Collection',
     categoryLabel: '3D Character · Game Asset',
-    description: 'Low-poly game characters modeled in Blender following the Crossy Road aesthetic. Created multiple character variations and views to demonstrate understanding of game asset optimization and style matching.',
+    description: 'Low-poly game characters modeled in Blender, matching the Crossy Road aesthetic. I made multiple character variations and views to practice game asset optimization and style matching.',
     tags: ['Blender', 'Character Modeling', 'Game Asset', 'Low Poly']
   },
   {
@@ -185,7 +185,7 @@ export const portfolioItems: PortfolioItem[] = [
     ],
     title: 'Minecraft Sitsit Event Branding',
     categoryLabel: 'Graphic Design · 3D Renders',
-    description: 'Complete visual identity for a 200-person student event, including Instagram posts, patches, and printed songbooks. Coordinated with venue, sponsors, and volunteers to ensure consistent branding across all touchpoints. Event sold out in 48 hours.',
+    description: 'Developed complete visual identity and managed event operations for 200-person student gathering. Coordinated venue logistics, secured sponsorships, and led volunteer team. Maintained cohesive Minecraft-themed branding across digital content, merchandise, and print materials. Event achieved sell-out status within 48 hours.',
     tags: ['Adobe Photoshop', 'Adobe Illustrator', 'Event Branding', 'Social Media Design', '3D Renders']
   },
   {
@@ -201,7 +201,7 @@ export const portfolioItems: PortfolioItem[] = [
     ],
     title: 'CLINT CRUISE Event Branding',
     categoryLabel: 'Graphic Design · 3D Renders',
-    description: 'Branding for CLINT\'s flagship cruise event. Created Instagram graphics, patch designs, and promotional materials that helped drive ticket sales and secure €2,000 in sponsorships. This event has become an annual tradition with 150+ international students participating.',
+    description: 'Created comprehensive branding package for flagship annual cruise event serving 150+ international students. Designed Instagram graphics, physical merchandise, and promotional materials that contributed to ticket sales and secured €2,000 in event sponsorships.',
     tags: ['Adobe Photoshop', 'Adobe Illustrator', 'Event Branding', '3D Renders']
   }
 ];

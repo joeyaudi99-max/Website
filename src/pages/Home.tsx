@@ -103,11 +103,12 @@ const Home: React.FC = () => {
               />
             </motion.div>
             <motion.p variants={staggerItem} className={styles.description}>
-              I've coordinated 30+ annual events for 600+ international participants, operated AV systems 
-              in arena-scale gaming spaces, and edited 60+ videos monthly for multi-platform distribution. 
-              Based in Tampere, Finland, I specialize in making technical setups run smoothly while keeping 
-              people engaged and comfortable—whether that's troubleshooting VR headsets, managing live event 
-              tech, or cutting promotional content on tight deadlines.
+              I run events, manage AV tech, and edit video. For the past few years, I've coordinated 30+ 
+              events annually (some with 600+ people), kept Nokia Arena's gaming space running smoothly, 
+              and edited 60+ videos every month for YouTube, Instagram, TikTok, Facebook, and LinkedIn. 
+              I'm based in Tampere, Finland. Whether I'm troubleshooting VR headsets, running live event 
+              tech, or editing promo content on deadline, I focus on keeping things working and people 
+              comfortable.
             </motion.p>
             <motion.div className={styles.heroButtons} variants={staggerItem}>
               <MagneticButton href="/JoeyAudi_General-Resume.pdf" download variant="gradient">

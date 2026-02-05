@@ -24,9 +24,11 @@ export const useScrollAnimation = () => {
         // Skip elements with inline animations (portfolio items)
         const hasInlineAnimation = (el as HTMLElement).style.animation;
         if (!hasInlineAnimation) {
-          // Remove visible class first to allow re-animation
-          el.classList.remove('visible');
-          observer.observe(el);
+          // Only remove visible class if not already animating/visible
+          // This prevents interrupting mid-animation when MutationObserver fires
+          if (!el.classList.contains('visible')) {
+            observer.observe(el);
+          }
         }
       });
     };

@@ -55,17 +55,18 @@ const About: React.FC = () => {
               </div>
               <div className={styles.aboutText}>
                 <p>
-                  I'm an audiovisual technician and event coordinator who thrives in the organized chaos of 
-                  live events. I've managed everything from 600-person international student gatherings to 
-                  daily operations in Nokia Arena's gaming space, Paidia—where I optimized 40 high-end PCs, 
-                  guided guests through VR setups, and created visual content with Adobe Creative Suite.
+                  I work in live events and AV tech. My background is a mix of hands-on technical work and 
+                  people management. At Nokia Arena's Paidia gaming space, I kept 40 gaming PCs running (using 
+                  GGLeap for optimization), helped visitors with VR setups and console troubleshooting, and 
+                  made graphics and videos in Photoshop, Illustrator, and Premiere. I've also coordinated 
+                  international student events for up to 600 people.
                 </p>
                 <p>
-                  My background spans technical AV systems, video production, and community management. I've 
-                  edited 60+ videos monthly for Onepress TV's social channels, secured €9,000 in event 
-                  sponsorships as CLINT's Vice-Chairman, and spent three years moderating a 3,000-player 
-                  online gaming community. I speak English, Arabic, and French, which has been invaluable 
-                  working with Tampere's international student population.
+                  For Onepress TV, I edited 60+ videos every month for their YouTube, Instagram, TikTok, Facebook, 
+                  and LinkedIn channels. As Vice-Chairman at CLINT, I brought in €9,000 in sponsorships and ran 
+                  30+ events annually. Earlier, I spent three years as a moderator for an online game with 3,000+ 
+                  daily players. I speak English, Arabic, and French, which helps a lot when working with Tampere's 
+                  international students.
                 </p>
               </div>
             </GlassmorphicCard>
@@ -82,13 +83,13 @@ const About: React.FC = () => {
             </GradientText>
             <div className="fade-in" style={{ marginBottom: '2rem', maxWidth: '800px', margin: '0 auto 2rem', textAlign: 'center' }}>
               <p style={{ marginBottom: '1rem', opacity: 0.9 }}>
-                <strong>Event Coordination & Live Tech:</strong> Coordinated 30+ annual events (up to 600 attendees) and operated AV systems at Nokia Arena
+                <strong>Event Coordination & Live Tech:</strong> Coordinated 30+ annual events (up to 600 attendees) and operated professional AV systems at Nokia Arena.
               </p>
               <p style={{ marginBottom: '1rem', opacity: 0.9 }}>
-                <strong>Video Production & Editing:</strong> Delivered 60+ edited videos monthly across 5 platforms for Onepress TV
+                <strong>Video Production & Editing:</strong> Delivered 60+ edited videos monthly across five social platforms for Onepress TV (YouTube, Instagram, TikTok, Facebook, LinkedIn).
               </p>
               <p style={{ opacity: 0.9 }}>
-                <strong>Graphic Design & 3D:</strong> Created event branding, promotional materials, and 3D environments for student events
+                <strong>Graphic Design & 3D:</strong> I create event branding, promo materials, and 3D renders for student events.
               </p>
             </div>
             

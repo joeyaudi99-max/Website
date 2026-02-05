@@ -254,3 +254,33 @@
     background: var(--primary-color);
   }
 }
+
+/* iPad/Tablet specific adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .navLinks {
+    gap: 1rem; /* Reduced from 1.5rem to 1rem */
+  }
+  
+  .navLinks a {
+    padding: 0.5rem 0.6rem; /* Reduced from 0.75rem to 0.6rem */
+    font-size: 0.9rem; /* Reduced from 0.95rem to 0.9rem */
+  }
+  
+  .socialIcons {
+    gap: 0.6rem; /* Reduced from 0.75rem to 0.6rem */
+  }
+  
+  .socialIcons a {
+    font-size: 1.1rem; /* Slightly smaller icons */
+  }
+  
+  .themeToggle {
+    width: 38px; /* Reduced from 40px to 38px */
+    height: 38px;
+    font-size: 0.95rem; /* Slightly smaller */
+  }
+  
+  .navRight {
+    gap: 0.75rem; /* Reduce gap between social icons and theme toggle */
+  }
+}

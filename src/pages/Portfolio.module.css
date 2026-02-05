@@ -22,6 +22,8 @@
   line-height: 1.8;
   font-size: 1.05rem;
   opacity: 0.9;
+  max-width: 70ch; /* Optimal line length */
+  margin: 0 auto;
 }
 
 .controls {
