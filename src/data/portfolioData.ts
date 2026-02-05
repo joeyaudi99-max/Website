@@ -96,6 +96,7 @@ export const portfolioItems: PortfolioItem[] = [
     categories: 'video',
     mediaType: 'video',
     videoSrc: '/Media/Wine_Hack_Subtitles.mp4',
+    posterImage: '/Media/Wine_Hack_Subtitles_poster.jpg',
     title: 'Wine Hack Tutorial',
     categoryLabel: 'Video Production · Tutorial',
     description: 'Short tutorial video with quick edits and clear subtitles. Made for social media, so I kept it tight and engaging.',
@@ -107,6 +108,7 @@ export const portfolioItems: PortfolioItem[] = [
     categories: 'renders,video',
     mediaType: 'video',
     videoSrc: '/Media/Martian_hat_render_ad.mp4',
+    posterImage: '/Media/Martian_hat_render_ad_poster.jpg',
     title: 'Martian Hat Render Advertisement',
     categoryLabel: '3D Render · Advertisement',
     description: '3D product visualization with motion graphics for a promo ad. Rendered with realistic materials and animated for social distribution.',
@@ -203,6 +205,60 @@ export const portfolioItems: PortfolioItem[] = [
     categoryLabel: 'Graphic Design · 3D Renders',
     description: 'Created comprehensive branding package for flagship annual cruise event serving 150+ international students. Designed Instagram graphics, physical merchandise, and promotional materials that contributed to ticket sales and secured €2,000 in event sponsorships.',
     tags: ['Adobe Photoshop', 'Adobe Illustrator', 'Event Branding', '3D Renders']
+  },
+  {
+    id: 'vfx-drone-test',
+    category: 'renders',
+    categories: 'renders,video',
+    mediaType: 'multiImage',
+    lightboxGroup: 'vfx-drone',
+    carouselImages: [
+      { src: '/Media/VFX_Test/Drone_Shot_Before.jpg', alt: 'VFX Test - Original Drone Footage' },
+      { src: '/Media/VFX_Test/Point_Cloud_1.jpg', alt: 'VFX Test - 3D Point Cloud Scan 1' },
+      { src: '/Media/VFX_Test/Point_Cloud_2.jpg', alt: 'VFX Test - 3D Point Cloud Scan 2' },
+      { src: '/Media/VFX_Test/Point_Cloud_3.jpg', alt: 'VFX Test - 3D Point Cloud Scan 3' },
+      { src: '/Media/VFX_Test/Final_Result_After.jpg', alt: 'VFX Test - Final Composite with 3D Elements' }
+    ],
+    title: 'VFX Drone Composite',
+    categoryLabel: 'VFX · 3D Integration',
+    description: '3D scanning workflow test integrating CG elements into live drone footage. Processed point cloud data from aerial shots, added 3D assets in post, and matched lighting/color grade to blend synthetic elements with practical footage.',
+    tags: ['VFX', '3D Scanning', 'Compositing', 'Color Grading', 'Drone Footage']
+  },
+  {
+    id: 'goodbye-animation',
+    category: 'video',
+    categories: 'video,renders',
+    mediaType: 'video',
+    videoSrc: '/Media/Goodbye_Joey_Audi.mp4',
+    posterImage: '/Media/Goodbye_Joey_Audi_poster.jpg',
+    title: 'Goodbye - Character Animation',
+    categoryLabel: 'Animation · Motion Graphics',
+    description: 'Character-driven animation combining Adobe After Effects motion graphics with Character Animator for real-time facial animation. Rigged custom character, recorded performance capture, and composited animated elements with kinetic typography.',
+    tags: ['After Effects', 'Character Animator', 'Motion Graphics', '2D Animation']
+  },
+  {
+    id: 'army-classic-animation',
+    category: 'renders',
+    categories: 'renders,video',
+    mediaType: 'video',
+    videoSrc: '/Media/Army_Classic.mp4',
+    posterImage: '/Media/Army_Classic_poster.jpg',
+    title: 'Army Classic Character Animation',
+    categoryLabel: '3D Animation · Character Rigging',
+    description: 'Character animation workflow using Mixamo rigging and Blender for animation refinement. Applied motion capture data to custom character rig, cleaned up keyframes, and rendered with cinematic camera work.',
+    tags: ['Blender', 'Mixamo', 'Character Animation', '3D Animation']
+  },
+  {
+    id: 'animation-showreel',
+    category: 'video',
+    categories: 'video,renders',
+    mediaType: 'video',
+    videoSrc: '/Media/Animation_Showreel.mp4',
+    posterImage: '/Media/Animation_Showreel_poster.jpg',
+    title: 'Animation Showreel 2023',
+    categoryLabel: 'Showreel · 3D & Motion Graphics',
+    description: 'Compilation of animation work completed during studies at Tampere University of Applied Sciences. Includes 3D character animation, motion graphics, VFX compositing, and rendering projects demonstrating technical range across multiple software packages.',
+    tags: ['Showreel', '3D Animation', 'Motion Graphics', 'VFX', 'Academic Work']
   }
 ];
 
