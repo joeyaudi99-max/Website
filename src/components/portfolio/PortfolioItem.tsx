@@ -10,6 +10,8 @@ interface PortfolioItemProps {
 }
 
 const PortfolioItem: React.FC<PortfolioItemProps> = ({ item, onImageClick }) => {
+  const itemRef = React.useRef<HTMLDivElement>(null);
+  
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
@@ -136,13 +138,14 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({ item, onImageClick }) => 
 
   return (
     <div 
-      className={`${styles.portfolioItem} fade-in`}
+      ref={itemRef}
+      className={styles.portfolioItem}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{
+      style={window.innerWidth >= 768 ? {
         transform: `perspective(1200px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
         transition: tilt.x === 0 && tilt.y === 0 ? 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)' : 'none'
-      }}
+      } : undefined}
     >
       <div className={styles.portfolioMedia}>
         {renderMedia()}

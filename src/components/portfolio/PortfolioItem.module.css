@@ -9,11 +9,13 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   margin: 0;
   width: 100%;
+  max-width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   transform: translateZ(0);
   position: relative;
+  box-sizing: border-box;
 }
 
 .portfolioItem::after {
@@ -91,6 +93,18 @@
   background: var(--bg-color);
   transition: transform 0.25s ease;
   transform: translateZ(0);
+}
+
+/* Mobile responsive images */
+@media (max-width: 768px) {
+  .video {
+    max-height: 40vh;
+  }
+
+  .image {
+    max-height: 50vh;
+    max-width: 100%;
+  }
 }
 
 .image:hover {
@@ -251,6 +265,7 @@
 @media (max-width: 768px) {
   .portfolioItem {
     margin: 0;
+    border-radius: 20px;
   }
 
   .portfolioContent {
@@ -259,18 +274,94 @@
 
   .portfolioTitle {
     font-size: 1.5rem;
+    line-height: 1.3;
+  }
+
+  .portfolioDescription {
+    font-size: 1rem;
+    line-height: 1.7;
   }
 
   .video {
     max-height: 300px;
+    object-fit: cover;
   }
 
   .image {
-    max-height: 400px;
+    max-height: 350px;
+    object-fit: cover;
+  }
+
+  .portfolioPrimaryImage {
+    min-height: 280px;
   }
 
   .secondaryCarouselItem {
-    width: 220px;
-    height: 220px;
+    width: 200px;
+    height: 200px;
+  }
+
+  .secondaryCarouselContainer {
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+
+  .portfolioTag {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+/* Very small mobile (iPhone SE, small Android) */
+@media (max-width: 400px) {
+  .portfolioItem {
+    border-radius: 16px;
+  }
+
+  .portfolioContent {
+    padding: 1rem;
+  }
+
+  .portfolioTitle {
+    font-size: 1.25rem;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+
+  .portfolioDescription {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .video {
+    max-height: 35vh;
+  }
+
+  .image {
+    max-height: 40vh;
+  }
+
+  .portfolioPrimaryImage {
+    min-height: 200px;
+  }
+
+  .secondaryCarouselItem {
+    width: 160px;
+    height: 160px;
+  }
+
+  .secondaryCarouselContainer {
+    padding: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .portfolioTag {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.7rem;
+  }
+
+  .portfolioTags {
+    gap: 0.4rem;
   }
 }

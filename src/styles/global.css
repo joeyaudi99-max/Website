@@ -115,9 +115,11 @@ body {
 
 .container {
   max-width: 1200px;
+  width: 100%; /* Ensure container is responsive */
   margin: 0 auto;
   padding: 0 2rem;
   contain: layout style;
+  box-sizing: border-box; /* Include padding in width calculation */
 }
 
 /* Better Touch Targets for Mobile (Apple HIG: 44x44 points minimum) */

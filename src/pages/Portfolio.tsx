@@ -64,28 +64,6 @@ const Portfolio: React.FC = () => {
 
   const closeLightbox = () => {
     setLightboxState(prev => ({ ...prev, isOpen: false }));
-    
-    // Aggressive repaint strategy after lightbox closes
-    setTimeout(() => {
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          // Force repaint of portfolio grid
-          const portfolioGrid = document.querySelector(`.${styles.portfolioGrid}`);
-          const pageContainer = document.querySelector(`.${styles.page}`);
-          
-          if (portfolioGrid) {
-            void (portfolioGrid as HTMLElement).offsetHeight;
-          }
-          if (pageContainer) {
-            void (pageContainer as HTMLElement).offsetHeight;
-          }
-          
-          // Force complete document reflow
-          void document.body.offsetHeight;
-          window.dispatchEvent(new Event('resize'));
-        });
-      });
-    }, 100);
   };
 
   const navigateLightbox = (direction: number) => {
@@ -162,11 +140,20 @@ const Portfolio: React.FC = () => {
           </div>
         ) : (
           <div 
-            key={activeFilter}
+            key={`portfolio-grid-${activeFilter}`}
             className={styles.portfolioGrid}
+            style={window.innerWidth < 768 ? { gridTemplateColumns: '1fr' } : undefined}
           >
             {searchedItems.map((item, index) => (
-              <div key={item.id}>
+              <div 
+                key={item.id}
+                style={{
+                  animation: `fadeInUp 0.6s ease ${index * 0.05}s both`,
+                  animationIterationCount: 1,
+                  maxWidth: '100%',
+                  overflow: 'hidden'
+                }}
+              >
                 <PortfolioItem
                   item={item}
                   onImageClick={openLightbox}

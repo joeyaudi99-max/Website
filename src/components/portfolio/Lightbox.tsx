@@ -48,23 +48,14 @@ const Lightbox: React.FC<LightboxProps> = ({
   // Prevent background scrolling when lightbox is open
   useEffect(() => {
     if (isOpen) {
-      // Prevent body scroll
       document.body.style.overflow = 'hidden';
     } else {
-      // Restore scroll and force repaint
       document.body.style.overflow = '';
-      // Force multiple repaints to ensure content reappears
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          void document.body.offsetHeight;
-          // Force a style recalculation on the entire document
-          document.documentElement.style.transform = 'translateZ(0)';
-          requestAnimationFrame(() => {
-            document.documentElement.style.transform = '';
-          });
-        });
-      });
     }
+    
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [isOpen]);
 
   // Manage rendering state to allow exit transition

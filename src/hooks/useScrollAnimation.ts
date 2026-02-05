@@ -21,9 +21,13 @@ export const useScrollAnimation = () => {
     const observeElements = () => {
       const elements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
       elements.forEach(el => {
-        // Remove visible class first to allow re-animation
-        el.classList.remove('visible');
-        observer.observe(el);
+        // Skip elements with inline animations (portfolio items)
+        const hasInlineAnimation = (el as HTMLElement).style.animation;
+        if (!hasInlineAnimation) {
+          // Remove visible class first to allow re-animation
+          el.classList.remove('visible');
+          observer.observe(el);
+        }
       });
     };
 
