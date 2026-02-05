@@ -116,6 +116,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  gap: 0.75rem; /* Add consistent vertical spacing */
 }
 
 .portfolioCategory {
@@ -126,26 +127,75 @@
   color: var(--primary-color);
   font-weight: 700;
   font-size: 0.9rem;
-  margin-bottom: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   display: inline-block;
 }
 
 .portfolioTitle {
-  font-size: 2rem;
+  font-size: 1.75rem; /* Slightly reduced for better vertical balance */
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin: 0; /* Remove default margin, using gap instead */
   color: var(--text-color);
+  line-height: 1.3;
+}
+
+.portfolioDescriptionWrapper {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolioDescriptionWrapper:not(.expanded) .portfolioDescription {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .portfolioDescription {
-  font-size: 1.05rem;
-  line-height: 1.8;
+  font-size: 1rem; /* Slightly reduced */
+  line-height: 1.7;
   color: var(--text-color);
   opacity: 0.9;
-  margin-bottom: 1.5rem;
-  flex: 1;
+  margin: 0;
+}
+
+.readMoreButton {
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  color: var(--primary-color);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: flex-start;
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+}
+
+.readMoreButton:hover {
+  background: var(--glass-bg-strong);
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.readMoreButton i {
+  font-size: 0.75rem;
+  transition: transform 0.3s ease;
+}
+
+.portfolioDescriptionWrapper.expanded .readMoreButton i {
+  transform: rotate(180deg);
 }
 
 .portfolioTags {
@@ -270,16 +320,22 @@
 
   .portfolioContent {
     padding: 1.5rem;
+    gap: 0.5rem;
   }
 
   .portfolioTitle {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     line-height: 1.3;
   }
 
   .portfolioDescription {
-    font-size: 1rem;
-    line-height: 1.7;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  .readMoreButton {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
   }
 
   .video {
@@ -320,18 +376,22 @@
 
   .portfolioContent {
     padding: 1rem;
+    gap: 0.4rem;
   }
 
   .portfolioTitle {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     line-height: 1.2;
-    margin-bottom: 0.75rem;
   }
 
   .portfolioDescription {
     font-size: 0.9rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+  
+  .readMoreButton {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.7rem;
   }
 
   .video {

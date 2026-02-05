@@ -11,6 +11,7 @@ interface PortfolioItemProps {
 
 const PortfolioItem: React.FC<PortfolioItemProps> = ({ item, onImageClick }) => {
   const itemRef = React.useRef<HTMLDivElement>(null);
+  const [isExpanded, setIsExpanded] = useState(false);
   
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   
@@ -26,6 +27,9 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({ item, onImageClick }) => 
   const handleMouseLeave = useCallback(() => {
     setTilt({ x: 0, y: 0 });
   }, []);
+  
+  // Check if description is long (more than ~200 characters as rough estimate for 4 lines)
+  const isLongDescription = item.description.length > 200;
   const renderMedia = () => {
     switch (item.mediaType) {
       case 'youtube':
@@ -153,7 +157,19 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({ item, onImageClick }) => 
       <div className={styles.portfolioContent}>
         <div className={styles.portfolioCategory}>{item.categoryLabel}</div>
         <h3 className={styles.portfolioTitle}>{item.title}</h3>
-        <p className={styles.portfolioDescription}>{item.description}</p>
+        <div className={`${styles.portfolioDescriptionWrapper} ${isExpanded ? styles.expanded : ''}`}>
+          <p className={styles.portfolioDescription}>{item.description}</p>
+          {isLongDescription && (
+            <button 
+              className={styles.readMoreButton}
+              onClick={() => setIsExpanded(!isExpanded)}
+              aria-expanded={isExpanded}
+            >
+              {isExpanded ? 'Show less' : 'Read more'}
+              <i className={`fas fa-chevron-${isExpanded ? 'up' : 'down'}`}></i>
+            </button>
+          )}
+        </div>
         <div className={styles.portfolioTags}>
           {item.tags.map((tag, index) => (
             <span 
