@@ -81,10 +81,12 @@
 
 .portfolioGrid {
   width: 100%;
+  max-width: 1400px; /* Constrain max width for better readability */
+  margin: 0 auto; /* Center the grid */
   padding: 2rem 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(2, 1fr); /* Always 2 columns on desktop */
+  gap: 1.5rem; /* Reduced gap */
   align-items: start;
 }
 
@@ -93,19 +95,19 @@
   margin: 0;
 }
 
-/* Large desktop: Larger minimum column size */
+/* Large desktop: Keep 2 columns with slightly more gap */
 @media (min-width: 1400px) {
   .portfolioGrid {
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 2.5rem;
+    max-width: 1600px;
+    gap: 2rem;
   }
 }
 
-/* Tablet: Smaller minimum column size */
+/* Tablet: Keep 2 columns with reduced gap */
 @media (max-width: 1200px) and (min-width: 768px) {
   .portfolioGrid {
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
   }
 }
 
