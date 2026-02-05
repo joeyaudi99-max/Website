@@ -3,7 +3,7 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useFilter } from '../hooks/useFilter';
 import FilterButtons from '../components/common/FilterButtons';
 import StatsCounter from '../components/about/StatsCounter';
-import SkillCircle from '../components/about/SkillCircle';
+import SkillBadge from '../components/about/SkillBadge';
 import Timeline from '../components/about/Timeline';
 import GlassmorphicCard from '../components/common/GlassmorphicCard';
 import GradientText from '../components/common/GradientText';
@@ -91,24 +91,62 @@ const About: React.FC = () => {
                 <strong>Graphic Design & 3D:</strong> Created event branding, promotional materials, and 3D environments for student events
               </p>
             </div>
-            <div className={styles.skillsGrid}>
-              {skillsWithLevels.map((skill, index) => {
-                const colors = {
-                  technical: '#4facfe',
-                  creative: '#f093fb',
-                  soft: '#667eea'
-                };
-                return (
-                  <SkillCircle
-                    key={skill.name}
-                    name={skill.name}
-                    level={skill.level}
-                    category={skill.category}
-                    color={colors[skill.category]}
-                    index={index}
-                  />
-                );
-              })}
+            
+            {/* Technical Skills */}
+            <div className={styles.skillCategory}>
+              <h3 className={styles.categoryTitle} style={{ color: 'var(--accent-cyan)' }}>
+                Technical Skills
+              </h3>
+              <div className={styles.skillsGrid}>
+                {skillsWithLevels
+                  .filter(skill => skill.category === 'technical')
+                  .map((skill, index) => (
+                    <SkillBadge
+                      key={skill.name}
+                      name={skill.name}
+                      category={skill.category}
+                      index={index}
+                    />
+                  ))}
+              </div>
+            </div>
+
+            {/* Creative Skills */}
+            <div className={styles.skillCategory}>
+              <h3 className={styles.categoryTitle} style={{ color: 'var(--accent-pink)' }}>
+                Creative Skills
+              </h3>
+              <div className={styles.skillsGrid}>
+                {skillsWithLevels
+                  .filter(skill => skill.category === 'creative')
+                  .map((skill, index) => (
+                    <SkillBadge
+                      key={skill.name}
+                      name={skill.name}
+                      category={skill.category}
+                      index={index}
+                    />
+                  ))}
+              </div>
+            </div>
+
+            {/* Soft Skills */}
+            <div className={styles.skillCategory}>
+              <h3 className={styles.categoryTitle} style={{ color: 'var(--accent-purple)' }}>
+                Soft Skills
+              </h3>
+              <div className={styles.skillsGrid}>
+                {skillsWithLevels
+                  .filter(skill => skill.category === 'soft')
+                  .map((skill, index) => (
+                    <SkillBadge
+                      key={skill.name}
+                      name={skill.name}
+                      category={skill.category}
+                      index={index}
+                    />
+                  ))}
+              </div>
             </div>
           </div>
         )}

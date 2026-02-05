@@ -107,20 +107,47 @@
 }
 
 @media (max-width: 768px) {
+  .lightboxContent {
+    max-width: 95%;
+    max-height: 95%;
+    padding: 0 0.5rem;
+  }
+
+  .lightboxImage {
+    max-height: 75vh;
+    max-width: 95vw;
+    border-radius: 4px;
+  }
+
+  .lightboxNav {
+    width: 45px;
+    height: 45px;
+    opacity: 0.9;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
   .lightboxNav.prev {
     left: 10px;
+    bottom: 80px;
   }
 
   .lightboxNav.next {
     right: 10px;
+    bottom: 80px;
   }
 
   .lightboxClose {
     top: 10px;
     right: 10px;
+    width: 36px;
+    height: 36px;
+    font-size: 1.3rem;
   }
 
   .lightboxCounter {
-    bottom: 10px;
+    bottom: 20px;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
   }
 }

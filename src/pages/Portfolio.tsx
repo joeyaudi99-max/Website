@@ -64,6 +64,28 @@ const Portfolio: React.FC = () => {
 
   const closeLightbox = () => {
     setLightboxState(prev => ({ ...prev, isOpen: false }));
+    
+    // Aggressive repaint strategy after lightbox closes
+    setTimeout(() => {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          // Force repaint of portfolio grid
+          const portfolioGrid = document.querySelector(`.${styles.portfolioGrid}`);
+          const pageContainer = document.querySelector(`.${styles.page}`);
+          
+          if (portfolioGrid) {
+            void (portfolioGrid as HTMLElement).offsetHeight;
+          }
+          if (pageContainer) {
+            void (pageContainer as HTMLElement).offsetHeight;
+          }
+          
+          // Force complete document reflow
+          void document.body.offsetHeight;
+          window.dispatchEvent(new Event('resize'));
+        });
+      });
+    }, 100);
   };
 
   const navigateLightbox = (direction: number) => {

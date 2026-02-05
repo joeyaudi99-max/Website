@@ -1,0 +1,43 @@
+.skillBadge {
+  background: var(--glass-bg);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-color);
+  transition: all 0.3s var(--ease-smooth);
+  cursor: default;
+  text-align: center;
+  box-shadow: var(--glass-shadow);
+}
+
+.skillBadge:hover {
+  background: var(--glass-bg-strong);
+  box-shadow: var(--shadow-elevated);
+}
+
+/* Category-specific hover colors */
+.skillBadge.technical:hover {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 4px 20px rgba(79, 172, 254, 0.3);
+}
+
+.skillBadge.creative:hover {
+  border-color: var(--accent-pink);
+  box-shadow: 0 4px 20px rgba(240, 147, 251, 0.3);
+}
+
+.skillBadge.soft:hover {
+  border-color: var(--accent-purple);
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+}
+
+@media (max-width: 768px) {
+  .skillBadge {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+  }
+}
