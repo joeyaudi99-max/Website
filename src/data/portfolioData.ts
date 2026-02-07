@@ -170,7 +170,7 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     id: 'minecraft-sitsit',
-    category: 'graphic-design renders',
+    category: 'graphic-design',
     categories: 'graphic-design,renders',
     mediaType: 'beforeAfter',
     beforeImage: '/Media/Minecraft_Sitsit/INSTA_POST_MC_SITSIT_BEFORE.jpg',
@@ -188,11 +188,11 @@ export const portfolioItems: PortfolioItem[] = [
     title: 'Minecraft Sitsit Event Branding',
     categoryLabel: 'Graphic Design · 3D Renders',
     description: 'Developed complete visual identity and managed event operations for 200-person student gathering. Coordinated venue logistics, secured sponsorships, and led volunteer team. Maintained cohesive Minecraft-themed branding across digital content, merchandise, and print materials. Event achieved sell-out status within 48 hours.',
-    tags: ['Adobe Photoshop', 'Adobe Illustrator', 'Event Branding', 'Social Media Design', '3D Renders']
+    tags: ['Adobe Photoshop', 'Adobe Illustrator', 'Blender', 'Event Branding', 'Social Media Design', '3D Renders']
   },
   {
     id: 'clint-cruise',
-    category: 'graphic-design renders',
+    category: 'graphic-design',
     categories: 'graphic-design,renders',
     mediaType: 'carousel',
     autoRotate: true,
@@ -204,7 +204,7 @@ export const portfolioItems: PortfolioItem[] = [
     title: 'CLINT CRUISE Event Branding',
     categoryLabel: 'Graphic Design · 3D Renders',
     description: 'Created comprehensive branding package for flagship annual cruise event serving 150+ international students. Designed Instagram graphics, physical merchandise, and promotional materials that contributed to ticket sales and secured €2,000 in event sponsorships.',
-    tags: ['Adobe Photoshop', 'Adobe Illustrator', 'Event Branding', '3D Renders']
+    tags: ['Adobe Photoshop', 'Adobe Illustrator', 'Blender', 'Event Branding', '3D Renders']
   },
   {
     id: 'vfx-drone-test',
