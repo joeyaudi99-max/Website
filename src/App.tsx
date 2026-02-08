@@ -16,7 +16,6 @@ const Contact = lazy(() => import('./pages/Contact'));
 
 // Lazy load heavy effect components to reduce initial bundle
 const LoadingScreen = lazy(() => import('./components/effects/LoadingScreen'));
-const MouseHalo = lazy(() => import('./components/effects/MouseHalo'));
 const BackToTop = lazy(() => import('./components/common/BackToTop'));
 const ToastContainer = lazy(() => import('react-toastify').then(module => ({ default: module.ToastContainer })));
 
@@ -79,9 +78,6 @@ function App() {
       </Suspense>
       <Router>
         <div className={styles.app}>
-          <Suspense fallback={null}>
-            {isInteractive && <MouseHalo />}
-          </Suspense>
           <Suspense fallback={null}>
             {isInteractive && <BackToTop />}
           </Suspense>

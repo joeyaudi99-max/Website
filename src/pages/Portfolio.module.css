@@ -183,3 +183,44 @@
     gap: 1.5rem;
   }
 }
+
+.instagramSection {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.instagramSection h2 {
+  margin-bottom: 2rem;
+}
+
+.instagramEmbed {
+  max-width: 540px;
+  margin: 0 auto 2rem;
+  background: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.instagramLink {
+  margin-top: 1.5rem;
+}
+
+.instagramButton {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(188, 24, 136, 0.3);
+}
+
+.instagramButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(188, 24, 136, 0.4);
+}

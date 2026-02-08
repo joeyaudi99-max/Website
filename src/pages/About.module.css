@@ -7,9 +7,15 @@
 
 .aboutContent {
   display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.aboutWrapper {
+  display: flex;
   align-items: center;
   gap: 3rem;
-  margin: 3rem 0;
 }
 
 .aboutImage {
@@ -212,6 +218,10 @@
 
 @media (max-width: 768px) {
   .aboutContent {
+    gap: 1.5rem;
+  }
+
+  .aboutWrapper {
     flex-direction: column;
     gap: 2rem;
     align-items: center;

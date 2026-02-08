@@ -111,9 +111,11 @@ const Home: React.FC = () => {
               comfortable.
             </motion.p>
             <motion.div className={styles.heroButtons} variants={staggerItem}>
-              <MagneticButton href="/JoeyAudi_General-Resume.pdf" download variant="gradient">
-                Download Resume
-              </MagneticButton>
+              <Link to="/portfolio" style={{ textDecoration: 'none' }}>
+                <MagneticButton variant="gradient">
+                  View Portfolio
+                </MagneticButton>
+              </Link>
               <Link to="/contact" style={{ textDecoration: 'none' }}>
                 <MagneticButton variant="outline">
                   Contact Me

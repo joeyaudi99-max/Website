@@ -32,13 +32,14 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.6 }}
           >
             <p>
-              I'm in Tampere, Finland (EET timezone) and open to full-time roles, contract work, or 
-              project collaborations in AV production, events, and video content. Email is fastest: 
-              contact@joeyaudi.com. I'm also on LinkedIn if you want to connect there first.
+              I'm currently seeking full-time opportunities in audiovisual production, event coordination, 
+              and video content creation. Based in Tampere, Finland (EET timezone), I'm interested in roles 
+              where I can apply my experience in live events, technical operations, and multimedia production. 
+              Please reach out via email at contact@joeyaudi.com, or connect with me on LinkedIn.
             </p>
             <div className={styles.availabilityBadge}>
               <span className={styles.pulseDot}></span>
-              Available for opportunities
+              Available for full-time opportunities
             </div>
           </GlassmorphicCard>
 

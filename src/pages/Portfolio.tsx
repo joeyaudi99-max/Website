@@ -1,17 +1,12 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import { useFilter } from '../hooks/useFilter';
-import FilterButtons from '../components/common/FilterButtons';
 import PortfolioItem from '../components/portfolio/PortfolioItem';
 import Lightbox from '../components/portfolio/Lightbox';
-import { portfolioItems, portfolioFilters } from '../data/portfolioData';
+import { portfolioItems } from '../data/portfolioData';
 import styles from './Portfolio.module.css';
 
 const Portfolio: React.FC = () => {
   useScrollAnimation();
-
-  const { activeFilter, setActiveFilter, filteredItems } = useFilter(portfolioItems, 'all');
-  const [searchQuery, setSearchQuery] = useState('');
   
   const [lightboxState, setLightboxState] = useState<{
     isOpen: boolean;
@@ -26,18 +21,6 @@ const Portfolio: React.FC = () => {
     lightboxGroup: null,
     currentIndex: 0
   });
-
-  // Search filtering
-  const searchedItems = useMemo(() => {
-    if (!searchQuery.trim()) return filteredItems;
-    
-    const query = searchQuery.toLowerCase();
-    return filteredItems.filter(item =>
-      item.title.toLowerCase().includes(query) ||
-      item.description.toLowerCase().includes(query) ||
-      item.tags.some(tag => tag.toLowerCase().includes(query))
-    );
-  }, [filteredItems, searchQuery]);
 
   const openLightbox = (imageSrc: string, imageAlt: string, lightboxGroup?: string) => {
     const groupImages = lightboxGroup
@@ -108,59 +91,58 @@ const Portfolio: React.FC = () => {
         
         <div className={`${styles.portfolioIntro} fade-in`}>
           <p>
-            Here's work I've done over the years. Some projects are recent professional work, others go 
-            back to school assignments that taught me the fundamentals. Use the filters to browse by type.
+            Here's work I've done over the years. From professional projects to academic assignments that 
+            shaped my skills in audiovisual production, event branding, and 3D rendering.
           </p>
         </div>
 
-        {/* Search Control */}
-        <div className={styles.controls}>
-          <div className={styles.searchWrapper}>
-            <input
-              type="text"
-              placeholder="Search projects..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className={styles.searchInput}
-            />
-            <span className={styles.searchIcon}>🔍</span>
-          </div>
+        <div 
+          className={styles.portfolioGrid}
+          style={window.innerWidth < 768 ? { gridTemplateColumns: '1fr' } : undefined}
+        >
+          {portfolioItems.map((item, index) => (
+            <div 
+              key={item.id}
+              style={{
+                animation: `fadeInUp 0.6s ease ${index * 0.05}s both`,
+                animationIterationCount: 1,
+                maxWidth: '100%',
+                overflow: 'hidden'
+              }}
+            >
+              <PortfolioItem
+                item={item}
+                onImageClick={openLightbox}
+              />
+            </div>
+          ))}
         </div>
 
-        <FilterButtons
-          options={portfolioFilters}
-          activeFilter={activeFilter}
-          onFilterChange={setActiveFilter}
-        />
-
-        {searchedItems.length === 0 ? (
-          <div className={styles.noResults}>
-            <p>No projects found matching your search.</p>
+        {/* Instagram Feed Section */}
+        <div className={styles.instagramSection}>
+          <h2 className="section-title fade-in">Follow My Work on Instagram</h2>
+          <div className={styles.instagramEmbed}>
+            <iframe
+              src="https://www.instagram.com/joeyaudi2/embed/"
+              width="100%"
+              height="600"
+              frameBorder="0"
+              scrolling="no"
+              allowTransparency={true}
+              title="Instagram Feed"
+            ></iframe>
           </div>
-        ) : (
-          <div 
-            key={`portfolio-grid-${activeFilter}`}
-            className={styles.portfolioGrid}
-            style={window.innerWidth < 768 ? { gridTemplateColumns: '1fr' } : undefined}
-          >
-            {searchedItems.map((item, index) => (
-              <div 
-                key={item.id}
-                style={{
-                  animation: `fadeInUp 0.6s ease ${index * 0.05}s both`,
-                  animationIterationCount: 1,
-                  maxWidth: '100%',
-                  overflow: 'hidden'
-                }}
-              >
-                <PortfolioItem
-                  item={item}
-                  onImageClick={openLightbox}
-                />
-              </div>
-            ))}
+          <div className={styles.instagramLink}>
+            <a 
+              href="https://www.instagram.com/joeyaudi2/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className={styles.instagramButton}
+            >
+              View Full Instagram Profile →
+            </a>
           </div>
-        )}
+        </div>
       </div>
 
       <Lightbox

@@ -49,8 +49,8 @@ export const stats: Stat[] = [
     label: 'Max Event Attendance'
   },
   {
-    count: 9000,
-    label: 'Sponsorship Raised (€)'
+    count: 3,
+    label: 'Languages (EN, AR, FR)'
   },
   {
     count: 60,
@@ -61,8 +61,8 @@ export const stats: Stat[] = [
     label: 'Gaming PCs Managed'
   },
   {
-    count: 5,
-    label: 'Social Platforms'
+    count: 9000,
+    label: 'Sponsorship Raised (€)'
   }
 ];
 

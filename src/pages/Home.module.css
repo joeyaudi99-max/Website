@@ -6,15 +6,16 @@
 
 .hero {
   display: flex;
+  flex-direction: column;
   align-items: center;
   min-height: 80vh;
-  gap: 4rem;
+  gap: 3rem;
   padding: 2rem 0;
   position: relative;
+  text-align: center;
 }
 
 .heroImage {
-  flex: 1;
   text-align: center;
   position: relative;
   z-index: 1;
@@ -52,9 +53,12 @@
 }
 
 .heroContent {
-  flex: 1;
   position: relative;
   z-index: 1;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .name {
@@ -62,6 +66,7 @@
   font-weight: 800;
   margin-bottom: 0.5rem;
   line-height: 1.2;
+  text-align: center;
 }
 
 .roleContainer {
@@ -87,6 +92,7 @@
   color: var(--text-color);
   opacity: 0.9;
   max-width: 65ch; /* Optimal line length for readability */
+  text-align: center;
 }
 
 .heroContent p {
@@ -99,6 +105,8 @@
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
 }
 
 @media (max-width: 768px) {
