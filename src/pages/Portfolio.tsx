@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import SEO from '../components/SEO';
 import PortfolioItem from '../components/portfolio/PortfolioItem';
 import Lightbox from '../components/portfolio/Lightbox';
 import { portfolioItems } from '../data/portfolioData';
@@ -84,8 +85,28 @@ const Portfolio: React.FC = () => {
         })
     : [];
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "Joey Audi Portfolio",
+    "description": "Portfolio showcasing video production, 3D animation, cinematography, event coordination, and audiovisual projects.",
+    "author": {
+      "@type": "Person",
+      "name": "Joey Audi",
+      "jobTitle": "Audiovisual Technician & Event Coordinator",
+      "url": "https://joeyaudi.com"
+    },
+    "url": "https://joeyaudi.com/portfolio"
+  };
+
   return (
     <div className={styles.page}>
+      <SEO 
+        title="Portfolio"
+        description="Explore Joey Audi's portfolio of video production, 3D animation, cinematography, and event coordination projects. Professional work and creative projects across multiple disciplines."
+        image="/Media/PostApocalyptic_Render.jpg"
+        structuredData={structuredData}
+      />
       <div className="container">
         <h1 className="section-title fade-in">Portfolio</h1>
         

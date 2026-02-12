@@ -2,6 +2,7 @@ import React, { lazy, Suspense, useCallback, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import SEO from '../components/SEO';
 import TypewriterText from '../components/common/TypewriterText';
 import MagneticButton from '../components/common/MagneticButton';
 import GradientText from '../components/common/GradientText';
@@ -46,8 +47,28 @@ const Home: React.FC = () => {
     setTilt({ x: 0, y: 0 });
   }, []);
   
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Joey Audi",
+    "jobTitle": "Audiovisual Technician & Event Coordinator",
+    "description": "Audiovisual technician and event coordinator specializing in cinematography, live event production, and community engagement.",
+    "url": "https://joeyaudi.com",
+    "image": "https://joeyaudi.com/Media/Profile.jpg",
+    "sameAs": [
+      "https://www.instagram.com/joeyaudi2/",
+      "https://www.linkedin.com/in/joey-audi"
+    ]
+  };
+
   return (
     <div className={styles.page}>
+      <SEO 
+        title="Joey Audi - Audiovisual Technician & Event Coordinator"
+        description="Audiovisual technician and event coordinator specializing in cinematography, live event production, and community engagement. View my portfolio of video production, 3D animation, and event coordination work."
+        type="profile"
+        structuredData={structuredData}
+      />
       <Suspense fallback={<div />}>
         <ParticleBackground density={60} color="#667eea" opacity={0.4} speed={0.5} links={true} />
       </Suspense>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import SEO from '../components/SEO';
 import StatsCounter from '../components/about/StatsCounter';
 import Timeline from '../components/about/Timeline';
 import GlassmorphicCard from '../components/common/GlassmorphicCard';
@@ -9,8 +10,40 @@ import styles from './About.module.css';
 const About: React.FC = () => {
   useScrollAnimation();
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Joey Audi",
+    "jobTitle": "Audiovisual Technician & Event Coordinator",
+    "description": "Based in Tampere, Finland. Over 4 years of experience in event coordination, video production, and audiovisual work. Specialized in cinematography, live event production, and community engagement.",
+    "url": "https://joeyaudi.com/about",
+    "image": "https://joeyaudi.com/Media/Profile.jpg",
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Tampere University of Applied Sciences"
+    },
+    "knowsAbout": [
+      "Video Editing",
+      "Cinematography",
+      "3D Animation",
+      "Event Coordination",
+      "Live Production",
+      "Audio Engineering"
+    ],
+    "sameAs": [
+      "https://www.instagram.com/joeyaudi2/",
+      "https://www.linkedin.com/in/joey-audi"
+    ]
+  };
+
   return (
     <div className={styles.page}>
+      <SEO 
+        title="About Me"
+        description="Learn about Joey Audi's journey in audiovisual technology and event coordination. Over 4 years of experience in video production, cinematography, and live event management."
+        type="profile"
+        structuredData={structuredData}
+      />
       <div className="container">
         <h1 className="section-title fade-in">About Me</h1>
 

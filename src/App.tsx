@@ -1,6 +1,7 @@
 import React, { lazy, Suspense, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
+import { HelmetProvider } from 'react-helmet-async';
 import 'react-toastify/dist/ReactToastify.css';
 import { ThemeProvider } from './contexts/ThemeContext';
 import Navbar from './components/layout/Navbar';
@@ -72,34 +73,36 @@ function App() {
   }, []);
 
   return (
-    <ThemeProvider>
-      <Suspense fallback={<div />}>
-        {showLoading && <LoadingScreen onLoadingComplete={() => setShowLoading(false)} />}
-      </Suspense>
-      <Router>
-        <div className={styles.app}>
-          <Suspense fallback={null}>
-            {isInteractive && <BackToTop />}
-          </Suspense>
-          <Navbar />
-          <main className={styles.main}>
-            <AnimatedRoutes />
-          </main>
-          <Footer />
-          <Suspense fallback={null}>
-            <ToastContainer
-              position="bottom-right"
-              autoClose={5000}
-              hideProgressBar={false}
-              closeOnClick
-              pauseOnHover
-              draggable
-              theme="colored"
-            />
-          </Suspense>
-        </div>
-      </Router>
-    </ThemeProvider>
+    <HelmetProvider>
+      <ThemeProvider>
+        <Suspense fallback={<div />}>
+          {showLoading && <LoadingScreen onLoadingComplete={() => setShowLoading(false)} />}
+        </Suspense>
+        <Router>
+          <div className={styles.app}>
+            <Suspense fallback={null}>
+              {isInteractive && <BackToTop />}
+            </Suspense>
+            <Navbar />
+            <main className={styles.main}>
+              <AnimatedRoutes />
+            </main>
+            <Footer />
+            <Suspense fallback={null}>
+              <ToastContainer
+                position="bottom-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                closeOnClick
+                pauseOnHover
+                draggable
+                theme="colored"
+              />
+            </Suspense>
+          </div>
+        </Router>
+      </ThemeProvider>
+    </HelmetProvider>
   );
 }
 

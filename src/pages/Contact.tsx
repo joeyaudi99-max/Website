@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import SEO from '../components/SEO';
 import { staggerContainer, staggerItem } from '../utils/animations';
 import GlassmorphicCard from '../components/common/GlassmorphicCard';
 import GradientText from '../components/common/GradientText';
@@ -9,8 +10,35 @@ import styles from './Contact.module.css';
 const Contact: React.FC = () => {
   useScrollAnimation();
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Joey Audi",
+    "description": "Get in touch with Joey Audi for audiovisual production, event coordination, and video content creation opportunities.",
+    "url": "https://joeyaudi.com/contact",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Joey Audi",
+      "email": "contact@joeyaudi.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tampere",
+        "addressCountry": "Finland"
+      },
+      "sameAs": [
+        "https://www.instagram.com/joeyaudi2/",
+        "https://www.linkedin.com/in/joey-audi"
+      ]
+    }
+  };
+
   return (
     <div className={styles.page}>
+      <SEO 
+        title="Contact"
+        description="Get in touch with Joey Audi for audiovisual production, event coordination, and video content creation opportunities. Based in Tampere, Finland."
+        structuredData={structuredData}
+      />
       <div className={styles.gradientBg}></div>
       <div className="container">
         <GradientText as="h1" gradient="primary" className="section-title fade-in">
