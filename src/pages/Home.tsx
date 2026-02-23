@@ -109,14 +109,10 @@ const Home: React.FC = () => {
             <motion.div variants={staggerItem} className={styles.roleContainer}>
               <TypewriterText
                 sequence={[
-                  'Audiovisual Technician',
-                  2000,
-                  'Event Coordinator',
-                  2000,
-                  'Community Manager',
-                  2000,
-                  'Content Creator',
-                  2000,
+                  'Audiovisual Producer',
+                  2500,
+                  'Event Specialist',
+                  2500,
                 ]}
                 speed={50}
                 wrapper="h2"
@@ -124,12 +120,11 @@ const Home: React.FC = () => {
               />
             </motion.div>
             <motion.p variants={staggerItem} className={styles.description}>
-              I run events, manage AV tech, and edit video. For the past few years, I've coordinated 30+ 
-              events annually (some with 600+ people), kept Nokia Arena's gaming space running smoothly, 
-              and edited 60+ videos every month for YouTube, Instagram, TikTok, Facebook, and LinkedIn. 
-              I'm based in Tampere, Finland. Whether I'm troubleshooting VR headsets, running live event 
-              tech, or editing promo content on deadline, I focus on keeping things working and people 
-              comfortable.
+              I produce live events and create multimedia content for organizations like Nokia Arena, 
+              Tampere University, and Onepress TV. From coordinating large-scale international gatherings 
+              to managing live AV systems and producing video content across platforms, I bring technical 
+              expertise and creative vision to every project. Based in Tampere, Finland, specializing in 
+              event production, audiovisual technology, and digital content creation.
             </motion.p>
             <motion.div className={styles.heroButtons} variants={staggerItem}>
               <Link to="/portfolio" style={{ textDecoration: 'none' }}>

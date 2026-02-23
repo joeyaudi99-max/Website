@@ -77,13 +77,13 @@ export const portfolioItems: PortfolioItem[] = [
     afterImage: '/Media/Minecraft_Sitsit/MC_SITSIT_INSTA_POST_FINAL_1.jpg',
     lightboxGroup: 'minecraft-sitsit',
     secondaryImages: [
+      { src: '/Media/Minecraft_Sitsit/songbook_and_patch.jpg', alt: 'Minecraft Sitsit Songbook and Patch' },
+      { src: '/Media/Minecraft_Sitsit/Songbook_screenshot.png', alt: 'Minecraft Sitsit Songbook Screenshot' },
       { src: '/Media/Minecraft_Sitsit/INSTA_POST_MC_SITSIT_BEFORE.jpg', alt: 'Minecraft Sitsit - Before Version' },
       { src: '/Media/Minecraft_Sitsit/MC_SITSIT_INSTA_POST_FINAL_1.jpg', alt: 'Minecraft Sitsit - Final Version' },
       { src: '/Media/Minecraft_Sitsit/MC_SITSIT_INSTA_STORY_FINAL_FIX.jpg', alt: 'Minecraft Sitsit Instagram Story' },
       { src: '/Media/Minecraft_Sitsit/MCSITSIT_patch_2_1.jpg', alt: 'Minecraft Sitsit Patch Design' },
-      { src: '/Media/Minecraft_Sitsit/MCsitsit_Teaser.jpg', alt: 'Minecraft Sitsit Teaser' },
-      { src: '/Media/Minecraft_Sitsit/songbook_and_patch.jpg', alt: 'Minecraft Sitsit Songbook and Patch' },
-      { src: '/Media/Minecraft_Sitsit/Songbook_screenshot.png', alt: 'Minecraft Sitsit Songbook Screenshot' }
+      { src: '/Media/Minecraft_Sitsit/MCsitsit_Teaser.jpg', alt: 'Minecraft Sitsit Teaser' }
     ],
     title: 'Minecraft Sitsit Event Branding',
     categoryLabel: 'Graphic Design · 3D Renders',

@@ -79,9 +79,6 @@ const Footer: React.FC = () => {
           transition={{ delay: 0.15, duration: 0.4 }}
         >
           <p>&copy; {currentYear} Joey Audi. All rights reserved.</p>
-          <p className={styles.madeWith}>
-            Made with dedication in Tampere, Finland
-          </p>
         </motion.div>
       </div>
     </footer>

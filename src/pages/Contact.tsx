@@ -78,6 +78,7 @@ const Contact: React.FC = () => {
                 gradient="primary"
                 whileHover={{ scale: 1.05, y: -8 }}
                 whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.2 }}
               >
                 <div className={styles.cardIcon}>
                   <i className="fas fa-envelope"></i>
@@ -94,6 +95,7 @@ const Contact: React.FC = () => {
                 gradient="secondary"
                 whileHover={{ scale: 1.05, y: -8 }}
                 whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.2 }}
               >
                 <div className={styles.cardIcon}>
                   <i className="fab fa-linkedin"></i>
@@ -110,6 +112,7 @@ const Contact: React.FC = () => {
                 gradient="accent"
                 whileHover={{ scale: 1.05, y: -8 }}
                 whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.2 }}
               >
                 <div className={styles.cardIcon}>
                   <i className="fab fa-instagram"></i>
@@ -120,17 +123,22 @@ const Contact: React.FC = () => {
               </GlassmorphicCard>
             </a>
 
-            <GlassmorphicCard
-              className={`${styles.contactCard} ${styles.infoCard}`}
-              whileHover={{ scale: 1.05, y: -8 }}
-            >
-              <div className={styles.cardIcon}>
-                <i className="fas fa-globe"></i>
-              </div>
-              <h3>Location</h3>
-              <p>Tampere, Finland</p>
-              <span className={styles.cardInfo}>EET (UTC+2/+3)</span>
-            </GlassmorphicCard>
+            <a href="https://discord.com/users/joeyaudi" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+              <GlassmorphicCard
+                className={styles.contactCard}
+                gradient="accent"
+                whileHover={{ scale: 1.05, y: -8 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className={styles.cardIcon}>
+                  <i className="fab fa-discord"></i>
+                </div>
+                <h3>Discord</h3>
+                <p>joeyaudi</p>
+                <span className={styles.cardAction}>Add me →</span>
+              </GlassmorphicCard>
+            </a>
           </motion.div>
         </motion.div>
       </div>

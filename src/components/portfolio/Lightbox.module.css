@@ -64,7 +64,9 @@
 }
 
 .lightboxNav {
-  position: absolute;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
   background: rgba(32, 144, 237, 0.9);
   border: none;
   color: white;
@@ -78,19 +80,20 @@
   justify-content: center;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  z-index: 10000;
 }
 
 .lightboxNav:hover {
   background: var(--primary-color);
-  transform: scale(1.1);
+  transform: translateY(-50%) scale(1.1);
 }
 
 .lightboxNav.prev {
-  left: -70px;
+  left: 20px;
 }
 
 .lightboxNav.next {
-  right: -70px;
+  right: 20px;
 }
 
 .lightboxCounter {
@@ -106,6 +109,18 @@
   font-weight: 600;
 }
 
+/* iPad/Tablet specific adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .lightboxNav.prev {
+    left: 15px;
+  }
+
+  .lightboxNav.next {
+    right: 15px;
+  }
+}
+
+/* Mobile adjustments */
 @media (max-width: 768px) {
   .lightboxContent {
     max-width: 95%;
@@ -120,21 +135,24 @@
   }
 
   .lightboxNav {
-    width: 45px;
-    height: 45px;
-    opacity: 0.9;
+    width: 42px;
+    height: 42px;
+    font-size: 1.3rem;
+    opacity: 0.95;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
   }
 
   .lightboxNav.prev {
     left: 10px;
-    bottom: 80px;
   }
 
   .lightboxNav.next {
     right: 10px;
-    bottom: 80px;
+  }
+
+  .lightboxNav:hover {
+    transform: translateY(-50%) scale(1.05);
   }
 
   .lightboxClose {
@@ -149,5 +167,22 @@
     bottom: 20px;
     font-size: 0.85rem;
     padding: 0.4rem 0.8rem;
+  }
+}
+
+/* Very small mobile devices */
+@media (max-width: 400px) {
+  .lightboxNav {
+    width: 38px;
+    height: 38px;
+    font-size: 1.2rem;
+  }
+
+  .lightboxNav.prev {
+    left: 8px;
+  }
+
+  .lightboxNav.next {
+    right: 8px;
   }
 }
