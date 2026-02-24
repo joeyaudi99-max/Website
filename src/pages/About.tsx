@@ -3,6 +3,7 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import SEO from '../components/SEO';
 import StatsCounter from '../components/about/StatsCounter';
 import Timeline from '../components/about/Timeline';
+import ClientsGrid from '../components/about/ClientsGrid';
 import GlassmorphicCard from '../components/common/GlassmorphicCard';
 import GradientText from '../components/common/GradientText';
 import styles from './About.module.css';
@@ -89,6 +90,9 @@ const About: React.FC = () => {
             <StatsCounter />
           </GlassmorphicCard>
         </div>
+
+        {/* Clients & Collaborations Section */}
+        <ClientsGrid />
 
         {/* Experience Section - Moved before Skills */}
         <div className="about-section-item">

@@ -7,9 +7,10 @@ import styles from './PortfolioItem.module.css';
 interface PortfolioItemProps {
   item: PortfolioItemType;
   onImageClick: (imageSrc: string, imageAlt: string, lightboxGroup?: string) => void;
+  onCaseStudyClick?: (itemId: string) => void;
 }
 
-const PortfolioItem: React.FC<PortfolioItemProps> = ({ item, onImageClick }) => {
+const PortfolioItem: React.FC<PortfolioItemProps> = ({ item, onImageClick, onCaseStudyClick }) => {
   const itemRef = React.useRef<HTMLDivElement>(null);
   const descriptionRef = React.useRef<HTMLParagraphElement>(null);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -117,7 +118,7 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({ item, onImageClick }) => 
 
       case 'beforeAfter':
         return (
-          <div className={styles.multiImagePortfolio}>
+          <div className={styles.multiImagePortfolio} onMouseMove={e => e.stopPropagation()}>
             <div className={styles.portfolioPrimaryImage}>
               <BeforeAfterSlider
                 beforeImage={item.beforeImage!}
@@ -197,6 +198,15 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({ item, onImageClick }) => 
             </button>
           )}
         </div>
+        {item.caseStudy && (
+          <button 
+            className={styles.caseStudyButton}
+            onClick={() => onCaseStudyClick?.(item.id)}
+          >
+            <i className="fas fa-file-alt"></i>
+            View Full Case Study
+          </button>
+        )}
         <div className={styles.portfolioTags}>
           {item.tags.map((tag, index) => (
             <span 

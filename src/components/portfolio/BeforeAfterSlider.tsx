@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import styles from './BeforeAfterSlider.module.css';
 
 interface BeforeAfterSliderProps {
@@ -14,88 +14,71 @@ const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
   beforeAlt = 'Before',
   afterAlt = 'After'
 }) => {
-  const [sliderPosition, setSliderPosition] = useState(50);
-  const [isDragging, setIsDragging] = useState(false);
-  const sliderRef = useRef<HTMLDivElement>(null);
+  const handleRef = useRef<HTMLDivElement>(null);
+  const afterImageRef = useRef<HTMLImageElement>(null);
+  const cachedRect = useRef<DOMRect | null>(null);
 
-  const handleMove = (clientX: number) => {
-    if (!sliderRef.current) return;
-
-    const rect = sliderRef.current.getBoundingClientRect();
-    const x = clientX - rect.left;
-    const percentage = (x / rect.width) * 100;
-    
-    setSliderPosition(Math.max(0, Math.min(100, percentage)));
+  const applyPosition = (clientX: number, rect: DOMRect) => {
+    const pct = Math.max(0, Math.min(100, ((clientX - rect.left) / rect.width) * 100));
+    if (handleRef.current)     handleRef.current.style.left     = `${pct}%`;
+    if (afterImageRef.current) afterImageRef.current.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
   };
 
-  const handleMouseDown = () => {
-    setIsDragging(true);
+  const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    e.currentTarget.setPointerCapture(e.pointerId);
+    const rect = e.currentTarget.getBoundingClientRect();
+    cachedRect.current = rect;
+    applyPosition(e.clientX, rect);
   };
 
-  const handleMouseUp = () => {
-    setIsDragging(false);
+  const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!e.currentTarget.hasPointerCapture(e.pointerId)) return;
+    applyPosition(e.clientX, cachedRect.current!);
   };
 
-  const handleMouseMove = (e: MouseEvent) => {
-    if (!isDragging) return;
-    handleMove(e.clientX);
+  const onPointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
+    e.currentTarget.releasePointerCapture(e.pointerId);
+    cachedRect.current = null;
   };
-
-  const handleTouchMove = (e: TouchEvent) => {
-    if (!isDragging) return;
-    handleMove(e.touches[0].clientX);
-  };
-
-  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    handleMove(e.clientX);
-  };
-
-  useEffect(() => {
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseup', handleMouseUp);
-    document.addEventListener('touchmove', handleTouchMove);
-    document.addEventListener('touchend', handleMouseUp);
-
-    return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseup', handleMouseUp);
-      document.removeEventListener('touchmove', handleTouchMove);
-      document.removeEventListener('touchend', handleMouseUp);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isDragging]);
 
   return (
-    <div 
-      ref={sliderRef}
+    <div
       className={styles.beforeAfterSlider}
-      onClick={handleClick}
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={onPointerUp}
+      onPointerCancel={onPointerUp}
       role="img"
       aria-label="Before and after comparison"
     >
-      <img 
-        src={beforeImage} 
+      <img
+        src={beforeImage}
         alt={beforeAlt}
         className={styles.beforeImage}
       />
-      <img 
-        src={afterImage} 
+      <img
+        ref={afterImageRef}
+        src={afterImage}
         alt={afterAlt}
         className={styles.afterImage}
-        style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
+        style={{ clipPath: 'inset(0 50% 0 0)' }}
       />
-      <div 
+      <div
+        ref={handleRef}
         className={styles.sliderHandle}
-        style={{ left: `${sliderPosition}%` }}
-        onMouseDown={handleMouseDown}
-        onTouchStart={() => setIsDragging(true)}
+        style={{ left: '50%' }}
         role="slider"
         aria-label="Drag to compare before and after"
         aria-valuemin={0}
         aria-valuemax={100}
-        aria-valuenow={sliderPosition}
+        aria-valuenow={50}
         tabIndex={0}
-      />
+      >
+        <div className={styles.sliderKnob}>
+          <i className="fas fa-chevron-left"></i>
+          <i className="fas fa-chevron-right"></i>
+        </div>
+      </div>
       <div className={`${styles.sliderLabel} ${styles.beforeLabel}`}>Before</div>
       <div className={`${styles.sliderLabel} ${styles.afterLabel}`}>After</div>
     </div>

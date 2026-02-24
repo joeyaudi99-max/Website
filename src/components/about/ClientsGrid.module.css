@@ -1,0 +1,92 @@
+.clientsSection {
+  margin: 4rem 0;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  color: var(--text-color);
+  text-align: center;
+}
+
+.clientsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+.clientCard {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: default;
+  min-height: 120px;
+}
+
+.clientCard:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 8px 24px rgba(32, 144, 237, 0.15);
+}
+
+.clientLogo {
+  width: auto;
+  height: auto;
+  max-width: 140px;
+  max-height: 70px;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(0.85);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.clientCard:hover .clientLogo {
+  filter: grayscale(0%) brightness(1);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .clientsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .clientsSection {
+    margin: 3rem 0;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .clientsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .clientCard {
+    padding: 2rem 1rem;
+    min-height: 100px;
+  }
+
+  .clientLogo {
+    max-width: 110px;
+    max-height: 55px;
+  }
+}

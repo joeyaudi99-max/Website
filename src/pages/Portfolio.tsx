@@ -3,8 +3,21 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import SEO from '../components/SEO';
 import PortfolioItem from '../components/portfolio/PortfolioItem';
 import Lightbox from '../components/portfolio/Lightbox';
+import CaseStudyModal, { CaseStudyData } from '../components/portfolio/CaseStudyModal';
 import { portfolioItems } from '../data/portfolioData';
 import styles from './Portfolio.module.css';
+
+const getGroupImages = (group: string | null) => {
+  if (!group) return [];
+  return portfolioItems
+    .filter(item => item.lightboxGroup === group)
+    .flatMap(item => {
+      if (item.carouselImages)  return item.carouselImages;
+      if (item.imageSrc)        return [{ src: item.imageSrc, alt: item.title }];
+      if (item.secondaryImages) return item.secondaryImages;
+      return [];
+    });
+};
 
 const Portfolio: React.FC = () => {
   useScrollAnimation();
@@ -23,16 +36,42 @@ const Portfolio: React.FC = () => {
     currentIndex: 0
   });
 
+  const [caseStudyState, setCaseStudyState] = useState<{
+    isOpen: boolean;
+    caseStudy: CaseStudyData | null;
+  }>({
+    isOpen: false,
+    caseStudy: null
+  });
+
+  const openCaseStudy = (itemId: string) => {
+    const item = portfolioItems.find(i => i.id === itemId);
+    if (item && item.caseStudy) {
+      setCaseStudyState({
+        isOpen: true,
+        caseStudy: {
+          id: item.id,
+          title: item.title,
+          subtitle: item.caseStudy.subtitle,
+          role: item.caseStudy.role,
+          challenge: item.caseStudy.challenge,
+          solution: item.caseStudy.solution,
+          impact: item.caseStudy.impact,
+          tools: item.caseStudy.tools,
+          images: item.caseStudy.images,
+          thesisLink: item.caseStudy.thesisLink
+        }
+      });
+    }
+  };
+
+  const closeCaseStudy = () => {
+    setCaseStudyState({ isOpen: false, caseStudy: null });
+  };
+
   const openLightbox = (imageSrc: string, imageAlt: string, lightboxGroup?: string) => {
     const groupImages = lightboxGroup
-      ? portfolioItems
-          .filter(item => item.lightboxGroup === lightboxGroup)
-          .flatMap(item => {
-            if (item.carouselImages) return item.carouselImages;
-            if (item.imageSrc) return [{ src: item.imageSrc, alt: item.title }];
-            if (item.secondaryImages) return item.secondaryImages;
-            return [];
-          })
+      ? getGroupImages(lightboxGroup)
       : [{ src: imageSrc, alt: imageAlt }];
 
     const currentIndex = groupImages.findIndex(img => img.src === imageSrc);
@@ -53,14 +92,7 @@ const Portfolio: React.FC = () => {
   const navigateLightbox = (direction: number) => {
     if (!lightboxState.lightboxGroup) return;
 
-    const groupImages = portfolioItems
-      .filter(item => item.lightboxGroup === lightboxState.lightboxGroup)
-      .flatMap(item => {
-        if (item.carouselImages) return item.carouselImages;
-        if (item.imageSrc) return [{ src: item.imageSrc, alt: item.title }];
-        if (item.secondaryImages) return item.secondaryImages;
-        return [];
-      });
+    const groupImages = getGroupImages(lightboxState.lightboxGroup);
 
     let newIndex = lightboxState.currentIndex + direction;
     if (newIndex < 0) newIndex = groupImages.length - 1;
@@ -74,16 +106,7 @@ const Portfolio: React.FC = () => {
     });
   };
 
-  const groupImages = lightboxState.lightboxGroup
-    ? portfolioItems
-        .filter(item => item.lightboxGroup === lightboxState.lightboxGroup)
-        .flatMap(item => {
-          if (item.carouselImages) return item.carouselImages;
-          if (item.imageSrc) return [{ src: item.imageSrc, alt: item.title }];
-          if (item.secondaryImages) return item.secondaryImages;
-          return [];
-        })
-    : [];
+  const groupImages = getGroupImages(lightboxState.lightboxGroup);
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -117,10 +140,8 @@ const Portfolio: React.FC = () => {
           </p>
         </div>
 
-        <div 
-          className={styles.portfolioGrid}
-          style={window.innerWidth < 768 ? { gridTemplateColumns: '1fr' } : undefined}
-        >
+        {/* All Portfolio Items */}
+        <div className={styles.portfolioGrid}>
           {portfolioItems.map((item, index) => (
             <div 
               key={item.id}
@@ -134,6 +155,7 @@ const Portfolio: React.FC = () => {
               <PortfolioItem
                 item={item}
                 onImageClick={openLightbox}
+                onCaseStudyClick={openCaseStudy}
               />
             </div>
           ))}
@@ -175,6 +197,12 @@ const Portfolio: React.FC = () => {
         onPrev={() => navigateLightbox(-1)}
         currentIndex={lightboxState.currentIndex}
         totalImages={groupImages.length}
+      />
+
+      <CaseStudyModal
+        isOpen={caseStudyState.isOpen}
+        caseStudy={caseStudyState.caseStudy}
+        onClose={closeCaseStudy}
       />
     </div>
   );
