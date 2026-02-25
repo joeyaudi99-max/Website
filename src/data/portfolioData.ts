@@ -51,7 +51,7 @@ export const portfolioItems: PortfolioItem[] = [
     mediaType: 'image',
     imageSrc: '/Media/Profile.jpg',
     lightboxGroup: 'nokia-arena',
-    title: 'Nokia Arena Gaming Operations',
+    title: 'Nokia Arena Operations',
     categoryLabel: 'AV Systems · Customer Experience',
     description: 'Role: Audiovisual Technician at Nokia Arena\'s Paidia Gaming Space. Challenge: Maintain operational excellence for 40 high-performance gaming PCs, VR equipment, and console stations while providing exceptional customer service to 100+ weekly visitors. Solution: Implemented systematic technical maintenance using GGLeap optimization software, developed troubleshooting protocols for VR equipment, created promotional graphics using Adobe Creative Suite, and provided hands-on technical support. Impact: Managed 40 gaming PCs with 99%+ uptime, served 100+ visitors weekly, created promotional content for social media, maintained professional customer service standards with zero major technical failures during tenure.',
     tags: ['GGLeap', 'Adobe Photoshop', 'Adobe Premiere Pro', 'VR Equipment', 'Technical Support', 'AV Systems'],
@@ -86,7 +86,6 @@ export const portfolioItems: PortfolioItem[] = [
       { src: '/Media/Thesis/Post_virtual.jpg', alt: 'Virtual Production - Final Post Result' },
       { src: '/Media/Thesis/Techvis_Setup.png', alt: 'Virtual Production - Techvis Setup in Unreal Engine' },
       { src: '/Media/Thesis/Green_Screen_Setup.png', alt: 'Virtual Production - Green Screen Setup' },
-      { src: '/Media/Thesis/Connections_Cabling.png', alt: 'Virtual Production - Connections and Cabling' },
       { src: '/Media/Thesis/Small_Rig_Setup.png', alt: 'Virtual Production - Small Rig Setup' }
     ],
     title: 'Virtual Production Research',
@@ -116,7 +115,6 @@ export const portfolioItems: PortfolioItem[] = [
         '/Media/Thesis/Post_virtual.jpg',
         '/Media/Thesis/Techvis_Setup.png',
         '/Media/Thesis/Green_Screen_Setup.png',
-        '/Media/Thesis/Connections_Cabling.png',
         '/Media/Thesis/Small_Rig_Setup.png'
       ]
     }

@@ -12,19 +12,20 @@
 }
 
 .clientsGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
   max-width: 900px;
   margin: 0 auto;
-  justify-items: center;
 }
 
 .clientCard {
+  flex: 0 0 160px;
+  height: 120px;
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   border-radius: 12px;
-  padding: 2.5rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,7 +33,6 @@
   -webkit-backdrop-filter: blur(10px);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: default;
-  min-height: 120px;
 }
 
 .clientCard:hover {
@@ -43,28 +43,100 @@
 .clientLogo {
   width: auto;
   height: auto;
-  max-width: 140px;
-  max-height: 70px;
+  max-width: 120px;
+  max-height: 60px;
   object-fit: contain;
-  filter: grayscale(100%) brightness(0.85);
+  filter: brightness(0) invert(1);
   opacity: 0.7;
-  transition: all 0.3s ease;
+  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
 }
 
 .clientCard:hover .clientLogo {
-  filter: grayscale(0%) brightness(1);
+  filter: brightness(1) invert(0);
   opacity: 1;
   transform: scale(1.05);
 }
 
-/* Responsive Design */
+/* Logos that should show their natural colors (no invert needed) */
+.clientLogoNatural {
+  filter: grayscale(100%);
+  opacity: 0.7;
+}
+
+.clientCard:hover .clientLogoNatural {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* Light mode: clean white card so natural-color logos are fully visible */
+:global([data-theme="light"]) .clientCard {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+}
+
+:global([data-theme="light"]) .clientCard:hover {
+  background: rgba(255, 255, 255, 0.98);
+  border-color: var(--primary-color);
+  box-shadow: 0 8px 24px rgba(32, 144, 237, 0.15);
+}
+
+/* Natural-color logos — show as-is on the light card */
+:global([data-theme="light"]) .clientLogo {
+  filter: none;
+  opacity: 0.8;
+}
+
+:global([data-theme="light"]) .clientCard:hover .clientLogo {
+  filter: none;
+  opacity: 1;
+}
+
+:global([data-theme="light"]) .clientLogoNatural {
+  filter: none;
+  opacity: 0.85;
+}
+
+:global([data-theme="light"]) .clientCard:hover .clientLogoNatural {
+  filter: none;
+  opacity: 1;
+}
+
+/* White-only logos (Nokia Arena) — darken to black so they read on the light card */
+:global([data-theme="light"]) .clientLogoWhiteOnly {
+  filter: brightness(0);
+  opacity: 0.75;
+}
+
+:global([data-theme="light"]) .clientCard:hover .clientLogoWhiteOnly {
+  filter: brightness(0);
+  opacity: 1;
+}
+
+/* Logos with white elements (GGLeap) — drop-shadow outlines the white parts */
+:global([data-theme="light"]) .clientLogoHasWhite {
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.25));
+}
+
+:global([data-theme="light"]) .clientCard:hover .clientLogoHasWhite {
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.35));
+}
+
+/* iPad / medium */
 @media (max-width: 968px) {
-  .clientsGrid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+  .clientCard {
+    flex: 0 0 140px;
+    height: 110px;
+  }
+
+  .clientLogo {
+    max-width: 105px;
+    max-height: 52px;
   }
 }
 
+/* Mobile */
 @media (max-width: 640px) {
   .clientsSection {
     margin: 3rem 0;
@@ -76,17 +148,24 @@
   }
 
   .clientsGrid {
-    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
 
   .clientCard {
-    padding: 2rem 1rem;
-    min-height: 100px;
+    flex: 0 0 130px;
+    height: 100px;
   }
 
   .clientLogo {
-    max-width: 110px;
-    max-height: 55px;
+    max-width: 95px;
+    max-height: 48px;
+  }
+}
+
+/* Small mobile — 2-per-row */
+@media (max-width: 420px) {
+  .clientCard {
+    flex: 0 0 calc(50% - 0.75rem);
+    height: 90px;
   }
 }
