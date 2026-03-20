@@ -15,8 +15,8 @@ const About: React.FC = () => {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Joey Audi",
-    "jobTitle": "Audiovisual Technician & Event Coordinator",
-    "description": "Based in Tampere, Finland. Over 4 years of experience in event coordination, video production, and audiovisual work. Specialized in cinematography, live event production, and community engagement.",
+    "jobTitle": "Audiovisual Marketing Specialist",
+    "description": "Based in Finland. Hands-on audiovisual marketing professional with experience in content creation, newsletter planning, visual branding, website management, and multi-platform campaign execution.",
     "url": "https://joeyaudi.com/about",
     "image": "https://joeyaudi.com/Media/Profile.jpg",
     "alumniOf": {
@@ -24,12 +24,13 @@ const About: React.FC = () => {
       "name": "Tampere University of Applied Sciences"
     },
     "knowsAbout": [
-      "Video Editing",
-      "Cinematography",
-      "3D Animation",
-      "Event Coordination",
-      "Live Production",
-      "Audio Engineering"
+      "Digital Marketing",
+      "Content Creation",
+      "Newsletter & Email Marketing",
+      "Visual Branding",
+      "Adobe Creative Suite",
+      "Social Media Management",
+      "E-commerce"
     ],
     "sameAs": [
       "https://www.instagram.com/joeyaudi2/",
@@ -41,7 +42,7 @@ const About: React.FC = () => {
     <div className={styles.page}>
       <SEO 
         title="About Me"
-        description="Learn about Joey Audi's journey in audiovisual technology and event coordination. Over 4 years of experience in video production, cinematography, and live event management."
+        description="Audiovisual marketing specialist with hands-on experience in content creation, newsletters, visual branding, and campaign execution. Based in Finland."
         type="profile"
         structuredData={structuredData}
       />
@@ -72,18 +73,19 @@ const About: React.FC = () => {
               </div>
               <div className={styles.aboutText}>
                 <p>
-                  I work in live events and AV tech. My background is a mix of hands-on technical work and 
-                  people management. At Nokia Arena's Paidia gaming space, I kept 40 gaming PCs running (using 
-                  GGLeap for optimization), helped visitors with VR setups and console troubleshooting, and 
-                  made graphics and videos in Photoshop, Illustrator, and Premiere. I've also coordinated 
-                  international student events for up to 600 people.
+                  A background in audiovisual arts, cinema, and interactive media shapes the way I approach digital marketing 
+                  and visual brand development. At Nokia Arena's Paidia gaming space, I managed events, 
+                  operated cameras, and produced graphics and video content using Adobe Photoshop, 
+                  Illustrator, and Premiere Pro — coordinating international student events for up to 
+                  600 people. At CLINT, I planned and managed marketing materials, visual advertising, 
+                  and sponsorship outreach that secured funding for 30+ annual events.
                 </p>
                 <p>
-                  For Onepress TV, I edited 60+ videos every month for their YouTube, Instagram, TikTok, Facebook, 
-                  and LinkedIn channels. As Vice-Chairman at CLINT, I brought in €9,000 in sponsorships and ran 
-                  30+ events annually. Earlier, I spent three years as a moderator for an online game with 3,000+ 
-                  daily players. I speak English, Arabic, and French, which helps a lot when working with Tampere's 
-                  international students.
+                  For Onepress TV, I managed the audiovisual content workflow for 5+ social media channels — 
+                  YouTube, Instagram, TikTok, Facebook, and LinkedIn — producing 60+ videos per month with 
+                  consistent visual standards. I also ran e-commerce sales of club merchandise at CLINT, 
+                  handling orders and customer communication end-to-end. I speak English, Arabic, and French, 
+                  an asset when working with international audiences and partners.
                 </p>
               </div>
             </div>

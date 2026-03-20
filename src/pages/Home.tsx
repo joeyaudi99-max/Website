@@ -51,8 +51,8 @@ const Home: React.FC = () => {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Joey Audi",
-    "jobTitle": "Audiovisual Technician & Event Coordinator",
-    "description": "Audiovisual technician and event coordinator specializing in cinematography, live event production, and community engagement.",
+    "jobTitle": "Audiovisual Marketing Specialist",
+    "description": "Audiovisual marketing specialist with hands-on experience in content creation, newsletter planning, visual branding, and campaign execution.",
     "url": "https://joeyaudi.com",
     "image": "https://joeyaudi.com/Media/Profile.jpg",
     "sameAs": [
@@ -64,8 +64,8 @@ const Home: React.FC = () => {
   return (
     <div className={styles.page}>
       <SEO 
-        title="Joey Audi - Audiovisual Technician & Event Coordinator"
-        description="Audiovisual technician and event coordinator specializing in cinematography, live event production, and community engagement. View my portfolio of video production, 3D animation, and event coordination work."
+        title="Joey Audi - Audiovisual Marketing Specialist"
+        description="Audiovisual marketing specialist with hands-on experience in content creation, newsletter planning, visual branding, and campaign execution. View my portfolio."
         type="profile"
         structuredData={structuredData}
       />
@@ -109,9 +109,9 @@ const Home: React.FC = () => {
             <motion.div variants={staggerItem} className={styles.roleContainer}>
               <TypewriterText
                 sequence={[
-                  'Audiovisual Producer',
+                  'Audiovisual Marketing Specialist',
                   2500,
-                  'Event Specialist',
+                  'Event and Brand Specialist',
                   2500,
                 ]}
                 speed={50}
@@ -120,11 +120,12 @@ const Home: React.FC = () => {
               />
             </motion.div>
             <motion.p variants={staggerItem} className={styles.description}>
-              I produce live events and create multimedia content for organizations like Nokia Arena, 
-              Tampere University, and Onepress TV. From coordinating large-scale international gatherings 
-              to managing live AV systems and producing video content across platforms, I bring technical 
-              expertise and creative vision to every project. Based in Tampere, Finland, specializing in 
-              event production, audiovisual technology, and digital content creation.
+              I bring a visual storyteller's perspective to digital marketing and brand development. 
+              From planning newsletters and multi-platform campaigns to producing marketing materials 
+              and updating websites, I take a hands-on, results-driven approach to growing brand 
+              visibility. Having coordinated international events for up to 600 people and managed 
+              audiovisual content across five social media channels, I know how to build audience 
+              engagement at scale. Based in Finland, fluent in English, Arabic, and French.
             </motion.p>
             <motion.div className={styles.heroButtons} variants={staggerItem}>
               <Link to="/portfolio" style={{ textDecoration: 'none' }}>
