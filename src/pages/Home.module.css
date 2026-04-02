@@ -77,11 +77,8 @@
 .role {
   font-size: 1.5rem;
   font-weight: 600;
-  color: var(--primary-color);
-  background: var(--gradient-accent);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text-color);
+  opacity: 0.68;
   min-height: 2.5rem;
   display: inline-block;
 }
@@ -148,5 +145,29 @@
   .heroButtons > * {
     width: 100%;
     max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .name {
+    font-size: 2rem;
+  }
+
+  .role {
+    font-size: 1.1rem;
+  }
+
+  .profileImage {
+    width: 200px;
+    height: 200px;
+  }
+
+  .imageGlow {
+    width: 220px;
+    height: 220px;
+  }
+
+  .heroButtons > * {
+    max-width: 260px;
   }
 }

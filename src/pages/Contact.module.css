@@ -1,43 +1,6 @@
 .page {
   min-height: calc(100vh - 140px);
   padding: 6rem 0 3rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.gradientBg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(
-    circle at 20% 50%,
-    rgba(102, 126, 234, 0.1) 0%,
-    transparent 50%
-  ),
-  radial-gradient(
-    circle at 80% 80%,
-    rgba(240, 147, 251, 0.1) 0%,
-    transparent 50%
-  ),
-  radial-gradient(
-    circle at 40% 20%,
-    rgba(79, 172, 254, 0.1) 0%,
-    transparent 50%
-  );
-  animation: gradientPulse 15s ease-in-out infinite;
-  z-index: 0;
-  pointer-events: none;
-}
-
-@keyframes gradientPulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
 }
 
 .contactWrapper {
@@ -122,6 +85,12 @@
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  transition: background 0.08s ease, box-shadow 0.08s ease;
+}
+
+.contactCard:hover {
+  background: var(--glass-bg-strong);
+  box-shadow: var(--shadow-elevated);
 }
 
 .contactCard::before {
@@ -157,7 +126,7 @@
   color: white;
   margin-bottom: 0.5rem;
   box-shadow: var(--shadow-purple);
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contactCard:hover .cardIcon {
@@ -191,7 +160,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  transition: all 0.2s ease;
+  transition: all 0.08s ease;
 }
 
 .contactCard:hover .cardAction {
@@ -232,5 +201,21 @@
 
   .contactCard h3 {
     font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactCard {
+    padding: 1.5rem 1rem;
+  }
+
+  .cardIcon {
+    width: 52px;
+    height: 52px;
+    font-size: 1.5rem;
+  }
+
+  .contactCard h3 {
+    font-size: 1.15rem;
   }
 }

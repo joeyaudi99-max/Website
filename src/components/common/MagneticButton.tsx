@@ -66,7 +66,12 @@ const MagneticButton: React.FC<MagneticButtonProps> = ({
       onMouseLeave={handleMouseLeave}
       onClick={disabled ? undefined : onClick}
       animate={{ x: position.x, y: position.y }}
-      transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 0.1 }}
+      whileHover={disabled ? {} : { y: -6, scale: 1.02 }}
+      transition={{
+        x: { type: 'spring', stiffness: 600, damping: 28 },
+        y: { type: 'tween', duration: 0.08, ease: 'easeOut' },
+        scale: { type: 'tween', duration: 0.08, ease: 'easeOut' },
+      }}
       whileTap={disabled ? {} : { scale: 0.95 }}
     >
       <motion.div className={styles.content}>

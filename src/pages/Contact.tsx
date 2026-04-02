@@ -39,7 +39,6 @@ const Contact: React.FC = () => {
         description="Get in touch with Joey Audi for audiovisual production, event coordination, and video content creation opportunities. Based in Tampere, Finland."
         structuredData={structuredData}
       />
-      <div className={styles.gradientBg}></div>
       <div className="container">
         <GradientText as="h1" gradient="primary" className="section-title fade-in">
           Let's Connect
@@ -71,14 +70,18 @@ const Contact: React.FC = () => {
             </div>
           </GlassmorphicCard>
 
-          <motion.div className={styles.contactMethodsGrid} variants={staggerItem}>
+          <motion.div className={styles.contactMethodsGrid} variants={staggerItem} transition={{ duration: 0.25, ease: 'easeOut' }}>
             <a href="mailto:contact@joeyaudi.com" style={{ textDecoration: 'none' }}>
               <GlassmorphicCard
                 className={styles.contactCard}
                 gradient="primary"
+                hover={false}
                 whileHover={{ scale: 1.05, y: -8 }}
                 whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.2 }}
+                transition={{
+                  y: { type: 'tween', duration: 0.08, ease: 'easeOut' },
+                  scale: { type: 'tween', duration: 0.08, ease: 'easeOut' },
+                }}
               >
                 <div className={styles.cardIcon}>
                   <i className="fas fa-envelope"></i>
@@ -93,9 +96,13 @@ const Contact: React.FC = () => {
               <GlassmorphicCard
                 className={styles.contactCard}
                 gradient="secondary"
+                hover={false}
                 whileHover={{ scale: 1.05, y: -8 }}
                 whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.2 }}
+                transition={{
+                  y: { type: 'tween', duration: 0.08, ease: 'easeOut' },
+                  scale: { type: 'tween', duration: 0.08, ease: 'easeOut' },
+                }}
               >
                 <div className={styles.cardIcon}>
                   <i className="fab fa-linkedin"></i>
@@ -112,7 +119,10 @@ const Contact: React.FC = () => {
                 gradient="accent"
                 whileHover={{ scale: 1.05, y: -8 }}
                 whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.2 }}
+                transition={{
+                  y: { type: 'tween', duration: 0.08, ease: 'easeOut' },
+                  scale: { type: 'tween', duration: 0.08, ease: 'easeOut' },
+                }}
               >
                 <div className={styles.cardIcon}>
                   <i className="fab fa-instagram"></i>
@@ -127,9 +137,13 @@ const Contact: React.FC = () => {
               <GlassmorphicCard
                 className={styles.contactCard}
                 gradient="accent"
+                hover={false}
                 whileHover={{ scale: 1.05, y: -8 }}
                 whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.2 }}
+                transition={{
+                  y: { type: 'tween', duration: 0.08, ease: 'easeOut' },
+                  scale: { type: 'tween', duration: 0.08, ease: 'easeOut' },
+                }}
               >
                 <div className={styles.cardIcon}>
                   <i className="fab fa-discord"></i>

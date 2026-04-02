@@ -129,12 +129,12 @@ const Home: React.FC = () => {
             </motion.p>
             <motion.div className={styles.heroButtons} variants={staggerItem}>
               <Link to="/portfolio" style={{ textDecoration: 'none' }}>
-                <MagneticButton variant="gradient">
+                <MagneticButton variant="gradient" strength={0}>
                   View Portfolio
                 </MagneticButton>
               </Link>
               <Link to="/contact" style={{ textDecoration: 'none' }}>
-                <MagneticButton variant="outline">
+                <MagneticButton variant="outline" strength={0}>
                   Contact Me
                 </MagneticButton>
               </Link>

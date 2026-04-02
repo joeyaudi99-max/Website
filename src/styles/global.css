@@ -10,11 +10,11 @@
   --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   
   /* Enhanced Gradient Colors */
-  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-  --gradient-warm: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-  --gradient-cool: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+  --gradient-primary: linear-gradient(135deg, #2090ed 0%, #667eea 100%);
+  --gradient-secondary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-accent: linear-gradient(135deg, #54a8fa 0%, #2090ed 100%);
+  --gradient-warm: linear-gradient(135deg, #2090ed 0%, #5568d3 100%);
+  --gradient-cool: linear-gradient(135deg, #5568d3 0%, #667eea 100%);
   
   /* Glassmorphism */
   --glass-bg: rgba(255, 255, 255, 0.1);
@@ -26,15 +26,15 @@
   
   /* Enhanced Colors */
   --accent-purple: #667eea;
-  --accent-pink: #f093fb;
-  --accent-cyan: #4facfe;
-  --accent-orange: #fee140;
-  --accent-teal: #30cfd0;
+  --accent-blue: #2090ed;
+  --accent-light-blue: #54a8fa;
+  --accent-indigo: #5568d3;
+  --accent-violet: #764ba2;
   
   /* Shadows with tint */
   --shadow-purple: 0 10px 40px rgba(102, 126, 234, 0.2);
-  --shadow-pink: 0 10px 40px rgba(240, 147, 251, 0.2);
-  --shadow-cyan: 0 10px 40px rgba(79, 172, 254, 0.2);
+  --shadow-blue: 0 10px 40px rgba(32, 144, 237, 0.2);
+  --shadow-indigo: 0 10px 40px rgba(85, 104, 211, 0.2);
   --shadow-elevated: 0 20px 60px rgba(0, 0, 0, 0.15);
   
   /* Animation Easings */
@@ -54,11 +54,11 @@
   --shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   
   /* Enhanced Gradient Colors (darker variants) */
-  --gradient-primary: linear-gradient(135deg, #5568d3 0%, #663a8e 100%);
-  --gradient-secondary: linear-gradient(135deg, #d17de0 0%, #d14258 100%);
-  --gradient-accent: linear-gradient(135deg, #3a8fd5 0%, #00c9d5 100%);
-  --gradient-warm: linear-gradient(135deg, #d15678 0%, #d4b127 100%);
-  --gradient-cool: linear-gradient(135deg, #26a6a8 0%, #2a0756 100%);
+  --gradient-primary: linear-gradient(135deg, #1a7ad5 0%, #5568d3 100%);
+  --gradient-secondary: linear-gradient(135deg, #5568d3 0%, #663a8e 100%);
+  --gradient-accent: linear-gradient(135deg, #4a8fd5 0%, #1a7ad5 100%);
+  --gradient-warm: linear-gradient(135deg, #1a7ad5 0%, #4a5ec4 100%);
+  --gradient-cool: linear-gradient(135deg, #4a5ec4 0%, #5568d3 100%);
   
   /* Glassmorphism (dark mode) */
   --glass-bg: rgba(26, 26, 36, 0.4);
@@ -70,15 +70,15 @@
   
   /* Enhanced Colors (adjusted for dark mode) */
   --accent-purple: #7b91ff;
-  --accent-pink: #ff9ff7;
-  --accent-cyan: #5eb8ff;
-  --accent-orange: #ffd966;
-  --accent-teal: #45e5e8;
+  --accent-blue: #5b9cff;
+  --accent-light-blue: #7ab8f5;
+  --accent-indigo: #6878e8;
+  --accent-violet: #8a5fc8;
   
   /* Shadows with tint (darker) */
   --shadow-purple: 0 10px 40px rgba(102, 126, 234, 0.3);
-  --shadow-pink: 0 10px 40px rgba(240, 147, 251, 0.3);
-  --shadow-cyan: 0 10px 40px rgba(79, 172, 254, 0.3);
+  --shadow-blue: 0 10px 40px rgba(91, 156, 255, 0.3);
+  --shadow-indigo: 0 10px 40px rgba(104, 120, 232, 0.3);
   --shadow-elevated: 0 20px 60px rgba(0, 0, 0, 0.6);
 }
 
@@ -202,10 +202,7 @@ select:focus-visible {
   font-weight: 800;
   margin-bottom: 2rem;
   text-align: center;
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--primary-color);
 }
 
 /* Glassmorphism Utilities */
@@ -277,9 +274,9 @@ select:focus-visible {
   background: linear-gradient(
     -45deg,
     var(--accent-purple),
-    var(--accent-pink),
-    var(--accent-cyan),
-    var(--accent-teal)
+    var(--accent-indigo),
+    var(--accent-blue),
+    var(--accent-light-blue)
   );
   background-size: 400% 400%;
   animation: gradientShift 15s ease infinite;
@@ -389,6 +386,16 @@ select:focus-visible {
   /* Disable 3D transforms on mobile */
   .card-tilt:hover {
     transform: translateY(-4px);
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .container {
+    padding: 0 0.75rem;
   }
 }
 
