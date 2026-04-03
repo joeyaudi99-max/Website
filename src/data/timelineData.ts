@@ -47,7 +47,7 @@ export const timelineItems: TimelineItem[] = [
     id: 'bachelor',
     title: 'Bachelor\'s Degree, Interactive Media and Game Production',
     company: 'Tampere University of Applied Sciences',
-    period: '08/2020 - 07/2025',
+    period: '08/2021 - 07/2025',
     description: 'Focused on interactive media, game production, and audiovisual storytelling through hands-on projects and collaborations.',
     skills: ['Interactive Media', '3D Modeling', 'Blender', 'Game Production', 'Virtual Production']
   },
