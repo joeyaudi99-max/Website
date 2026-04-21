@@ -48,9 +48,14 @@ export const portfolioItems: PortfolioItem[] = [
     id: 'nokia-arena-operations',
     category: 'video',
     categories: 'video,graphic-design',
-    mediaType: 'image',
-    imageSrc: '/Media/Profile.jpg',
+    mediaType: 'carousel',
+    autoRotate: true,
     lightboxGroup: 'nokia-arena',
+    carouselImages: [
+      { src: '/Media/Nokia_Arena_Operations/IMG_1213.jpg', alt: 'Nokia Arena Operations - Gaming space 1' },
+      { src: '/Media/Nokia_Arena_Operations/IMG_1214.jpg', alt: 'Nokia Arena Operations - Gaming space 2' },
+      { src: '/Media/Nokia_Arena_Operations/Robot.jpg', alt: 'Nokia Arena Operations - Robot/VR station' }
+    ],
     title: 'Nokia Arena Operations',
     categoryLabel: 'AV Systems · Customer Experience',
     description: 'Role: Audiovisual Technician at Nokia Arena\'s Paidia Gaming Space. Challenge: Maintain operational excellence for 40 high-performance gaming PCs, VR equipment, and console stations while providing exceptional customer service to 100+ weekly visitors. Solution: Implemented systematic technical maintenance using GGLeap optimization software, developed troubleshooting protocols for VR equipment, created promotional graphics using Adobe Creative Suite, and provided hands-on technical support. Impact: Managed 40 gaming PCs with 99%+ uptime, served 100+ visitors weekly, created promotional content for social media, maintained professional customer service standards with zero major technical failures during tenure.',
@@ -68,7 +73,11 @@ export const portfolioItems: PortfolioItem[] = [
         'Maintained professional customer service standards'
       ],
       tools: ['GGLeap', 'Adobe Photoshop', 'Adobe Premiere Pro', 'VR Equipment', 'Technical Support', 'AV Systems'],
-      images: ['/Media/Profile.jpg']
+      images: [
+        '/Media/Nokia_Arena_Operations/IMG_1213.jpg',
+        '/Media/Nokia_Arena_Operations/IMG_1214.jpg',
+        '/Media/Nokia_Arena_Operations/Robot.jpg'
+      ]
     }
   },
   {
